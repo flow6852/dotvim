@@ -1,0 +1,1 @@
+autocmd BufWritePost * :! sbt run

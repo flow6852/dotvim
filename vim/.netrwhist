@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/flow_6852/Programs/vim-with-ddc/vim/available'
+let g:netrw_dirhist_0='/home/flow_6852/Documents/mystady/base/PreviousMyIdeas'
+let g:netrw_dirhist_9='/home/flow_6852/Dropbox/cslab/users/OLD/mouri/presen/is2emu-m2'
+let g:netrw_dirhist_8='/home/flow_6852/Documents/university'
+let g:netrw_dirhist_7='/home/flow_6852/.vim/plugged/myvimfuncs/autoload'
+let g:netrw_dirhist_6='/home/flow_6852/.vim/autoload'
+let g:netrw_dirhist_5='/home/flow_6852/Documents/paper/get'
+let g:netrw_dirhist_4='/home/flow_6852/sandbox/prac/satysfi/memo-and-demo'
+let g:netrw_dirhist_3='/home/flow_6852/.config'
+let g:netrw_dirhist_2='/home/flow_6852/Sync/.git'
