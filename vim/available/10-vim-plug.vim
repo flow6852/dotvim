@@ -21,15 +21,15 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'vim-denops/denops.vim'
     " カーソル周辺の既出単語を補完するsource
-    Plug 'Shougo/ddc-around'
+    Plug 'Shougo/ddc-source-around'
     " ファイル名を補完するsource
     Plug 'LumaKernel/ddc-file'
     " パス補完
     Plug 'tani/ddc-path'
     " コマンドライン補完
-    Plug 'Shougo/ddc-cmdline'
+    Plug 'Shougo/ddc-source-cmdline'
     " historyを使ったコマンドライン補完
-    Plug 'Shougo/ddc-cmdline-history'
+    Plug 'Shougo/ddc-source-cmdline-history'
     " fuzzy-finderを使った周辺検索，ソート，重複をするfilter
     Plug 'tani/ddc-fuzzy'
     " オムニ補完
@@ -43,11 +43,11 @@ call plug#begin('~/.vim/plugged')
         Plug 'williamboman/mason-lspconfig.nvim' " LSPInstaller
         " Plug 'williamboman/nvim-lsp-installer'
         Plug 'neovim/nvim-lspconfig' " neovim's lspconfig'
-        Plug 'Shougo/ddc-nvim-lsp' " lsp completion
+        Plug 'Shougo/ddc-source-nvim-lsp' " lsp completion
     else
         Plug 'prabirshrestha/vim-lsp' " vim lsp
         Plug 'mattn/vim-lsp-settings' " vim-lsp auto setting
-        Plug 'shun/ddc-vim-lsp' " ddc for vim-lsp
+        Plug 'shun/ddc-source-vim-lsp' " ddc for vim-lsp
     endif          
 
     Plug 'matsui54/denops-popup-preview.vim' " popup preview
@@ -76,12 +76,4 @@ call plug#begin('~/.vim/plugged')
     " filter matcher substring
     Plug 'Shougo/ddu-filter-matcher_substring'
 
-    " smoother
-    Plug 'yuttie/comfortable-motion.vim'
-    
-    " user
-    Plug '~/.vim/plugged/asvim'
-    Plug '~/.vim/plugged/inptest'
-    Plug '~/.vim/plugged/vim-auto-save'
-    Plug '~/.vim/plugged/myvimfuncs'
 call plug#end()

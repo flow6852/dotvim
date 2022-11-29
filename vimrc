@@ -49,22 +49,3 @@ hi Pmenu ctermbg=black ctermfg=white
 hi PmenuSel ctermbg=yellow ctermfg=black
 hi PmenuSbar ctermbg=black
 hi PmenuThumb ctermfg=gray
-
-" start terminal
-if has('nvim')
-else
-    if getcwd() != "/home/flow_6852/AtCoder"
-        if has('nvim')
-            set sh=fish
-            split
-            wincmd j
-            resize 10
-            terminal
-            tnoremap <Esc> <C-\><C-n>
-        else
-            :set shell=fish
-            bo terminal ++rows=10
-            setl winfixheight
-        endif
-    endif
-endif
