@@ -4,7 +4,22 @@
 
 ```bash
 # docker build -t . neovim-ddc
+```
+
+## Usage
+
+### vim9
+
+```bash
 # docker run --rm -it neovim-ddc /bin/bash
+[user] $ vim test.txt
+```
+
+### neovim
+
+```bash
+# docker run --rm -it neovim-ddc /bin/bash
+[user] $ nvim test.txt
 ```
 
 ## Plugin list
