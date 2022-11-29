@@ -1,0 +1,754 @@
+# === USERSPACE ===
+
+# ========== begin =========
+snippet begin
+alias   \begin
+    \begin{${1:#type}}${0}
+
+# =========== dfn ==========
+
+snippet chapdfn
+alias   \begin{dfn} \begin{chapdfn}
+    \begin{chapdfn}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chapdfn}
+
+snippet secdfn
+alias   \begin{dfn} \begin{secdfn}
+    \begin{secdfn}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{secdfn}
+
+snippet subsecdfn
+alias   \begin{dfn} \begin{subsecdfn}
+    \begin{subsecdfn}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsecdfn}
+
+snippet subsubsecdfn
+alias   \begin{dfn} \begin{subsubsecdfn}
+    \begin{subsubsecdfn}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubsecdfn}
+
+
+# =========== thm ==========
+
+snippet chapthm
+alias   \begin{thm} \begin{chapthm}
+    \begin{chapthm}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chapthm}
+    
+snippet secthm
+alias   \begin{thm} \begin{secthm}
+    \begin{secthm}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{secthm}
+
+snippet subsecthm
+alias   \begin{thm} \begin{subsecthm}
+    \begin{subsecthm}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsecthm}
+
+snippet subsubsecthm
+alias   \begin{thm} \begin{subsubsecthm}
+    \begin{subsubsecthm}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubsecthm}
+# =========== lem ==========
+
+snippet chaplem
+alias   \begin{lem} \begin{chaplem}
+    \begin{chaplem}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chaplem}
+
+snippet seclem
+alias   \begin{lem} \begin{seclem}
+    \begin{seclem}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{seclem}
+
+snippet subseclem
+alias   \begin{lem} \begin{subseclem}
+    \begin{subseclem}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subseclem}
+
+snippet subsubseclem
+alias   \begin{lem} \begin{subsubseclem}
+    \begin{subsubseclem}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubseclem}
+# =========== cor ==========
+
+snippet chapcor
+alias   \begin{cor} \begin{chapcor}
+    \begin{chapcor}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chapcor}
+
+snippet seccor
+alias   \begin{cor} \begin{seccor}
+    \begin{seccor}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{seccor}
+
+snippet subseccor
+alias   \begin{cor} \begin{subseccor}
+    \begin{subseccor}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subseccor}
+
+snippet subsubseccor
+alias   \begin{cor} \begin{subsubseccor}
+    \begin{subsubseccor}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubseccor}
+
+# =========== noti ==========
+
+snippet chapnoti
+alias   \begin{noti} \begin{chapnoti}
+    \begin{chapnoti}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chapnoti}
+
+snippet secnoti
+alias   \begin{noti} \begin{secnoti}
+    \begin{secnoti}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{secnoti}
+
+snippet subsecnoti
+alias   \begin{noti} \begin{subsecnoti}
+    \begin{subsecnoti}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsecnoti}
+
+snippet subsubsecnoti
+alias   \begin{noti} \begin{subsubsecnoti}
+    \begin{subsubsecnoti}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubsecnoti}
+
+
+# =========== prop ==========
+
+snippet chapprop
+alias   \begin{prop} \begin{chapprop}
+    \begin{chapprop}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chapprop}
+
+snippet secprop
+alias   \begin{prop} \begin{secprop}
+    \begin{secprop}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{secprop}
+
+snippet subsecprop
+alias   \begin{prop} \begin{subsecprop}
+    \begin{subsecprop}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsecprop}
+
+snippet subsubsecprop
+alias   \begin{prop} \begin{subsubsecprop}
+    \begin{subsubsecprop}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubsecprop}
+
+
+# =========== doril ==========
+
+snippet chapdoril
+alias   \begin{doril} \begin{chapdoril}
+    \begin{chapdoril}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chapdoril}
+
+snippet secdoril
+alias   \begin{doril} \begin{secdoril}
+    \begin{secdoril}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{secdoril}
+
+snippet subsecdoril
+alias   \begin{doril} \begin{subsecdoril}
+    \begin{subsecdoril}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsecdoril}
+
+snippet subsubsecdoril
+alias   \begin{doril} \begin{subsubsecdoril}
+    \begin{subsubsecdoril}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubsecdoril}
+
+
+# =========== ex ==========
+
+snippet chapex
+alias   \begin{ex} \begin{chapex}
+ 
+    \begin{chapex}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chapex}
+
+snippet secex
+alias   \begin{ex} \begin{secex}
+    \begin{secex}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{secex}
+
+snippet subsecex
+alias   \begin{ex} \begin{subsecex}
+    \begin{subsecex}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsecex}
+
+snippet subsubsecex
+alias   \begin{ex} \begin{subsubsecex}
+    \begin{subsubsecex}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubsecex}
+
+# =========== axiom ==========
+
+snippet chapaxiom
+alias   \begin{axiom} \begin{chapaxiom}
+    \begin{chapaxiom}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{chapaxiom}
+
+snippet secaxiom
+alias   \begin{axiom} \begin{secaxiom}
+    \begin{secaxiom}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{secaxiom}
+
+snippet subsecaxiom
+alias   \begin{axiom} \begin{subsecaxiom}
+    \begin{subsecaxiom}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsecaxiom}
+
+snippet subsubsecaxiom
+alias   \begin{axiom} \begin{subsubsecaxiom}
+    \begin{subsubsecaxiom}{${1:#title}}{${2:#label}}
+        ${0:#target}
+    \end{subsubsecaxiom}
+
+
+# ==================
+snippet lstlisting
+options head
+alias   \begin{lstlisting}
+    \begin{lstlisting}[caption={${1:caption}},label={${2:label}}]
+        ${0:TARGET}
+    \end{lstlisting}
+
+snippet markdown
+options head
+alias   \begin{markdown}
+        \begin{markdown}
+                ${0:TARGET}
+        \end{markdown}
+
+snippet definition
+options head
+alias \begin{definition}
+        \begin{definition}[${1:#deftitle}]\label{${2:labelname}}
+                ${0:TARGET}
+        \end{definition}
+
+# ==== BEAMER ====
+snippet frame
+alias   \begin{frame} \frame
+	\begin{frame}<beamer>
+                \frametitle{${1:#:frametitle}}
+		${2:TARGET}
+	\end{frame}
+
+
+snippet \\
+alias   \\\\ 
+        \\\\
+        ${0:TARGET}
+
+
+# https://github.com/ymatz/vim-latex-completion/blob/master/tex.snip
+# === LaTeX2e ===
+snippet     section 
+alias       \begin{section}
+options     head
+    \begin{section}{${1:#:title}}
+        ${0:TARGET}
+    \end{section}
+
+snippet     subsection 
+alias       \begin{subsection}
+options     head
+    \begin{subsection}{${1:#:title}}
+        ${0:TARGET}
+    \end{subsection}
+
+snippet     subsubsection 
+alias       \begin{subsubsection}
+options     head
+    \begin{subsubsection}{${1:#:title}}
+        ${0:TARGET}
+    \end{subsubsection}
+
+snippet     abstract
+options     head
+    \begin{abstract}
+        ${0:TARGET}
+    \end{abstract}
+
+snippet     array
+options     head
+    \begin{array}{${1:#:template}}
+        ${0:TARGET}
+    \end{array}
+
+snippet     center
+options     head
+    \begin{center}
+        ${0:TARGET}
+    \end{center}
+
+snippet     description
+options     head
+    \begin{description}
+        \item ${0:TARGET}
+    \end{description}
+
+snippet     displaymath
+options     head
+    \begin{displaymath}
+        ${0:TARGET}
+    \end{displaymath}
+
+snippet     document
+options     head
+    \begin{document}
+    ${0:TARGET}
+    \end{document}
+
+snippet     enumerate
+options     head
+    \begin{enumerate}
+        \item ${0:TARGET}
+    \end{enumerate}
+
+snippet     eqnarray
+options     head
+    \begin{eqnarray}
+        ${0:TARGET}
+    \end{eqnarray}
+
+snippet     eqnarray*
+options     head
+    \begin{eqnarray*}
+        ${0:TARGET}
+    \end{eqnarray*}
+
+snippet     equation
+options     head
+    \begin{equation}
+        ${0:TARGET}
+    \end{equation}
+
+snippet     figure
+options     head
+    \begin{figure}${1:#:[placement]}
+        \label{${2:label}}
+        \caption${3:#:[loftitle]}{${4:#:text}}
+        ${0:TARGET}
+    \end{figure}
+
+snippet     filecontents
+options     head
+    \begin{filecontents}{${1:#:filename}}
+        ${0:TARGET}
+    \end{filecontents}
+
+snippet     flushleft
+options     head
+    \begin{flushleft}
+        ${0:TARGET}
+    \end{flushleft}
+
+snippet     flushright
+options     head
+    \begin{itemize}
+        \item ${0:TARGET}
+    \end{itemize}
+
+snippet     letter
+options     head
+    \begin{letter}{${1:#:name-and-address}}
+        ${0:TARGET}
+    \end{letter}
+
+snippet     list
+options     head
+    \begin{list}{${1:#:labeling}}{${2:#:spacing}}
+        \item ${0:TARGET}
+    \end{list}
+
+snippet     math
+options     head
+    \begin{math}
+        ${0:TARGET}
+    \end{math}
+
+snippet     minipage
+options     head
+    \begin{minipage}${1:#:[position]}${2:#:[height]}${3:#:[inner-pos]}{${4:#:width}}
+        ${0:TARGET}
+    \end{minipage}
+
+snippet     picture
+options     head
+    \begin{picture}(${1:#:width,height})${2:#:(x offset,y offset)}
+        ${0:TARGET}
+    \end{picture}
+
+snippet     quotation
+options     head
+    \begin{quotation}
+        ${0:TARGET}
+    \end{quotation}
+
+snippet     quote
+options     head
+    \begin{quote}
+        ${0:TARGET}
+    \end{quote}
+
+snippet     tabbing
+options     head
+    \begin{tabbing}
+        ${0:TARGET}
+    \end{tabbing}
+
+snippet     table
+options     head
+    \begin{table}${1:#:[placement]}
+        \caption{${2:#:table-title}}
+        ${0:TARGET}
+    \end{table}
+
+snippet     tabular
+options     head
+    \begin{tabular}${1:#:[pos]}{${2:#:cols}}
+        ${0:TARGET}
+    \end{tabular}
+
+snippet     tabular*
+options     head
+    \begin{tabular*}{${1:#:width}}${2:#:[pos]}{${3:#:cols}}
+        ${0:TARGET}
+    \end{tabular*}
+
+snippet     thebibliography
+options     head
+    \begin{thebibliography}{${1:#:widest-label}}
+        \bibitem${0}
+    \end{thebibliography}
+
+snippet     theorem
+options     head
+    \begin{theorem}
+        ${0:TARGET}
+    \end{theorem}
+
+snippet     titlepage
+options     head
+    \begin{titlepage}
+        ${0:TARGET}
+    \end{titlepage}
+
+snippet     verbatim
+options     head
+    \begin{verbatim}
+        ${0:TARGET}
+    \end{verbatim}
+
+snippet     verse
+options     head
+    \begin{verse}
+        ${0:TARGET}
+    \end{verse}
+
+# === amsmath ===
+
+snippet     align
+options     head
+    \begin{align}
+        ${0:TARGET}
+    \end{align}
+
+snippet     align*
+options     head
+    \begin{align*}
+        ${0:TARGET}
+    \end{align*}
+
+snippet     alignat
+options     head
+    \begin{alignat}{${1:#:number-of-columns}}
+        ${0:TARGET}
+    \end{alignat}
+
+snippet     alignat*
+options     head
+    \begin{alignat*}{${1:#:number-of-columns}}
+        ${0:TARGET}
+    \end{alignat*}
+
+snippet     aligned
+options     head
+    \begin{aligned}
+        ${0:TARGET}
+    \end{aligned}
+
+snippet     alignedat
+options     head
+    \begin{alignedat}{${1:#:number-of-columns}}
+        ${0:TARGET}
+    \end{alignedat}
+
+snippet     bmatrix
+options     head
+    \begin{bmatrix}
+        ${0:TARGET}
+    \end{bmatrix}
+
+snippet     Bmatrix
+options     head
+    \begin{Bmatrix}
+        ${0:TARGET}
+    \end{Bmatrix}
+
+snippet     cases
+options     head
+    \begin{cases}
+        ${0:TARGET}
+    \end{cases}
+
+snippet     equation*
+options     head
+    \begin{equation*}
+        ${0:TARGET}
+    \end{equation*}
+
+snippet     flalign
+options     head
+    \begin{flalign}
+        ${0:TARGET}
+    \end{flalign}
+
+snippet     flalign*
+options     head
+    \begin{flalign*}
+        ${0:TARGET}
+    \end{flalign*}
+
+snippet     gather
+options     head
+    \begin{gather}
+        ${0:TARGET}
+    \end{gather}
+
+snippet     gather*
+alias   \begin{gather*}
+options     head
+    \begin{gather*}
+        ${0:TARGET}
+    \end{gather*}
+
+snippet     gathered
+options     head
+    \begin{gathered}
+        ${0:TARGET}
+    \end{gathered}
+
+snippet     matrix
+options     head
+    \begin{matrix}
+        ${0:TARGET}
+    \end{matrix}
+
+snippet     multline
+options     head
+    \begin{multline}
+        ${0:TARGET}
+    \end{multline}
+
+snippet     multline*
+options     head
+    \begin{multline*}
+        ${0:TARGET}
+    \end{multline*}
+
+snippet     pmatrix
+options     head
+    \begin{pmatrix}
+        ${0:TARGET}
+    \end{pmatrix}
+
+snippet     smallmatrix
+options     head
+    \begin{smallmatrix}
+        ${0:TARGET}
+    \end{smallmatrix}
+
+snippet     split
+options     head
+    \begin{split}
+        ${0:TARGET}
+    \end{split}
+
+snippet     subarray
+options     head
+    \begin{subarray}{${1:#:alignment}}
+        ${0:TARGET}
+    \end{subarray}
+
+snippet     subequations
+options     head
+    \begin{subequations}
+        ${0:TARGET}
+    \end{subequations}
+
+snippet     vmatrix
+options     head
+    \begin{vmatrix}
+        ${0:TARGET}
+    \end{vmatrix}
+
+snippet     Vmatrix
+options     head
+    \begin{Vmatrix}
+        ${0:TARGET}
+    \end{Vmatrix}
+
+# === amscd ===
+
+snippet     CD
+options     head
+    \begin{CD}
+        ${0:TARGET}
+    \end{CD}
+
+# === amsthm ===
+
+snippet     proof
+alias       \begin{proof}
+options     head
+    \begin{proof}${1:#:[heading]}
+        ${0:TARGET}
+    \end{proof}
+
+# === TikZ ===
+
+snippet     tikzpicture
+options     head
+    \begin{tikzpicture}
+        ${0:TARGET}
+    \end{tikzpicture}
+
+snippet     scope
+options     head
+    \begin{scope}
+        ${0:TARGET}
+    \end{scope}
+
+snippet     colormixin
+options     head
+    \begin{colormixin}{${1:#:mix-in specification}}
+        ${0:TARGET}
+    \end{colormixin}
+
+snippet     pgfpicture
+options     head
+    \begin{pgfpicture}
+        ${0:TARGET}
+    \end{pgfpicture}
+
+snippet     pgfscope
+options     head
+    \begin{pgfscope}
+        ${0:TARGET}
+    \end{pgfscope}
+
+snippet     pgfinterruptpath
+options     head
+    \begin{pgfinterruptpath}
+        ${0:TARGET}
+    \end{pgfinterruptpath}
+
+snippet     pgfinterruptpicture
+options     head
+    \begin{pgfinterruptpicture}
+        ${0:TARGET}
+    \end{pgfinterruptpicture}
+
+snippet     pgfinterruptboundingbox
+options     head
+    \begin{pgfinterruptboundingbox}
+        ${0:TARGET}
+    \end{pgfinterruptboundingbox}
+
+snippet     pgflowlevelscope
+options     head
+    \begin{pgflowlevelscope}{${1:#:transformation code}}
+        ${0:TARGET}
+    \end{pgflowlevelscope}
+
+snippet     pgfonlayer
+options     head
+    \begin{pgfonlayer}{${1:#:layer name}}
+        ${0:TARGET}
+    \end{pgfonlayer}
+
+
+# abstract
+# actionenv
+# alertblock
+# alertenv
+# altenv
+# beamercolorbox
+# block
+# boldequation
+# column
+# columns
+# definition
+# description
+# enumerate
+# enumstep
+# example
+# exampleblock
+# frame
+# Itemize
+# itemize
+# itemstep
+# notes
+# onlyenv
+# overlayarea
+# overprint
+# proof
+# quotation
+# quote
+# semiverbatim
+# slide
+# structureenv
+# thebibliography
+# theorem
+# verse

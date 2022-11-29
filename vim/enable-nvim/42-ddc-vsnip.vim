@@ -1,0 +1,1 @@
+../available/42-ddc-vsnip.vim
