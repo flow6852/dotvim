@@ -1,7 +1,7 @@
 From archlinux
 RUN pacman -Syyu --noconfirm
 RUN cat /etc/pacman.d/mirrorlist.pacnew | grep tsukuba | sed -i 's/\#//g' /etc/pacman.d/mirrorlist
-RUN pacman -Syy git vim neovim deno sudo texlive-most texlive-lang biber lua unzip --noconfirm
+RUN pacman -Syy git vim neovim deno sudo texlive-most texlive-lang biber lua unzip gcc --noconfirm
 
 RUN useradd -m user
 RUN echo 'user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
