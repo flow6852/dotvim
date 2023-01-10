@@ -7,7 +7,7 @@ let g:lsp_log_file = ''
 let g:lsp_settings = {
       \ 'efm-langserver': {
       \   'disabled': 0,
-      \   'allowlist': ['markdown', 'tex', 'latex'],
+      \   'allowlist': ['markdown', 'tex', 'latex', 'md'],
       \  }
       \ }
 

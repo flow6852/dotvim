@@ -1,5 +1,5 @@
 " https://github.com/Shougo/ddc-nvim-lsp
-let sources = insert(sources,'nvim-lsp', 0)
+let g:sources = insert(g:sources,'nvim-lsp', 0)
 
 call ddc#custom#patch_global('sources', sources)
 call ddc#custom#patch_global('sourceOptions',  { 

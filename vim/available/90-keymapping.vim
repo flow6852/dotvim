@@ -1,3 +1,4 @@
+imap <C-j> <Plug>(skkeleton-toggle)
 " Mappings
 if Global_is_plugged('pum.vim') && ui == 'pum'
     " custom popup window
@@ -7,10 +8,11 @@ if Global_is_plugged('pum.vim') && ui == 'pum'
         \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ? '<Tab>' :
         \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
         \ ddc#map#manual_complete()
-    inoremap <silent><expr><CR>
-        \ vsnip#jumpable() ? '<Plug>(vsnip-jump-next)' :
-        \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
-        \ '<CR>'
+   inoremap <silent><expr><CR>
+       \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
+       \ vsnip#jumpable() ? '<Plug>(vsnip-jump-next)' :
+       \ vsnip#expandable() ? '<Plug>(vsnip-expand)' :
+       \ '<CR>'
 "    inoremap <silent><expr><CR>
 "        \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
 "        \ '<CR>'

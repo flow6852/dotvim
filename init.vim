@@ -27,7 +27,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- 指摘の開示
   buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts) -- 次の指摘へ進む
   buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts) -- 前の指摘に進む
-  buf_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) -- 指摘の一覧を表示する
+  buf_set_keymap("n", "<space>ql", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) -- 指摘の一覧を表示する
+  buf_set_keymap("n", "<space>qf", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts) -- quickfixの一覧を表示する
 end
 
 local mason = require('mason')
@@ -41,6 +42,14 @@ mason_lspconfig.setup()
 mason_lspconfig.setup_handlers({ function(server_name)
     nvim_lsp[server_name].setup{on_attach = on_attach, capabilities = capabilities}
 end })
+
+-- local lsp_installer = require("nvim-lsp-installer")
+-- lsp_installer.on_server_ready(function(server)
+--     local opts = {}
+--     opts.on_attach = on_attach
+-- 
+--     server:setup(opts)
+-- end)
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }

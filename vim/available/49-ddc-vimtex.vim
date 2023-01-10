@@ -1,10 +1,10 @@
 " " Example: Use vimtex
 call vimtex#init()
-let g:sources = insert(sources, "omni", 0)
-call ddc#custom#patch_global('sources', sources)
-call ddc#custom#patch_filetype(['tex'], 'sourceOptions', {
+let g:sources = insert(g:sources, 'omni', 2)
+call ddc#custom#patch_filetype(['tex'], 'sources', g:sources)
+call ddc#custom#patch_filetype(['tex'], 'sourceoptions', {
       \ 'omni': {
-      \   'forceCompletionPattern': g:vimtex#re#deoplete,
+      \   'forcecompletionpattern': g:vimtex#re#deoplete,
       \ 'mark' : '[vimtex]',
       \ },
       \ })

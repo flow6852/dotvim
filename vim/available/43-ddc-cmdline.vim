@@ -41,7 +41,7 @@ function! CommandlinePre() abort
         call ddc#custom#patch_buffer('sourceParams' , {'around': {'maxSize': 10}} )
         
         autocmd User DDCCmdlineLeave ++once call CommandlinePost()
-        autocmd InsertEnter <buffer> ++once call CommandlinePost()
+        " autocmd InsertEnter <buffer> ++once call CommandlinePost()
         
         " Enable command line completion
         call ddc#enable_cmdline_completion()
@@ -72,4 +72,3 @@ function! CommandlinePost() abort
         endif
     endif
 endfunction
-

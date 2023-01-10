@@ -1,0 +1,415 @@
+{
+    "begin" :{
+        "prefix" : "\\begin",
+        "body" : [
+            "\\begin{$1}$0"
+        ],
+        "description" : "begin start"
+    },
+    "chapter" :{
+        "prefix" : "\\begin{chapter}",
+        "body" : [
+            "\\begin{chapter}{${1:${title}}}",
+            "  $0",
+            "\\end{chapter}"
+        ],
+        "description" : "chapdfn start"
+    },
+    "section" :{
+        "prefix" : "\\begin{section}",
+        "body" : [
+            "\\begin{section}{${1:${title}}}",
+            "  $0",
+            "\\end{section}"
+        ],
+        "description" : "section start"
+    },
+    "subsection" :{
+        "prefix" : "\\begin{subsection}",
+        "body" : [
+            "\\begin{subsection}{${1:${title}}}",
+            "  $0",
+            "\\end{subsection}"
+        ],
+        "description" : "subsection start"
+    },
+    "subsubsection" :{
+        "prefix" : "\\begin{subsubsection}",
+        "body" : [
+            "\\begin{subsubsection}{${1:${title}}}",
+            "  $0",
+            "\\end{subsubsection}"
+        ],
+        "description" : "subsubsection start"
+    },
+    "chapdfn" :{
+        "prefix" : "\\begin{chapdfn}",
+        "body" : [
+            "\\begin{chapdfn}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chapdfn}"
+        ],
+        "description" : "chapdfn start"
+    },
+    "secdfn" :{
+        "prefix" : "\\begin{secdfn}",
+        "body" : [
+            "\\begin{secdfn}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{secdfn}"
+        ],
+        "description" : "secdfn start"
+    },
+    "subsecdfn" :{
+        "prefix" : "\\begin{subsecdfn}",
+        "body" : [
+            "\\begin{subsecdfn}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsecdfn}"
+        ],
+        "description" : "subsecdfn start"
+    },
+    "subsubsecdfn" :{
+        "prefix" : "\\begin{subsubsecdfn}",
+        "body" : [
+            "\\begin{subsubsecdfn}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubsecdfn}"
+        ],
+        "description" : "subsubsecdfn start"
+    },
+    "chapthm" :{
+        "prefix" : "\\begin{chapthm}",
+        "body" : [
+            "\\begin{chapthm}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chapthm}"
+        ],
+        "description" : "chapthm start"
+    },
+    "secthm" :{
+        "prefix" : "\\begin{secthm}",
+        "body" : [
+            "\\begin{secthm}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{secthm}"
+        ],
+        "description" : "secthm start"
+    },
+    "subsecthm" :{
+        "prefix" : "\\begin{subsecthm}",
+        "body" : [
+            "\\begin{subsecthm}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsecthm}"
+        ],
+        "description" : "subsecthm start"
+    },
+    "subsubsecthm" :{
+        "prefix" : "\\begin{subsubsecthm}",
+        "body" : [
+            "\\begin{subsubsecthm}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubsecthm}"
+        ],
+        "description" : "subsubsecthm start"
+    },
+    "chaplem" :{
+        "prefix" : "\\begin{chaplem}",
+        "body" : [
+            "\\begin{chaplem}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chaplem}"
+        ],
+        "description" : "chaplem start"
+    },
+    "seclem" :{
+        "prefix" : "\\begin{seclem}",
+        "body" : [
+            "\\begin{seclem}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{seclem}"
+        ],
+        "description" : "seclem start"
+    },
+    "subseclem" :{
+        "prefix" : "\\begin{subseclem}",
+        "body" : [
+            "\\begin{subseclem}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subseclem}"
+        ],
+        "description" : "subseclem start"
+    },
+    "subsubseclem" :{
+        "prefix" : "\\begin{subsubseclem}",
+        "body" : [
+            "\\begin{subsubseclem}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubseclem}"
+        ],
+        "description" : "subsubseclem start"
+    },
+    "chapcor" :{
+        "prefix" : "\\begin{chapcor}",
+        "body" : [
+            "\\begin{chapcor}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chapcor}"
+        ],
+        "description" : "chapcor start"
+    },
+    "seccor" :{
+        "prefix" : "\\begin{seccor}",
+        "body" : [
+            "\\begin{seccor}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{seccor}"
+        ],
+        "description" : "seccor start"
+    },
+    "subseccor" :{
+        "prefix" : "\\begin{subseccor}",
+        "body" : [
+            "\\begin{subseccor}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subseccor}"
+        ],
+        "description" : "subseccor start"
+    },
+    "subsubseccor" :{
+        "prefix" : "\\begin{subsubseccor}",
+        "body" : [
+            "\\begin{subsubseccor}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubseccor}"
+        ],
+        "description" : "subsubseccor start"
+    },
+    "chapnoti" :{
+        "prefix" : "\\begin{chapnoti}",
+        "body" : [
+            "\\begin{chapnoti}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chapnoti}"
+        ],
+        "description" : "chapnoti start"
+    },
+    "secnoti" :{
+        "prefix" : "\\begin{secnoti}",
+        "body" : [
+            "\\begin{secnoti}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{secnoti}"
+        ],
+        "description" : "secnoti start"
+    },
+    "subsecnoti" :{
+        "prefix" : "\\begin{subsecnoti}",
+        "body" : [
+            "\\begin{subsecnoti}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsecnoti}"
+        ],
+        "description" : "subsecnoti start"
+    },
+    "subsubsecnoti" :{
+        "prefix" : "\\begin{subsubsecnoti}",
+        "body" : [
+            "\\begin{subsubsecnoti}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubsecnoti}"
+        ],
+        "description" : "subsubsecnoti start"
+    },
+    "chapprop" :{
+        "prefix" : "\\begin{chapprop}",
+        "body" : [
+            "\\begin{chapprop}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chapprop}"
+        ],
+        "description" : "chapprop start"
+    },
+    "secprop" :{
+        "prefix" : "\\begin{secprop}",
+        "body" : [
+            "\\begin{secprop}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{secprop}"
+        ],
+        "description" : "secprop start"
+    },
+    "subsecprop" :{
+        "prefix" : "\\begin{subsecprop}",
+        "body" : [
+            "\\begin{subsecprop}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsecprop}"
+        ],
+        "description" : "subsecprop start"
+    },
+    "subsubsecprop" :{
+        "prefix" : "\\begin{subsubsecprop}",
+        "body" : [
+            "\\begin{subsubsecprop}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubsecprop}"
+        ],
+        "description" : "subsubsecprop start"
+    },
+    "chapdoril" :{
+        "prefix" : "\\begin{chapdoril}",
+        "body" : [
+            "\\begin{chapdoril}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chapdoril}"
+        ],
+        "description" : "chapdoril start"
+    },
+    "secdoril" :{
+        "prefix" : "\\begin{secdoril}",
+        "body" : [
+            "\\begin{secdoril}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{secdoril}"
+        ],
+        "description" : "secdoril start"
+    },
+    "subsecdoril" :{
+        "prefix" : "\\begin{subsecdoril}",
+        "body" : [
+            "\\begin{subsecdoril}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsecdoril}"
+        ],
+        "description" : "subsecdoril start"
+    },
+    "subsubsecdoril" :{
+        "prefix" : "\\begin{subsubsecdoril}",
+        "body" : [
+            "\\begin{subsubsecdoril}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubsecdoril}"
+        ],
+        "description" : "subsubsecdoril start"
+    },
+    "chapex" :{
+        "prefix" : "\\begin{chapex}",
+        "body" : [
+            "\\begin{chapex}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chapex}"
+        ],
+        "description" : "chapex start"
+    },
+    "secex" :{
+        "prefix" : "\\begin{secex}",
+        "body" : [
+            "\\begin{secex}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{secex}"
+        ],
+        "description" : "secex start"
+    },
+    "subsecex" :{
+        "prefix" : "\\begin{subsecex}",
+        "body" : [
+            "\\begin{subsecex}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsecex}"
+        ],
+        "description" : "subsecex start"
+    },
+    "subsubsecex" :{
+        "prefix" : "\\begin{subsubsecex}",
+        "body" : [
+            "\\begin{subsubsecex}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubsecex}"
+        ],
+        "description" : "subsubsecex start"
+    },
+    "chapaxiom" :{
+        "prefix" : "\\begin{chapaxiom}",
+        "body" : [
+            "\\begin{chapaxiom}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{chapaxiom}"
+        ],
+        "description" : "chapaxiom start"
+    },
+    "secaxiom" :{
+        "prefix" : "\\begin{secaxiom}",
+        "body" : [
+            "\\begin{secaxiom}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{secaxiom}"
+        ],
+        "description" : "secaxiom start"
+    },
+    "subsecaxiom" :{
+        "prefix" : "\\begin{subsecaxiom}",
+        "body" : [
+            "\\begin{subsecaxiom}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsecaxiom}"
+        ],
+        "description" : "subsecaxiom start"
+    },
+    "subsubsecaxiom" :{
+        "prefix" : "\\begin{subsubsecaxiom}",
+        "body" : [
+            "\\begin{subsubsecaxiom}{${1:${title}}}{${2:${label}}}",
+            "  $0",
+            "\\end{subsubsecaxiom}"
+        ],
+        "description" : "subsubsecaxiom start"
+    },
+    "lstlisging" :{
+        "prefix" : "\\begin{lstlisging}",
+        "body" : [
+            "\\begin{lstlisting}[caption={${1:caption}},label={${2:label}}]",
+            "  ${0:TARGET}",
+            "\\end{lstlisting}"
+        ],
+        "description" : "lstlisting"
+    },
+    "frame" :{
+        "prefix" : "\\begin{frame}",
+        "body" : [
+            "\\begin{frame}<beamer>",
+            "  \\frametitle{${1#frametitle}}",
+            "  ${0:TARGET}",
+            "\\end{lstlisting}"
+        ],
+        "description" : "lstlisting"
+    },
+    "itemize" :{
+        "prefix" : "\\begin{itemize}",
+        "body" :[
+            "\\begin{itemize}",
+            "  \\item ${0:TARGET}",
+            "\\end{itemize}"
+        ],
+        "description" : "itemize"
+    },
+    "align" :{
+        "prefix" : "\\begin{align}",
+        "body" :[
+            "\\begin{align}",
+            "  ${0:TARGET}",
+            "\\end{align}"
+        ],
+        "description" : "align"
+    },
+    "align*" :{
+        "prefix" : "\\begin{align*}",
+        "body" :[
+            "\\begin{align*}",
+            "  ${0:TARGET}",
+            "\\end{align*}"
+        ],
+        "description" : "align*"
+    }
+}
