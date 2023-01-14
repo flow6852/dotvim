@@ -77,8 +77,26 @@ nmap <silent> ;b <Cmd>call ddu#start({
     \   'name':'filer',
     \   'sources' : [{'name': 'buffer'}],
     \   })<CR>
+
 nmap <silent> ;f <Cmd>call ddu#start({
 \   'name': 'filer',
 \   'sources': [{'name': 'file_rec'}],
+\   'sourceOptions': {
+\       '_' :{ 
+\           'path': expand(ForDduSourceOptionsPath())
+\       }
+\   },
 \   'sourceParams' : {'file_rec': {'expandSymbolicLink': v:true}},
 \ })<CR>
+
+function ForDduSourceOptionsPath(...)
+    if isdirectory(expand(expand("<cfile>")))
+        return expand("<cfile>")
+    else
+        return trim(expand(execute("pwd")))
+    endif
+endfunction
+
+function! ChDirForDduSrouceFileRec(...)
+    chdir %:p:h
+endfunction

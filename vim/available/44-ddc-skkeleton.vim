@@ -1,5 +1,6 @@
-imap <C-j> <Plug>(skkeleton-toggle)
-cmap <C-j> <Plug>(skkeleton-toggle)
+imap <C-t> <Plug>(skkeleton-toggle)
+cmap <C-t> <Plug>(skkeleton-toggle)
+tmap <C-\><C-t> <Plug>(skkeleton-toggle)
 
 " let g:sources = insert(g:sources, 'skkeleton', 0)
 " call ddc#custom#patch_global('sources', g:sources)
@@ -33,8 +34,8 @@ function! s:skkeleton_init() abort
       \ "z\<Space>": ["\u3000", ''],
       \ })
 
-    call add(g:skkeleton#mapped_keys, '<C-w>')
-    call skkeleton#register_keymap('input', '<C-w>', 'katakana')
+    call add(g:skkeleton#mapped_keys, 'kt')
+    call skkeleton#register_keymap('input', 'kt', 'katakana')
 endfunction
 
 function! s:changeSource2Skk() abort
@@ -56,6 +57,7 @@ function! s:changeSource2Skk() abort
         \   },
         \ }})
     call skkeleton#config({'completionRankFile': '~/.skkeleton/rank.json'})
+    call pum#set_option('auto_select', v:true)
 endfunction
 
 function! s:changeSkk2Source() abort
@@ -65,8 +67,9 @@ function! s:changeSkk2Source() abort
         unlet b:bef_buffer
         call ddc#disable_cmdline_completion()
     else
-        call ddc#custom#set_buffer()
+        call ddc#custom#set_buffer(ddc#custom#get_current())
     endif
+    call pum#set_option('auto_select', v:false)
 endfunction
 
 augroup skkeleton_callbacks

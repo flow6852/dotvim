@@ -4,6 +4,7 @@
 let g:sources = ['around', 'rg', 'buffer', 'file', 'input']
 let autoCompleteEvents = ['InsertEnter', 'TextChangedI', 'TextChangedP']
 let g:ui = 'pum'
+call pum#set_option('auto_select', v:false)
 
 call ddc#custom#patch_global('ui', ui) 
 call pum#set_option('auto_select', v:false)
@@ -18,14 +19,15 @@ call ddc#custom#patch_global('backspaceCompletion', v:true)
 " Global Option
 call ddc#custom#patch_global('sourceOptions', {
       \ '_': { 'matchers': ['matcher_editdistance'],
-      \        'converters': ['converter_remove_overlap']
+      \        'converters': ['converter_remove_overlap'],
+      \        'isVolatile': v:true,
+      \         
       \ },
       \ 'around': {'mark': '[around]'},
       \ 'file': {'mark': '[file]'},
       \ 'buffer': {'mark': '[buffer]'},
       \ 'path': {'mark': '[path]'},
-      \ 'input': {'mark': '[input]',
-      \          'isVolatile': v:true},
+      \ 'input': {'mark': '[input]'},
       \ 'line': { 'mark': '[line]' },
       \ 'rg': { 'mark': '[ripgrep]' },
       \ })

@@ -97,7 +97,3 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/yuki-yano/ddu-filter-fzf
 * https://github.com/Shougo/ddu-kind-file
 * https://github.com/Shougo/ddu-column-filename
-* https://github.com/~/.vim/plugged/asvim
-* https://github.com/~/.vim/plugged/inptest
-* https://github.com/~/.vim/plugged/vim-auto-save
-* https://github.com/~/.vim/plugged/myvimfuncs

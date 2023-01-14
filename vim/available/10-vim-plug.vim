@@ -135,5 +135,4 @@ call plug#begin('~/.vim/plugged')
     Plug '~/.vim/plugged/asvim'
     Plug '~/.vim/plugged/inptest'
     Plug '~/.vim/plugged/vim-auto-save'
-    Plug '~/.vim/plugged/myvimfuncs'
 call plug#end()

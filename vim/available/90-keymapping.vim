@@ -1,4 +1,3 @@
-imap <C-j> <Plug>(skkeleton-toggle)
 " Mappings
 if Global_is_plugged('pum.vim') && ui == 'pum'
     " custom popup window

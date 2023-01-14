@@ -50,21 +50,17 @@ hi PmenuSel ctermbg=yellow ctermfg=black
 hi PmenuSbar ctermbg=black
 hi PmenuThumb ctermfg=gray
 
-" start terminal
-if has('nvim')
-else
-    if getcwd() != "/home/flow_6852/AtCoder"
-        if has('nvim')
-            set sh=fish
-            split
-            wincmd j
-            resize 10
-            terminal
-            tnoremap <Esc> <C-\><C-n>
-        else
-            :set shell=fish
-            bo terminal ++rows=10
-            setl winfixheight
+if(has("nvim"))
+    augroup termloop
+        autocmd!
+        autocmd ExitPre * call TermLoop()
+    augroup End
+    
+    function! TermLoop(...)
+        if len(getwininfo()) == 1 && getwininfo()[0]['terminal'] == 0
+            let s:listed_buffer = getbufinfo({'buflisted': 1})[0]['bufnr']
+            execute getbufinfo({'buflisted': 1})[0]['bufnr'] . 'buffer'
+            vsplit
         endif
-    endif
+    endfunction
 endif
