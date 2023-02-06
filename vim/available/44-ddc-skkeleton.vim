@@ -1,28 +1,21 @@
-imap <C-t> <Plug>(skkeleton-toggle)
-cmap <C-t> <Plug>(skkeleton-toggle)
-tmap <C-\><C-t> <Plug>(skkeleton-toggle)
-
-" let g:sources = insert(g:sources, 'skkeleton', 0)
-" call ddc#custom#patch_global('sources', g:sources)
-" call ddc#custom#patch_global(
-"     \ 'sourceOptions', {
-"     \   'skkeleton': {
-"     \     'mark': '[skkeleton]',
-"     \     'matchers': ['skkeleton'],
-"     \     'sorters': [],
-"     \     'minAutoCompleteLength': 2,
-"     \   },
-"     \ })
-" call skkeleton#config({'completionRankFile': '~/.skkeleton/rank.json'})
+inoremap }e <Plug>(skkeleton-enable)
+inoremap }d <Plug>(skkeleton-disable)
+inoremap }t <Plug>(skkeleton-toggle)
+cnoremap }e <Plug>(skkeleton-enable)
+cnoremap }d <Plug>(skkeleton-disable)
+cnoremap }t <Plug>(skkeleton-toggle)
+tnoremap }e <Plug>(skkeleton-enable)
+tnoremap }d <Plug>(skkeleton-disable)
+tnoremap }t <Plug>(skkeleton-toggle)
 
 function! s:skkeleton_init() abort
     call skkeleton#config({
       \ 'eggLikeNewline': v:true, 
       \ 'globalDictionaries': ['/usr/share/skk/SKK-JISYO.L','/usr/share/skk/SKK-JISYO.S','/usr/share/skk/SKK-JISYO.M' ,'/usr/share/skk/SKK-JISYO.ML' ],
+      \ 'completionRankFile': '~/.skkeleton/rank.json',
+      \ 'registerConvertResult': v:true,
+      \ 'showCandidatesCount': 1,
       \ })
-
-    call add(g:skkeleton#mapped_keys, '<S-l>')
-    call skkeleton#register_keymap('input', '<S-l>', v:false)
 
     call skkeleton#register_kanatable('rom', {
       \ 'la' : ['ぁ'],
@@ -33,6 +26,9 @@ function! s:skkeleton_init() abort
       \ 'ltu' : ['っ'],
       \ "z\<Space>": ["\u3000", ''],
       \ })
+
+    call add(g:skkeleton#mapped_keys, '<S-l>')
+    call skkeleton#register_keymap('input', '<S-l>', v:false)
 
     call add(g:skkeleton#mapped_keys, 'kt')
     call skkeleton#register_keymap('input', 'kt', 'katakana')
@@ -47,6 +43,7 @@ function! s:changeSource2Skk() abort
     
     call ddc#custom#set_buffer({
         \ 'sources': s:skkSource,
+        \ 'ui': g:ui,
         \ 'sourceOptions': {
         \   'skkeleton': {
         \     'mark': '[skkeleton]',
@@ -56,7 +53,6 @@ function! s:changeSource2Skk() abort
         \     'isVolatile': v:true
         \   },
         \ }})
-    call skkeleton#config({'completionRankFile': '~/.skkeleton/rank.json'})
     call pum#set_option('auto_select', v:true)
 endfunction
 

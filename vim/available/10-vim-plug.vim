@@ -115,6 +115,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/ddu-source-register'
     Plug 'mikanIchinose/ddu-source-markdown'
     Plug 'liquidz/ddu-source-custom-list'
+    Plug 'flow6852/dps-mergeqf'
+    Plug 'flow6852/ddu-source-qf'
+    " Plug '~/Programs/dps-mergeqf'
+    " Plug '~/Programs/ddu-source-qf'
 
     """"""""""""""""""""""""""""
     "         ddu filter       "

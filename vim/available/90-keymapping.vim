@@ -2,7 +2,7 @@
 if Global_is_plugged('pum.vim') && ui == 'pum'
     " custom popup window
     " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
-    call ddc#custom#patch_global('completionMenu', 'pum.vim')
+    " call ddc#custom#patch_global('completionMenu', 'pum.vim')
     inoremap <silent><expr> <Tab>
         \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ? '<Tab>' :
         \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
@@ -26,7 +26,7 @@ if Global_is_plugged('pum.vim') && ui == 'pum'
 elseif Global_is_plugged('pum.vim')
     " custom popup window
     " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
-    call ddc#custom#patch_global('completionMenu', 'pum.vim')
+    " call ddc#custom#patch_global('completionMenu', 'pum.vim')
     inoremap <silent><expr> <Tab>
         \ pumvisible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
         \ '<Tab>' : ddc#map#manual_complete()

@@ -2,7 +2,7 @@
     "begin" :{
         "prefix" : "\\begin",
         "body" : [
-            "\\begin{$1}$0"
+            "\\begin{${1:${title}}}$0"
         ],
         "description" : "begin start"
     },
@@ -379,9 +379,9 @@
         "prefix" : "\\begin{frame}",
         "body" : [
             "\\begin{frame}<beamer>",
-            "  \\frametitle{${1#frametitle}}",
+            "  \\frametitle{${1:frametitle}}",
             "  ${0:TARGET}",
-            "\\end{lstlisting}"
+            "\\end{frame}"
         ],
         "description" : "lstlisting"
     },

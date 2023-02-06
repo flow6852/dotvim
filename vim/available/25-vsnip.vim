@@ -1,4 +1,4 @@
-" let g:vsnip_snippet_dirs = [expand('~/.vim/vsnip')]
+let g:vsnip_snippet_dirs = [expand('~/.vim/vsnip')]
 " " NOTE: You can use other key to expand snippet.
 " 
 " " Expand

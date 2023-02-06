@@ -50,17 +50,3 @@ hi PmenuSel ctermbg=yellow ctermfg=black
 hi PmenuSbar ctermbg=black
 hi PmenuThumb ctermfg=gray
 
-if(has("nvim"))
-    augroup termloop
-        autocmd!
-        autocmd ExitPre * call TermLoop()
-    augroup End
-    
-    function! TermLoop(...)
-        if len(getwininfo()) == 1 && getwininfo()[0]['terminal'] == 0
-            let s:listed_buffer = getbufinfo({'buflisted': 1})[0]['bufnr']
-            execute getbufinfo({'buflisted': 1})[0]['bufnr'] . 'buffer'
-            vsplit
-        endif
-    endfunction
-endif

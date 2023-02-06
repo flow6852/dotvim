@@ -2,9 +2,9 @@
 call vimtex#init()
 let g:sources = insert(g:sources, 'omni', 2)
 call ddc#custom#patch_filetype(['tex'], 'sources', g:sources)
-call ddc#custom#patch_filetype(['tex'], 'sourceoptions', {
+call ddc#custom#patch_filetype(['tex'], 'sourceOptions', {
       \ 'omni': {
-      \   'forcecompletionpattern': g:vimtex#re#deoplete,
+      \   'forceCompletionPattern': g:vimtex#re#deoplete,
       \ 'mark' : '[vimtex]',
       \ },
       \ })

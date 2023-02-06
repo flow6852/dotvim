@@ -91,6 +91,8 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/Shougo/ddu-source-register
 * https://github.com/mikanIchinose/ddu-source-markdown
 * https://github.com/liquidz/ddu-source-custom-list
+* https://github.com/flow6852/dps-mergeqf
+* https://github.com/flow6852/ddu-source-qf
 * https://github.com/Shougo/ddu-filter-matcher_substring
 * https://github.com/Shougo/ddu-filter-matcher_relative
 * https://github.com/Shougo/ddu-filter-converter_display_word
