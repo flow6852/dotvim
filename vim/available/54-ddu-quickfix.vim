@@ -1,5 +1,10 @@
 call ddu#custom#patch_local('qf', {
     \   'ui': 'ff',
+    \   'sourceOptions': {
+    \     '_': {
+    \       'matchers': ['matcher_substring'],
+    \     },
+    \   },
     \   'uiParams': {
     \     'ff': {
     \       'split': 'floating', 
@@ -25,9 +30,13 @@ call ddu#custom#patch_local('qf', {
     \ })
 
 function! Ddu_qf() abort
-    let conf = {'title':'ddu-qf' , 'titles' : ['Diagnostics','VimTeX', ':vimgrep'], 'withTitle': v:true, 'sep': "|", 'forceUpdate': v:false}
+    let conf = {'title':'ddu-qf', 'sources': [ {'what': {'title': 'Diagnostics'}, 'format': '%T|%t', 'isSubst': v:true, 'dup': v:false, 'loc': v:false},
+                                             \ {'what': {'title': 'VimTeX'}, 'format': '%T|%t', 'isSubst': v:true, 'dup': v:false, 'loc': v:false},
+                                             \ {'what': {'title':':vimgrep'}, 'format': '%T|%t', 'isSubst': v:true, 'dup': v:true, 'loc': v:false}],
+                                \ 'forceUpdate': v:false}
     call mergeqf#setlist(conf)
-    call ddu#start({'name': 'qf', 'sources': [{'name': 'qf'}], 'sourceParams': {'qf': conf}})
+    call ddu#start({'name': 'qf', 'sources': [
+            \ {'name': 'qf', 'params': {'what': {'title': ':vimgrep'}, 'isSubst': v:true, 'format': '%T|%y|%t', 'dup': v:true}}]})
 endfunction
 
 augroup mergeqf 
@@ -35,4 +44,29 @@ augroup mergeqf
     autocmd BufWritePost * lua vim.diagnostic.setqflist({open=false})
 augroup END
 
-nmap <silent> ;q <Cmd> call Ddu_qf()<CR>
+let format='%T|%p|%y|%t'
+
+nmap <silent> ;q <Cmd>call ddu#start({
+    \   'name': 'qf',
+    \   'sources': [{
+    \       'name': 'qf',
+    \       'params': {'what': {'title': 'Diagnostics'}, 'format': format}
+    \               },
+    \       {'name': 'qf',
+    \        'params': {'what': {'title': 'VimTeX'}, 'format': format,
+    \                   'isSubst': v:true,
+    \                  }
+    \       }]})<CR>
+
+nmap <silent> ;v <Cmd> call ddu#start({'name': 'qf', 'sources': [
+            \ {'name': 'qf', 
+            \ 'params': {'what': {'title': ':vimgrep'},
+            \            'isSubst': v:true,
+            \            'format': format,
+            \            'dup': v:true}},
+            \ {'name': 'qf', 
+            \ 'params': {'what': {'title': ':lvimgrep'},
+            \            'isSubst': v:true,
+            \            'format': format,
+            \            'nr': 0,
+            \            'dup': v:true}}]})<CR>

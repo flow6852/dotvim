@@ -43,6 +43,11 @@ call ddc#custom#patch_global('sourceParams', {
       \ 'path': {
       \   'cmd': ['fd', '--max-depth', '5'],
       \ },
+      \ 'file': {
+      \   'followSymlinks': v:true,
+      \   'projFromCwdMaxItems': [0, 0],
+      \   'projFromBufMaxItems': [0, 0],
+      \ },
       \ 'line': { 'maxSize': 10 },
       \ })
 
