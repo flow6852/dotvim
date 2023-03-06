@@ -28,8 +28,7 @@ nmap <silent> ;q <Cmd>call ddu#start({
     \                  }
     \       }]})<CR>
 
-nmap <silent> ;v <Cmd> call ddu#start({
-            \ 'name': 'qf', 'sources': [
+nmap <silent> ;v <Cmd> call ddu#start({'name': 'qf', 'sources': [
             \ {'name': 'qf', 
             \ 'params': {'what': {'title': ':vimgrep'},
             \            'isSubst': v:true,

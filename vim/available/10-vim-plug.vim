@@ -135,9 +135,4 @@ call plug#begin('~/.vim/plugged')
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-kind-file'
     Plug 'Shougo/ddu-column-filename'
-
-    " user
-    " Plug '~/.vim/plugged/asvim'
-    " Plug '~/.vim/plugged/inptest'
-    " Plug '~/.vim/plugged/vim-auto-save'
 call plug#end()
