@@ -7,35 +7,13 @@
 let s:grepColSize = 10
 let s:grepRowSize = 5
 
-call ddu#custom#patch_local('grep', {
-\   'ui': 'ff',
-\   'sourceParams' : {
-\     'rg' : {
-\       'args': ['--column', '--no-heading', '--json', '--follow'],
-\     },
-\   },
-\   'sourceOptions': {
-\     '_': {
-\       'matchers': ['matcher_substring'],
-\     },
-\   },
-\   'kindOptions': {
-\     'file': {
-\       'defaultAction': 'open',
-\     },
-\   },
-\   'uiParams': {
-\     'ff': {
-\       'split': 'floating', 
-\       'startFilter': v:false,
-\       'highlights': {'selected': 'Statement'},
-\       'winCol': s:grepColSize,
-\       'winWidth': &columns - 2 * s:grepColSize,
-\       'winRow': s:grepRowSize,
-\       'winHeight': &lines - 2 * s:grepRowSize,
-\     }
-\   }
-\ })
+call ddu#custom#patch_local('grep', extend(g:ddu_ui_vertical_cfg, {
+    \   'sourceParams' : {
+    \     'rg' : {
+    \       'args': ['--column', '--no-heading', '--json', '--follow'],
+    \     },
+    \   }
+    \ }))
 
 " keymapping
 autocmd FileType ddu-ff call s:ddu_my_settings()

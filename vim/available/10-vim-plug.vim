@@ -4,12 +4,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-skk/skkeleton' " 日本語入力
     Plug 'thinca/vim-scouter'
 
-    Plug 'skanehira/preview-markdown.vim' " markdown preview without browser
-    let g:preview_markdown_auto_update = "1"
-    let g:preview_markdown_parser = "mdr"
-         
     Plug 'junegunn/fzf.vim' " needed for previews
-    Plug 'vim-denops/denops.vim'          
+    Plug 'vim-denops/denops.vim'
+    Plug 'flow6852/dps-taskrunner'
+    " Plug '~/Programs/dps-taskrunner'
 
     """""""""""""""""""""""""
     "                       "
@@ -19,7 +17,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'rust-lang/rust.vim'
     Plug 'LumaKernel/coqpit.vim'
     Plug 'qnighy/satysfi.vim'
-    Plug 'lervag/vimtex' " for tex
+    if len(split(system('which latexmk'))) < 2
+        Plug 'lervag/vimtex' " for tex
+    endif
+
     if has('nvim')
         Plug 'williamboman/mason.nvim' " LSPInstaller
         Plug 'williamboman/mason-lspconfig.nvim' " LSPInstaller
@@ -136,7 +137,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/ddu-column-filename'
 
     " user
-    Plug '~/.vim/plugged/asvim'
-    Plug '~/.vim/plugged/inptest'
-    Plug '~/.vim/plugged/vim-auto-save'
+    " Plug '~/.vim/plugged/asvim'
+    " Plug '~/.vim/plugged/inptest'
+    " Plug '~/.vim/plugged/vim-auto-save'
 call plug#end()

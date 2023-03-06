@@ -42,9 +42,9 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/vim-jp/vimdoc-ja " vimのhelpの日本語化
 * https://github.com/vim-skk/skkeleton " 日本語入力
 * https://github.com/thinca/vim-scouter
-* https://github.com/skanehira/preview-markdown.vim " markdown preview without browser
 * https://github.com/junegunn/fzf.vim " needed for previews
-* https://github.com/vim-denops/denops.vim          
+* https://github.com/vim-denops/denops.vim
+* https://github.com/flow6852/dps-taskrunner
 * https://github.com/rust-lang/rust.vim
 * https://github.com/LumaKernel/coqpit.vim
 * https://github.com/qnighy/satysfi.vim

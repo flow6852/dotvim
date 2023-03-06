@@ -2,25 +2,13 @@ let g:allDdcSources = ['around', 'rg', 'buffer', 'file', 'path', 'input', 'cmdli
 
 let s:grepColSize = 40
 let s:grepRowSize = 15
-call ddu#custom#patch_local('select-sources', {
-    \   'ui': 'ff',
-    \   'uiParams': {
-    \     'ff': {
-    \       'split': 'floating', 
-    \       'startFilter': v:false,
-    \       'highlights': {'selected': 'Statement'},
-    \       'winCol': &columns/4,
-    \       'winWidth': &columns/2,
-    \       'winRow': &lines/4,
-    \       'winHeight': &lines/2,
-    \       }
-    \   },
+call ddu#custom#patch_local('select-sources', extend(g:ddu_ui_vertical_cfg, {
     \   'kindOptions': {
     \     'custom-list': {
     \       'defaultAction': 'callback',
     \     },
     \   }
-    \ })
+    \ }))
 
 function s:elem(lst, val) abort
     let isElm = v:false

@@ -30,7 +30,7 @@ function! CommandlinePre() abort
 
         call ddc#custom#patch_buffer('sourceOptions' , { 'cmdline-history': { 'mark' : '[cmdline-history]', 'minAutoCompleteLength': 0 }})
         call ddc#custom#patch_buffer('sourceOptions' , { 'cmdline': { 'mark' : '[cmdline]', 'minAutoCompleteLength': 0, 'maxItems': '5000' }})
-        call ddc#custom#patch_buffer('sourceOptions' , { 'file': { 'mark' : '[file]', 'isVolatile': v:true, 'minAutoCompleteLength': 0, 'forceCompletionPattern': '\S/\S*' }})
+        call ddc#custom#patch_buffer('sourceOptions' , { 'file': { 'mark' : '[file]', 'isVolatile': v:true, 'minAutoCompleteLength': 0, 'forceCompletionPattern': '\S/\S*'}})
         call ddc#custom#patch_buffer('sourceOptions' , { 'input': { 'mark' : '[input]' }})
         call ddc#custom#patch_buffer('sourceOptions' , { 'line': { 'mark' : '[line]' }})
         call ddc#custom#patch_buffer('sourceParams' , {'cmdline-history': {'maxSize': 10}} )
