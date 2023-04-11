@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Vimdirs=("filetype.vim" "ftplugin" "snippets" "vsnip" "available" "enable-nvim" "enable-vim")
+Vimdirs=("filetype.vim" "ftplugin" "snippets" "vsnip" "available" "enable-nvim" "enable-vim" "enable-win" "enable-nwin")
 Homedirs=("vimrc")
 Nvimdirs=("init.vim")
 OtherDirs=("")
