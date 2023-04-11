@@ -1,4 +1,4 @@
-call ddu#custom#patch_local('qf', g:ddu_ui_horizontal_cfg)
+call ddu#custom#patch_local('qf', Ddu_custom_cfg('floating', 'horizontal', v:true))
 
 function! MergeQf() abort
     let conf = {'title':'ddu-qf', 'sources': [ {'what': {'title': 'Diagnostics'}, 'format': '%T|%t', 'isSubst': v:true, 'dup': v:false, 'loc': -1},
@@ -28,7 +28,8 @@ nmap <silent> ;q <Cmd>call ddu#start({
     \                  }
     \       }]})<CR>
 
-nmap <silent> ;v <Cmd> call ddu#start({'name': 'qf', 'sources': [
+nmap <silent> ;v <Cmd> call ddu#start({
+            \ 'name': 'qf', 'sources': [
             \ {'name': 'qf', 
             \ 'params': {'what': {'title': ':vimgrep'},
             \            'isSubst': v:true,

@@ -7,13 +7,7 @@
 let s:grepColSize = 10
 let s:grepRowSize = 5
 
-call ddu#custom#patch_local('grep', extend(g:ddu_ui_vertical_cfg, {
-    \   'sourceParams' : {
-    \     'rg' : {
-    \       'args': ['--column', '--no-heading', '--json', '--follow'],
-    \     },
-    \   }
-    \ }))
+call ddu#custom#patch_local('grep', Ddu_custom_cfg('floating', 'horizontal', v:true))
 
 " keymapping
 autocmd FileType ddu-ff call s:ddu_my_settings()
@@ -52,6 +46,6 @@ endfunction
 nmap <silent> ;g <Cmd>call ddu#start({
 \   'name': 'grep',
 \   'sources':[
-\     {'name': 'rg', 'params': {'input': expand('<cword>'), 'path':expand('.'), 'highlights': 'Search'}}
+\     {'name': 'rg', 'params': {'input': expand('<cword>'), 'path':expand('.'), 'highlights': 'Search', 'args': ['--column', '--no-heading', '--json', '--follow']}}
 \   ],
 \ })<CR>

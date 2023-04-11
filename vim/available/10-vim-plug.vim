@@ -5,7 +5,15 @@ call plug#begin('~/.vim/plugged')
     Plug 'thinca/vim-scouter'
 
     Plug 'junegunn/fzf.vim' " needed for previews
+
+    """""""""""""""""""""""""""""
+    "                           "
+    "          denops           "
+    "                           "
+    """""""""""""""""""""""""""""
     Plug 'vim-denops/denops.vim'
+    Plug 'flow6852/dps-mergeqf'
+    " Plug '~/Programs/dps-mergeqf'
     Plug 'flow6852/dps-taskrunner'
     " Plug '~/Programs/dps-taskrunner'
 
@@ -116,10 +124,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/ddu-source-register'
     Plug 'mikanIchinose/ddu-source-markdown'
     Plug 'liquidz/ddu-source-custom-list'
-    Plug 'flow6852/dps-mergeqf'
     Plug 'flow6852/ddu-source-qf'
-    " Plug '~/Programs/dps-mergeqf'
     " Plug '~/Programs/ddu-source-qf'
+    Plug 'flow6852/ddu-source-url'
+    " Plug '~/Programs/ddu-source-url'
+    Plug '~/Programs/ddu-source-vim_variable'
 
     """"""""""""""""""""""""""""
     "         ddu filter       "
@@ -134,5 +143,11 @@ call plug#begin('~/.vim/plugged')
     "         ddu kind         "
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-kind-file'
+    Plug '4513ECHO/ddu-kind-url'
+    Plug '~/Programs/ddu-kind-vim_variable'
+
     Plug 'Shougo/ddu-column-filename'
+
+    " for atcoder
+    Plug '~/Programs/dps-atcoder-facilitator'
 call plug#end()

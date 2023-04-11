@@ -43,3 +43,5 @@ if(has('nvim'))
         endif
     endfunction
 endif
+
+let g:ddu_kind_url_responce = [{}]

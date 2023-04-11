@@ -44,6 +44,7 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/thinca/vim-scouter
 * https://github.com/junegunn/fzf.vim " needed for previews
 * https://github.com/vim-denops/denops.vim
+* https://github.com/flow6852/dps-mergeqf
 * https://github.com/flow6852/dps-taskrunner
 * https://github.com/rust-lang/rust.vim
 * https://github.com/LumaKernel/coqpit.vim
@@ -91,11 +92,15 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/Shougo/ddu-source-register
 * https://github.com/mikanIchinose/ddu-source-markdown
 * https://github.com/liquidz/ddu-source-custom-list
-* https://github.com/flow6852/dps-mergeqf
 * https://github.com/flow6852/ddu-source-qf
+* https://github.com/flow6852/ddu-source-url
+* https://github.com/~/Programs/ddu-source-vim_variable
 * https://github.com/Shougo/ddu-filter-matcher_substring
 * https://github.com/Shougo/ddu-filter-matcher_relative
 * https://github.com/Shougo/ddu-filter-converter_display_word
 * https://github.com/yuki-yano/ddu-filter-fzf
 * https://github.com/Shougo/ddu-kind-file
+* https://github.com/4513ECHO/ddu-kind-url
+* https://github.com/~/Programs/ddu-kind-vim_variable
 * https://github.com/Shougo/ddu-column-filename
+* https://github.com/~/Programs/dps-atcoder-facilitator

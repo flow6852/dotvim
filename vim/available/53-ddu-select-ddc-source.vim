@@ -2,7 +2,7 @@ let g:allDdcSources = ['around', 'rg', 'buffer', 'file', 'path', 'input', 'cmdli
 
 let s:grepColSize = 40
 let s:grepRowSize = 15
-call ddu#custom#patch_local('select-sources', extend(g:ddu_ui_vertical_cfg, {
+call ddu#custom#patch_local('select-sources', extend(Ddu_custom_cfg('vertical', 'vertical', v:false), {
     \   'kindOptions': {
     \     'custom-list': {
     \       'defaultAction': 'callback',
