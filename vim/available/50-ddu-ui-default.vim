@@ -74,6 +74,9 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> p
     \ <Cmd>call ddu#ui#do_action('preview')<CR>
 
+  nnoremap <buffer><silent> h
+    \ <Cmd>call ddu#ui#do_action('preview', {'kind': 'help'})<CR>
+
   nnoremap <buffer><silent> <Space>
     \ <Cmd>call ddu#ui#do_action('toggleSelectItem')<CR>
 
