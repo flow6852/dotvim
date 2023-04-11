@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Vimdirs=("filetype.vim" "ftplugin" "snippets" "vsnip" "available" "enable-nvim" "enable-vim" "enable-win" "enable-nwin")
+Vimdirs=("filetype.vim" "ftplugin" "snippets" "vsnip" "available")
 Homedirs=("vimrc")
 Nvimdirs=("init.vim")
 OtherDirs=("")
@@ -40,4 +40,4 @@ done
 echo cp README.tmp README.md
 cp README.tmp README.md
 
-grep 'Plug' vim/available/10-vim-plug.vim | grep -v '" Plug' | sed "s/\( \)*Plug\( \)*'\([^']*\)'/\* https:\/\/github.com\/\3/g" >> README.md
+grep 'Plug' vim/available/10-vim-plug-unix.vim | grep -v '" Plug' | sed "s/\( \)*Plug\( \)*'\([^']*\)'/\* https:\/\/github.com\/\3/g" >> README.md

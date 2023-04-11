@@ -1,1 +1,0 @@
-../available/25-vsnip.vim

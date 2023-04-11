@@ -1,1 +1,0 @@
-../available/30-vimtex.vim

@@ -4,26 +4,23 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-skk/skkeleton' " 日本語入力
     Plug 'thinca/vim-scouter'
 
-    Plug 'skanehira/preview-markdown.vim' " markdown preview without browser
-    let g:preview_markdown_auto_update = "1"
-    let g:preview_markdown_parser = "mdr"
-         
-    Plug 'junegunn/fzf.vim' " needed for previews
-    Plug 'vim-denops/denops.vim'          
+    """""""""""""""""""""""""""""
+    "                           "
+    "          denops           "
+    "                           "
+    """""""""""""""""""""""""""""
+    Plug 'vim-denops/denops.vim'
+    Plug 'flow6852/dps-mergeqf'
+    Plug 'flow6852/dps-taskrunner'
 
     """""""""""""""""""""""""
     "                       "
     "          LSP          "
     "                       "
     """""""""""""""""""""""""
-    Plug 'rust-lang/rust.vim'
-    Plug 'LumaKernel/coqpit.vim'
-    Plug 'qnighy/satysfi.vim'
-    Plug 'lervag/vimtex' " for tex
     if has('nvim')
         Plug 'williamboman/mason.nvim' " LSPInstaller
         Plug 'williamboman/mason-lspconfig.nvim' " LSPInstaller
-        " Plug 'williamboman/nvim-lsp-installer'
         Plug 'neovim/nvim-lspconfig' " neovim's lspconfig'
         Plug 'Shougo/ddc-nvim-lsp' " lsp completion
     else
@@ -54,7 +51,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/ddc-source-omni' " オムニ補完
     Plug 'Shougo/ddc-source-line' "ライン
     Plug 'Shougo/ddc-source-input' "input()
-    Plug 'Shougo/ddc-source-rg' "ripgrep補完
 
     Plug 'matsui54/denops-popup-preview.vim' " popup preview
     Plug 'matsui54/denops-signature_help' " restrict preview popup preview
@@ -116,6 +112,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'mikanIchinose/ddu-source-markdown'
     Plug 'liquidz/ddu-source-custom-list'
     Plug 'flow6852/ddu-source-qf'
+    Plug 'flow6852/ddu-source-url'
 
     """"""""""""""""""""""""""""
     "         ddu filter       "
@@ -130,10 +127,8 @@ call plug#begin('~/.vim/plugged')
     "         ddu kind         "
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-kind-file'
-    Plug 'Shougo/ddu-column-filename'
+    Plug '4513ECHO/ddu-kind-url'
+    Plug '~/Programs/ddu-kind-vim_variable'
 
-    " user
-    Plug '~/.vim/plugged/asvim'
-    Plug '~/.vim/plugged/inptest'
-    Plug '~/.vim/plugged/vim-auto-save'
+    Plug 'Shougo/ddu-column-filename'
 call plug#end()
