@@ -36,4 +36,11 @@ nmap <silent> ;a <Cmd> call ddu#start({'name': 'atcoder_facilitator', 'sources':
 nmap <silent> ;s <Cmd> call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'options':{'matchers': ['matcher_substring']}}]})<CR>
 
 call ddu#custom#patch_local('vim_variable', cfg)
-nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_variable', 'sources': [{'name': 'vim_variable', 'params': {'type': 'var', 'bufnr': bufnr('%')}}]})<CR>
+nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_variable', 'sources': [
+    \ {'name': 'vim_variable', 'params': {'bufnr': bufnr('%')}},
+    \ {'name': 'vim_option', 'params': {'bufnr': bufnr('%')}},
+    \ {'name': 'vim_function', 'params': {'bufnr': bufnr('%')}},
+    \ {'name': 'vim_command', 'params': {'bufnr': bufnr('%')}},
+    \ {'name': 'vim_autocmd', 'params': {'bufnr': bufnr('%')}}]})<CR>
+" nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_variable', 'sources': [
+"     \ {'name': 'vim_function', 'params': {'bufnr': bufnr('%')}}]})<CR>

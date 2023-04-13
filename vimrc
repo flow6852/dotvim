@@ -27,7 +27,7 @@ let g:enableConfigFiles = [
     \ "00-prefuncs.vim", "01-terminal.vim",
     \ "11-global-vars.vim",
     \ "40-ddc.vim", "42-ddc-vsnip.vim", "43-ddc-cmdline.vim", "44-ddc-skkeleton.vim",
-    \ "50-ddu-ui-default.vim", "51-ddu-filer.vim", "52-ddu-grep.vim", "53-ddu-select-ddc-source.vim", "54-ddc-quickfix.vim", "55-ddu-url.vim",
+    \ "50-ddu-ui-default.vim", "51-ddu-filer.vim", "52-ddu-grep.vim", "53-ddu-select-ddc-source.vim", "54-ddu-quickfix.vim", "55-ddu-url.vim",
     \ "90-keymapping.vim", "91-autocmd.vim"]
 
 

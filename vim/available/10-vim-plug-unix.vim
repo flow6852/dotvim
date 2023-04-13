@@ -129,6 +129,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'flow6852/ddu-source-url'
     " Plug '~/Programs/ddu-source-url'
     Plug '~/Programs/ddu-source-vim_variable'
+    Plug '~/Programs/ddu-source-vim_option'
+    Plug '~/Programs/ddu-source-vim_function'
+    Plug '~/Programs/ddu-source-vim_autocmd'
+    Plug '~/Programs/ddu-source-vim_command'
 
     """"""""""""""""""""""""""""
     "         ddu filter       "
@@ -144,8 +148,7 @@ call plug#begin('~/.vim/plugged')
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-kind-file'
     Plug '4513ECHO/ddu-kind-url'
-    Plug '~/Programs/ddu-kind-vim_variable'
-
+    Plug '~/Programs/ddu-kind-vim_type'
     Plug 'Shougo/ddu-column-filename'
 
     " for atcoder
