@@ -1,11 +1,8 @@
 inoremap }e <Plug>(skkeleton-enable)
-inoremap }d <Plug>(skkeleton-disable)
 inoremap }t <Plug>(skkeleton-toggle)
 cnoremap }e <Plug>(skkeleton-enable)
-cnoremap }d <Plug>(skkeleton-disable)
 cnoremap }t <Plug>(skkeleton-toggle)
 tnoremap }e <Plug>(skkeleton-enable)
-tnoremap }d <Plug>(skkeleton-disable)
 tnoremap }t <Plug>(skkeleton-toggle)
 
 function! s:skkeleton_init() abort
@@ -25,12 +22,12 @@ function! s:skkeleton_init() abort
        \ 'lo' : ['ぉ'],
        \ 'ltu' : ['っ'],
        \ "z\<Space>": ["\u3000", ''],
+       \ "}d" : "disable",
+       \ "}k" : "katakana"
        \ })
  
      call add(g:skkeleton#mapped_keys, '<S-l>')
      call skkeleton#register_keymap('input', '<S-l>', v:false)
- 
-     call add(g:skkeleton#mapped_keys, '}t')
      call skkeleton#register_keymap('input', 'kt', 'katakana')
 endfunction
 

@@ -41,6 +41,4 @@ nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_variable', 'sources': [
     \ {'name': 'vim_option', 'params': {'bufnr': bufnr('%')}},
     \ {'name': 'vim_function', 'params': {'bufnr': bufnr('%')}},
     \ {'name': 'vim_command', 'params': {'bufnr': bufnr('%')}},
-    \ {'name': 'vim_autocmd', 'params': {'bufnr': bufnr('%')}}]})<CR>
-" nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_variable', 'sources': [
-"     \ {'name': 'vim_function', 'params': {'bufnr': bufnr('%')}}]})<CR>
+    \ {'name': 'vim_event', 'params': {'bufnr': bufnr('%')}}]})<CR>

@@ -68,36 +68,36 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> <CR>
     \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'open'})<CR>
 
-  nnoremap <buffer><silent> i
+  nnoremap <buffer><silent> ;i
     \ <Cmd>call ddu#ui#do_action('openFilterWindow')<CR>
 
-  nnoremap <buffer><silent> p
+  nnoremap <buffer><silent> ;p
     \ <Cmd>call ddu#ui#do_action('preview')<CR>
 
-  nnoremap <buffer><silent> h
-    \ <Cmd>call ddu#ui#do_action('preview', {'kind': 'help'})<CR>
+  nnoremap <buffer><silent> ;h
+    \ <Cmd>call ddu#ui#multi_actions()
 
-  nnoremap <buffer><silent> <Space>
+  nnoremap <buffer><silent> ;<Space>
     \ <Cmd>call ddu#ui#do_action('toggleSelectItem')<CR>
 
   nnoremap <buffer><silent> <Esc>
     \ <Cmd>call ddu#ui#do_action('quit')<CR>
 
   " GET
-  nnoremap <buffer><silent> g
+  nnoremap <buffer><silent> ;g
     \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'fetchUnstable', 'params': {'showHeader': v:true}})<CR>
 
   " submit
-  nnoremap <buffer><silent> s
+  nnoremap <buffer><silent> ;s
     \ <Cmd>call StatusAfterSubmit(v:true)<CR>
 
-  nnoremap <buffer><silent> t
+  nnoremap <buffer><silent> ;t
     \ <Cmd>call ddu#ui#multi_actions([['itemAction', {'name': 'runTests', 'params': {'actionFlag': 'Persist'}}], ['preview', {'kind': 'runTests'}]])<CR>
 
-  nnoremap <buffer><silent> r
+  nnoremap <buffer><silent> ;r
     \ <Cmd>call ddu#redraw(expand('%'))<CR>
 
-  nnoremap <buffer><silent> v
+  nnoremap <buffer><silent> ;v
     \ <Cmd>call ddu#ui#do_action('getItem')<CR>
 endfunction
 
