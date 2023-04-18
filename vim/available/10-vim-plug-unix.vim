@@ -113,6 +113,7 @@ call plug#begin('~/.vim/plugged')
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-source-file'
     Plug 'Shougo/ddu-source-file_rec'
+    " Plug 'flow6852/ddu-source-file_rec'
     Plug 'Shougo/ddu-source-buffer'
     Plug 'Shougo/ddu-source-rg'
     Plug 'Shougo/ddu-source-line'
@@ -122,6 +123,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'liquidz/ddu-source-custom-list'
     Plug 'flow6852/ddu-source-qf'
     Plug 'flow6852/ddu-source-url'
+    Plug 'flow6852/ddu-source-vim_variable'
+    Plug 'flow6852/ddu-source-vim_option'
+    Plug 'flow6852/ddu-source-vim_function'
+    Plug 'flow6852/ddu-source-vim_event'
+    Plug 'flow6852/ddu-source-vim_command'
 
     """"""""""""""""""""""""""""
     "         ddu filter       "
@@ -137,9 +143,11 @@ call plug#begin('~/.vim/plugged')
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-kind-file'
     Plug '4513ECHO/ddu-kind-url'
+    Plug 'flow6852/ddu-kind-vim_type'
     Plug 'Shougo/ddu-column-filename'
 
     " for atcoder
+    Plug 'flow6852/dps-atcoder-facilitator'
 
     Plug 'kat0h/bufpreview.vim'
 call plug#end()

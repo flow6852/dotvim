@@ -99,6 +99,9 @@ function! s:ddu_my_settings() abort
 
   nnoremap <buffer><silent> ;v
     \ <Cmd>call ddu#ui#do_action('getItem')<CR>
+    
+  nnoremap <buffer><silent> <C-c>
+              \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'setcmdline'})<CR>
 endfunction
 
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
