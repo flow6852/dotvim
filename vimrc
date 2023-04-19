@@ -37,7 +37,7 @@ let g:enableConfigFiles = [
 
 if has('unix')
     let g:enableConfigFiles = extend(g:enableConfigFiles,
-            \ has('nvim') ? ["10-vim-plug-unix.vim", "25-vsnip.vim", "30-vimtex.vim", "49-ddc-vimtex.vim", "56-ddu-atcoder.vim", "60-textlint.vim"]:
+            \ has('nvim') ? ["10-vim-plug-unix.vim", "25-vsnip.vim", "30-vimtex.vim", "49-ddc-vimtex.vim", "56-ddu-atcoder.vim", "59-ddu-test.vim", "60-textlint.vim"]:
                           \ ["10-vim-plug-unix.vim", "25-vsnip.vim", "56-ddu-atcoder.vim", "60-textlint.vim"])
 else
     let g:enableConfigFiles = extend(g:enableConfigFiles, ["10-vim-plug-win.vim"])

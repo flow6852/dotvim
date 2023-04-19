@@ -112,6 +112,7 @@ call plug#begin('~/.vim/plugged')
     "         ddu source       "
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-source-file'
+    " Plug 'flow6852/ddu-source-file_rec'
     Plug 'Shougo/ddu-source-file_rec'
     " Plug 'flow6852/ddu-source-file_rec'
     Plug 'Shougo/ddu-source-buffer'

@@ -7,29 +7,43 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
 lua << EOF
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float) -- quickfix表示
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev) -- 前の指摘へのジャンプ
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next) -- 後ろの指摘へのジャンプ
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist) -- setloclist
 
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- 宣言ジャンプ
-  buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- 定義ジャンプ
-  buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts) -- ヒント表示
-  buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- 実装ジャンプ
-  buf_set_keymap("n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts) -- 引数情報
-  buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts) -- workspaceの追加
-  buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts) -- workspaceの削除
-  buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts) -- workspaceのリスト表示
-  buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts) -- 型定義へのジャンプ
-  buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts) -- リネーム
-  buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts) -- 指摘に対するアクション
-  buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts) -- 参照ジャンプ
-  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts) -- フォーマット
-  buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- 指摘の開示
-  buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts) -- 次の指摘へ進む
-  buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts) -- 前の指摘に進む
-  buf_set_keymap("n", "<space>ql", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts) -- 指摘の一覧を表示する
-  buf_set_keymap("n", "<space>qf", "<cmd>lua vim.diagnostic.setqflist()<CR>", opts) -- quickfixの一覧を表示する
-end
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts) -- 宣言ジャンプ
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- 定義ジャンプ
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- ヒント表示
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts) -- 実装ジャンプ
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts) -- 引数情報
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts) -- workspace追加
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts) -- workspace削除
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts) -- workspace list表示
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts) -- 型定義へのジャンプ
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts) -- rename
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts) -- 指摘に対するアクション
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts) -- 参照ジャンプ
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts) -- フォーマッタ
+  end,
+})
 
 local mason = require('mason')
 mason.setup()

@@ -41,3 +41,7 @@ echo cp README.tmp README.md
 cp README.tmp README.md
 
 grep 'Plug' vim/available/10-vim-plug-unix.vim | grep -v '" Plug' | sed "s/\( \)*Plug\( \)*'\([^']*\)'/\* https:\/\/github.com\/\3/g" >> README.md
+
+sed -e 's/~\/Programs\/vim-plugins/flow6852/g' -i README.md README.md
+sed -e 's/~\/Programs\/vim-plugins/flow6852/g' -i vim/available/10-vim-plug-unix.vim vim/available/10-vim-plug-unix.vim
+sed -e 's/~\/Programs\/vim-plugins/flow6852/g' -i vim/available/10-vim-plug-win.vim vim/available/10-vim-plug-win.vim
