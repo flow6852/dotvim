@@ -75,7 +75,7 @@ function! s:ddu_my_settings() abort
     \ <Cmd>call ddu#ui#do_action('preview')<CR>
 
   nnoremap <buffer><silent> ;h
-    \ <Cmd>call ddu#ui#multi_actions()
+    \ <Cmd>call DduHelpChain('help')<CR>
 
   nnoremap <buffer><silent> ;<Space>
     \ <Cmd>call ddu#ui#do_action('toggleSelectItem')<CR>
@@ -100,8 +100,11 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> ;v
     \ <Cmd>call ddu#ui#do_action('getItem')<CR>
     
+  nnoremap <buffer><silent> ;y
+    \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'yank'})<CR>
+
   nnoremap <buffer><silent> <C-c>
-              \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'setcmdline'})<CR>
+    \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'setcmdline'})<CR>
 endfunction
 
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
@@ -125,6 +128,12 @@ endfunction
 
 function DduOpenWithPreview(name, sources)
     call ddu#start({'name':a:name, 'sources' : a:sources})
+endfunction
+
+function! DduHelpChain(arg)
+    let item = ddu#ui#get_item()
+    call ddu#ui#do_action('quit')
+    call ddu#start({'name': a:arg, 'input': get(item, 'word')})
 endfunction
 
 " Mappings

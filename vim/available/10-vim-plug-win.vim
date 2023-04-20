@@ -131,7 +131,7 @@ call plug#begin('~/.vim/plugged')
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-kind-file'
     Plug '4513ECHO/ddu-kind-url'
-    Plug 'flow6852/ddu-kind-vim_variable'
+    Plug 'flow6852/ddu-kind-vim_type'
 
     Plug 'Shougo/ddu-column-filename'
 call plug#end()
