@@ -5,11 +5,19 @@ cnoremap }t <Plug>(skkeleton-toggle)
 tnoremap }e <Plug>(skkeleton-enable)
 tnoremap }t <Plug>(skkeleton-toggle)
 
+augroup skkeleton_callbacks
+  autocmd!
+  autocmd User skkeleton-initialize-pre call s:skkeleton_init()
+  autocmd User skkeleton-enable-pre call s:changeSource2Skk()
+  autocmd User skkeleton-disable-pre call s:changeSkk2Source()
+augroup END 
+
 function! s:skkeleton_init() abort
      call skkeleton#config({
        \ 'eggLikeNewline': v:false,
        \ 'globalDictionaries': ['/usr/share/skk/SKK-JISYO.L','/usr/share/skk/SKK-JISYO.S','/usr/share/skk/SKK-JISYO.M' ,'/usr/share/skk/SKK-JISYO.ML' ],
        \ 'completionRankFile': '~/.skkeleton/rank.json',
+       \ 'userJisyo': '~/.skkeleton/jisyo.json',
        \ 'registerConvertResult': v:true,
        \ 'showCandidatesCount': 1,
        \ })
@@ -67,9 +75,4 @@ function! s:changeSkk2Source() abort
     call pum#set_option('auto_select', v:true)
 endfunction
 
-augroup skkeleton_callbacks
-  autocmd!
-  autocmd User skkeleton-initialize-pre call s:skkeleton_init()
-  autocmd User skkeleton-enable-pre call s:changeSource2Skk()
-  autocmd User skkeleton-disable-pre call s:changeSkk2Source()
-augroup END 
+

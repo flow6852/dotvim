@@ -17,3 +17,4 @@ if Global_is_plugged('vimtex')
           \ 'nvim-lsp': { 'kindLabels': { 'Class': '[Class]' } },
           \ })
 endif
+" \ 'keywordPattern' : '[a-zA-Z_@\\\{\}*]*',
