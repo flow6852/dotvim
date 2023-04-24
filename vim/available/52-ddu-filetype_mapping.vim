@@ -71,12 +71,16 @@ function! s:ddu_filter_my_settings() abort
 endfunction
 
 function! StatusAfterSubmit(arg) abort
-    call ddu#ui#multi_actions([['getItem'], ['itemAction', {'name': 'submit', 'params': {'actionFlag': 'Persist'}}]])
+    call ddu#ui#sync_action('itemAction', {'name': 'submit', 'params': {'actionFlag': 'Persist'}})
+    call ddu#ui#sync_action('getItem')
+    let l:item = b:ddu_ui_item
+    call ddu#event('atcoder_facilitator', "close")
+    echom l:item
     if a:arg
-        call ddu#start({'name': 'atcoder_facilitator', 'sources': [{'name': 'atcoder_status', 'options':{'matchers': ['matcher_substring']}}]})
-        call atcoder_facilitator#statusAfterSubmit(get(get(b:ddu_ui_item, "action"), "qdict"), a:arg)
+        call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status'}]})
+        call atcoder_facilitator#statusAfterSubmit(get(get(l:item, "action"), "qdict"), a:arg)
     else
-        call atcoder_facilitator#statusAfterSubmit(get(get(b:ddu_ui_item, "action"), "qdict"), a:arg)
+        call atcoder_facilitator#statusAfterSubmit(get(get(l:item, "action"), "qdict"), a:arg)
     endif
 endfunction
 
@@ -85,9 +89,9 @@ function DduOpenWithPreview(name, sources)
 endfunction
 
 function! DduHelpChain(arg)
-    let item = ddu#ui#get_item()
+    let l:item = ddu#ui#get_item()
     call ddu#ui#do_action('quit')
-    call ddu#start({'name': a:arg, 'input': get(item, 'word')})
+    call ddu#start({'name': a:arg, 'input': get(l:item, 'word')})
 endfunction
 
 " Mappings

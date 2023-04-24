@@ -15,7 +15,8 @@ augroup END
 function! s:skkeleton_init() abort
      call skkeleton#config({
        \ 'eggLikeNewline': v:false,
-       \ 'globalDictionaries': ['/usr/share/skk/SKK-JISYO.L','/usr/share/skk/SKK-JISYO.S','/usr/share/skk/SKK-JISYO.M' ,'/usr/share/skk/SKK-JISYO.ML' ],
+       \ 'globalDictionaries': has('unix') ? ['/usr/share/skk/SKK-JISYO.L','/usr/share/skk/SKK-JISYO.S','/usr/share/skk/SKK-JISYO.M' ,'/usr/share/skk/SKK-JISYO.ML' ] 
+       \                                   : ['~/.skk/SKK-JISYO.L','~/.skk/SKK-JISYO.S','~/.skk/SKK-JISYO.M' ,'~/.skk/SKK-JISYO.ML' ],
        \ 'completionRankFile': '~/.skkeleton/rank.json',
        \ 'userJisyo': '~/.skkeleton/jisyo.json',
        \ 'registerConvertResult': v:true,
@@ -44,10 +45,14 @@ function! s:changeSource2Skk() abort
         let s:bef_buffer = ddc#custom#get_current()
     endif
 
-    let s:skkSource = ['skkeleton', 'around', 'rg']
+    let s:skkSources = ['skkeleton', 'around']
+
+    if executable('rg') 
+        let s:skkSources = add(s:skkSources, 'rg')
+    endif
     
     call ddc#custom#set_buffer({
-        \ 'sources': s:skkSource,
+        \ 'sources': s:skkSources,
         \ 'ui': g:ui,
         \ 'sourceOptions': {
         \   'skkeleton': {
