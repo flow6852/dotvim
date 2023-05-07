@@ -45,8 +45,8 @@ nmap <silent> ;v <Cmd> call ddu#start({
             \            'nr': 0,
             \            'dup': v:true}}]})<CR>
 nmap <silent> ;u <Cmd> call ddu#start({'name': 'url', 'sources': [{'name': 'url', 'params':{'ignoredDirectories': '.git'}}]})<CR>
-nmap <silent> ;a <Cmd> call ddu#start({'name': 'atcoder_facilitator', 'sources': [{'name': 'atcoder_facilitator', 'options':{'matchers': ['matcher_substring']}}]})<CR>
-nmap <silent> ;s <Cmd> call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'options':{'matchers': ['matcher_substring']}}]})<CR>
+nmap <silent> ;a <Cmd> call ddu#start({'name': 'atcoder_facilitator', 'sources': [{'name': 'atcoder_facilitator', 'params':{'bufnr': bufnr("%")}}]})<CR>
+nmap <silent> ;s <Cmd> call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'params':{'bufnr': bufnr("%")}}]})<CR>
 nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_variable', 'sources': [
     \ {'name': 'vim_variable', 'params': {'bufnr': bufnr('%')}},
     \ {'name': 'vim_option', 'params': {'bufnr': bufnr('%')}},

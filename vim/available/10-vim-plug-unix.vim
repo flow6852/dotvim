@@ -137,6 +137,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/ddu-filter-matcher_relative'
     Plug 'Shougo/ddu-filter-converter_display_word'
     Plug 'yuki-yano/ddu-filter-fzf'
+    Plug 'matsui54/ddu-filter-fzy'
 
 
     """"""""""""""""""""""""""""

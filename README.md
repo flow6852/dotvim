@@ -103,6 +103,7 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/Shougo/ddu-filter-matcher_relative
 * https://github.com/Shougo/ddu-filter-converter_display_word
 * https://github.com/yuki-yano/ddu-filter-fzf
+* https://github.com/matsui54/ddu-filter-fzy
 * https://github.com/Shougo/ddu-kind-file
 * https://github.com/4513ECHO/ddu-kind-url
 * https://github.com/flow6852/ddu-kind-vim_type

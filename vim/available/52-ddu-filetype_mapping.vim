@@ -63,24 +63,36 @@ function! s:ddu_my_settings() abort
 endfunction
 
 function! s:ddu_filter_my_settings() abort
-  inoremap <buffer><silent> <CR> <Esc><Cmd>close<CR>
-  inoremap <buffer><silent> <Esc> <Esc><Cmd>close<CR>
-
-  nnoremap <buffer><silent> <CR> <Cmd>close<CR>
-  nnoremap <buffer><silent> <Esc> <Cmd>close<CR>
+  inoremap <buffer> <CR>
+        \ <Esc><Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
+  inoremap <buffer> <ESC>
+        \ <Esc><Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
+  nnoremap <buffer> <CR>
+        \ <Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
+  nnoremap <buffer> <ESC>
+        \ <Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
 endfunction
 
 function! StatusAfterSubmit(arg) abort
-    call ddu#ui#sync_action('itemAction', {'name': 'submit', 'params': {'actionFlag': 'Persist'}})
-    call ddu#ui#sync_action('getItem')
+    call ddu#ui#multi_actions([['itemAction', {'name': 'submit', 'params': {'actionFlag': 'Persist'}}], ['refreshItems'], ['getItem']])
     let l:item = b:ddu_ui_item
-    call ddu#event('atcoder_facilitator', "close")
-    echom l:item
+    call ddu#ui#do_action('quit')
     if a:arg
-        call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status'}]})
-        call atcoder_facilitator#statusAfterSubmit(get(get(l:item, "action"), "qdict"), a:arg)
+        call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'params': {'bufnr': get(get(l:item, "action"), "bufnr")}}]})
+        " call atcoder_facilitator#statusAfterSubmit(get(get(l:item, "action"), "qdict"), a:arg, 'atcoder_status')
+        " let l:item = ddu#ui#get_item()
+        " echom l:item
+        " echom get(l:item, "word")
+        " echom match(get(l:item, "word"), "WJ")
+        " echom match(get(l:item, "word"), "/")
+        " while match(get(l:item, "word"), "WJ") > 0 || match(get(l:item, "word"), "/") > 0
+        "     echom "redraw"
+        "     call ddu#redraw('atcoder_status', {'refreshItems': v:true})
+        "     execute "3sleep"
+        "     let item = ddu#ui#get_item()
+        " endwhile
     else
-        call atcoder_facilitator#statusAfterSubmit(get(get(l:item, "action"), "qdict"), a:arg)
+        echo atcoder_facilitator#statusAfterSubmit(get(get(l:item, "action"), "qdict"), a:arg, 'atcoder_status')
     endif
 endfunction
 

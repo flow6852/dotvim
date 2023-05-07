@@ -49,8 +49,8 @@ let format='%T|%p|%y|%t'
 " horizontal -> 3*&lines/8
 " call Ddu_custom_cfg(split, width, height, isPreview, previewSplit, prevWidth, prevHeight)
 call ddu#custom#patch_local('filer', Ddu_custom_cfg('floating', 15, 6*&lines/8, v:true, 'vertical',6*&columns/8-15, 6*&lines/8))
-call ddu#custom#patch_local('grep', Ddu_custom_cfg('floating', 6*&columns/8, 3*&lines/8, v:true, 'vertical', 6*&columns/8, 3*&lines/8))
-call ddu#custom#patch_local('qf', Ddu_custom_cfg('floating',  6*&columns/8, 3*&lines/8, v:true, 'vertical', 6*&columns/8, 3*&lines/8))
+call ddu#custom#patch_local('grep', Ddu_custom_cfg('floating', 6*&columns/8, 3*&lines/8, v:true, 'horizontal', 6*&columns/8, 3*&lines/8))
+call ddu#custom#patch_local('qf', Ddu_custom_cfg('floating',  6*&columns/8, 3*&lines/8, v:true, 'horizontal', 6*&columns/8, 3*&lines/8))
 call ddu#custom#patch_local('vim_variable', Ddu_custom_cfg('floating',  3*&columns/4, 10, v:true, 'horizontal', 3*&columns/8, 3*&lines/4 - 10))
 call ddu#custom#patch_local('atcoder_facilitator', Ddu_custom_cfg('floating',  3*&columns/4, 10, v:true, 'horizontal', 3*&columns/8, 3*&lines/4 - 10))
 call ddu#custom#patch_local('atcoder_status', Ddu_custom_cfg('floating',  3*&columns/4, 10, v:true, 'horizontal', 3*&columns/8, 3*&lines/4 - 10))

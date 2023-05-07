@@ -57,6 +57,8 @@ mason_lspconfig.setup_handlers({ function(server_name)
     nvim_lsp[server_name].setup{on_attach = on_attach, capabilities = capabilities}
 end })
 
+require'lspconfig'.denols.setup{}
+
 -- local lsp_installer = require("nvim-lsp-installer")
 -- lsp_installer.on_server_ready(function(server)
 --     local opts = {}
