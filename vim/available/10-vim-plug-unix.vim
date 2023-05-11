@@ -124,6 +124,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'liquidz/ddu-source-custom-list'
     Plug 'flow6852/ddu-source-qf'
     Plug 'flow6852/ddu-source-url'
+    Plug 'kamecha/ddu-source-window'
     Plug 'flow6852/ddu-source-vim_variable'
     Plug 'flow6852/ddu-source-vim_option'
     Plug 'flow6852/ddu-source-vim_function'

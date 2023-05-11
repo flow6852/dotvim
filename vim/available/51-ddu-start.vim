@@ -62,6 +62,7 @@ nmap <silent> ;c <Cmd> call ddu#start({'name': 'select-sources','sources': [
     \     },
     \   }}) <CR>
 inoremap <C-l><Cmd>call ddu#start({'name': 'ddc'})<CR>
+nnoremap <silent> ;w <Cmd>call ddu#start({'name': 'window'})<CR>
 cmap <silent> <C-h> <Cmd>call DduKindVim_typeSetcmdline()<CR>
 
 " ddu-source-custom

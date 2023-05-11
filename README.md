@@ -94,6 +94,7 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/liquidz/ddu-source-custom-list
 * https://github.com/flow6852/ddu-source-qf
 * https://github.com/flow6852/ddu-source-url
+* https://github.com/kamecha/ddu-source-window
 * https://github.com/flow6852/ddu-source-vim_variable
 * https://github.com/flow6852/ddu-source-vim_option
 * https://github.com/flow6852/ddu-source-vim_function

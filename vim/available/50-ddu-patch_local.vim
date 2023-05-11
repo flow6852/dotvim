@@ -77,3 +77,4 @@ call ddu#custom#patch_local('ddc', #{
 \ })
 call ddu#custom#patch_local('url', Ddu_custom_cfg('floating',  3*&columns/4, 10, v:true, 'horizontal', 3*&columns/8, 3*&lines/4 - 10))
 call ddu#custom#patch_local('help', extend(Ddu_custom_cfg('floating',  3*&columns/4, 10, v:true, 'horizontal', 3*&columns/8, 3*&lines/4 - 10), {'sources': [{'name': 'help'}]}))
+call ddu#custom#patch_local('window', extend(Ddu_custom_cfg('floating', 15, 6*&lines/8, v:true, 'vertical',6*&columns/8-15, 6*&lines/8), {'sources': [{'name': 'window'}]}))

@@ -116,6 +116,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'flow6852/ddu-source-vim_function'
     Plug 'flow6852/ddu-source-vim_event'
     Plug 'flow6852/ddu-source-vim_command'
+    Plug 'kamecha/ddu-source-window'
 
     """"""""""""""""""""""""""""
     "         ddu filter       "

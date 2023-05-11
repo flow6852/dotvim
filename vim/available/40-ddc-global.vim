@@ -64,6 +64,8 @@ call ddc#custom#patch_global('filterParams', {
   \   'matcher_editdistance': {'showScore': v:true, 'diffLen': 0, 'limit': 100},
   \ })
 
+call ddc#custom#patch_filetype(['java'], 'keywordPattern', '[a-zA-Z_@\\\{\}*<>]*')
+
 autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
          
 
