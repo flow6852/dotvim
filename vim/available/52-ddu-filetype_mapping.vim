@@ -34,10 +34,10 @@ function! s:ddu_my_settings() abort
       \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'yank'})<CR>
   elseif b:ddu_ui_name == "grep"
   elseif b:ddu_ui_name == "qf"
-  elseif b:ddu_ui_name == "vim_variable"
+  elseif b:ddu_ui_name == "vim_type"
     " file
     nnoremap <buffer><silent> ;h
-      \ <Cmd>call DduHelpChain('help')<CR>
+      \ <Cmd>call DduChain('help')<CR>
 
     nnoremap <buffer><silent> <C-c>
       \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'setcmdline'})<CR>
@@ -59,6 +59,8 @@ function! s:ddu_my_settings() abort
     nnoremap <buffer><silent> g
       \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'fetchUnstable', 'params': {'showHeader': v:true}})<CR>
   elseif b:ddu_ui_name == "help"
+    nnoremap <buffer><silent> ;h
+      \ <Cmd>call DduChain('vim_type')<CR>
   endif
 endfunction
 
@@ -100,10 +102,14 @@ function DduOpenWithPreview(name, sources)
     call ddu#start({'name':a:name, 'sources' : a:sources})
 endfunction
 
-function! DduHelpChain(arg)
+function! DduChain(arg)
     let l:item = ddu#ui#get_item()
-    call ddu#ui#do_action('quit')
-    call ddu#start({'name': a:arg, 'input': get(l:item, 'word')})
+    call ddu#ui#sync_action('quit')
+    let l:word = get(l:item, 'word')
+    if get(l:item, '__sourceName') == 'help' && match(l:word, ":") == 0
+        let l:word = l:word[1:len(l:word)]
+    endif
+    call ddu#start({'name': a:arg, 'input': l:word})
 endfunction
 
 " Mappings

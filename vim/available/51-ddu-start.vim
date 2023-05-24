@@ -2,7 +2,7 @@ function DduKindVim_typeSetcmdline()
     let getcmdline = getcmdline()
     let getcmdpos = getcmdpos()
     call feedkeys("\<Esc>", 't')
-    call ddu#start({'name': 'vim_variable', 'sources': [
+    call ddu#start({'name': 'vim_type', 'sources': [
         \ {'name': 'vim_variable', 'params': {'bufnr': bufnr('%')}},
         \ {'name': 'vim_option', 'params': {'bufnr': bufnr('%')}},
         \ {'name': 'vim_function', 'params': {'bufnr': bufnr('%')}},
@@ -47,12 +47,7 @@ nmap <silent> ;v <Cmd> call ddu#start({
 nmap <silent> ;u <Cmd> call ddu#start({'name': 'url', 'sources': [{'name': 'url', 'params':{'ignoredDirectories': '.git'}}]})<CR>
 nmap <silent> ;a <Cmd> call ddu#start({'name': 'atcoder_facilitator', 'sources': [{'name': 'atcoder_facilitator', 'params':{'bufnr': bufnr("%")}}]})<CR>
 nmap <silent> ;s <Cmd> call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'params':{'bufnr': bufnr("%")}}]})<CR>
-nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_variable', 'sources': [
-    \ {'name': 'vim_variable', 'params': {'bufnr': bufnr('%')}},
-    \ {'name': 'vim_option', 'params': {'bufnr': bufnr('%')}},
-    \ {'name': 'vim_function', 'params': {'bufnr': bufnr('%')}},
-    \ {'name': 'vim_command', 'params': {'bufnr': bufnr('%')}},
-    \ {'name': 'vim_event', 'params': {'bufnr': bufnr('%')}}]})<CR>
+nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_type'})<CR>
 nmap <silent> ;c <Cmd> call ddu#start({'name': 'select-sources','sources': [
     \  {'name': 'custom-list',
     \   'params': {'texts': ['append', 'remove', 'head', 'last'], 'callbackId': g:ddcSourceSelectId}}],
