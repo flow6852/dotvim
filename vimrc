@@ -36,8 +36,8 @@ let g:enableConfigFiles = [
 
 if has('unix')
     let g:enableConfigFiles = extend(g:enableConfigFiles,
-            \ has('nvim') ? ["10-vim-plug-unix.vim", "25-vsnip.vim", "30-vimtex.vim", "60-textlint.vim"]:
-                          \ ["10-vim-plug-unix.vim", "25-vsnip.vim", "60-textlint.vim"])
+            \ has('nvim') ? ["10-vim-plug-unix.vim", "30-vimtex.vim", "60-textlint.vim"]:
+                          \ ["10-vim-plug-unix.vim"])
 else
     let g:enableConfigFiles = extend(g:enableConfigFiles, ["10-vim-plug-win.vim"])
 endif
@@ -56,7 +56,6 @@ endif
 
 for file in sort(g:enableConfigFiles)
     execute 'source' glob(expand("<sfile>:p:h") . "/.vim/available/" . file)
-    " echom  glob(expand("<sfile>:p:h") . "/.vim/available/" . file)
 endfor
 
 " popup color

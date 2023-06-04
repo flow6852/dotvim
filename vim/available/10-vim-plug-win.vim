@@ -135,4 +135,5 @@ call plug#begin('~/.vim/plugged')
     Plug 'flow6852/ddu-kind-vim_type'
 
     Plug 'Shougo/ddu-column-filename'
+    Plug 'thinca/vim-showtime'
 call plug#end()

@@ -112,7 +112,7 @@ call plug#begin('~/.vim/plugged')
     "         ddu source       "
     """"""""""""""""""""""""""""
     Plug 'Shougo/ddu-source-file'
-    " Plug 'flow6852/ddu-source-file_rec'
+    " Plug '~/Programs/vim-plugins/ddu-source-file_rec'
     Plug 'Shougo/ddu-source-file_rec'
     " Plug 'flow6852/ddu-source-file_rec'
     Plug 'Shougo/ddu-source-buffer'
@@ -124,13 +124,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'liquidz/ddu-source-custom-list'
     Plug 'flow6852/ddu-source-qf'
     Plug 'flow6852/ddu-source-url'
-    Plug 'kamecha/ddu-source-window'
     Plug 'flow6852/ddu-source-vim_variable'
     Plug 'flow6852/ddu-source-vim_option'
     Plug 'flow6852/ddu-source-vim_function'
     Plug 'flow6852/ddu-source-vim_event'
     Plug 'flow6852/ddu-source-vim_command'
-    Plug 'kyoh86/ddu-source-quickfix_history'
 
     """"""""""""""""""""""""""""
     "         ddu filter       "
@@ -139,7 +137,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/ddu-filter-matcher_relative'
     Plug 'Shougo/ddu-filter-converter_display_word'
     Plug 'yuki-yano/ddu-filter-fzf'
-    Plug 'matsui54/ddu-filter-fzy'
 
 
     """"""""""""""""""""""""""""
@@ -151,8 +148,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Shougo/ddu-column-filename'
 
     " for atcoder
-    Plug 'flow6852/dps-atcoder-facilitator'
+    Plug '~/Programs/vim-plugins/dps-atcoder-facilitator'
 
     Plug 'kat0h/bufpreview.vim'
-    Plug 'thinca/vim-showtime'
 call plug#end()

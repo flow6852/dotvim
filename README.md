@@ -100,6 +100,7 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/flow6852/ddu-source-vim_function
 * https://github.com/flow6852/ddu-source-vim_event
 * https://github.com/flow6852/ddu-source-vim_command
+* https://github.com/kyoh86/ddu-source-quickfix_history
 * https://github.com/Shougo/ddu-filter-matcher_substring
 * https://github.com/Shougo/ddu-filter-matcher_relative
 * https://github.com/Shougo/ddu-filter-converter_display_word
@@ -111,3 +112,4 @@ $ ./cp_home_vim_dir.sh
 * https://github.com/Shougo/ddu-column-filename
 * https://github.com/flow6852/dps-atcoder-facilitator
 * https://github.com/kat0h/bufpreview.vim
+* https://github.com/thinca/vim-showtime

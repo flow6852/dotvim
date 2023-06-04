@@ -2,36 +2,35 @@ function DduKindVim_typeSetcmdline()
     let getcmdline = getcmdline()
     let getcmdpos = getcmdpos()
     call feedkeys("\<Esc>", 't')
-    call ddu#start({'name': 'vim_type', 'sources': [
-        \ {'name': 'vim_variable', 'params': {'bufnr': bufnr('%')}},
-        \ {'name': 'vim_option', 'params': {'bufnr': bufnr('%')}},
-        \ {'name': 'vim_function', 'params': {'bufnr': bufnr('%')}},
-        \ {'name': 'vim_command', 'params': {'bufnr': bufnr('%')}},
-        \ {'name': 'vim_event', 'params': {'bufnr': bufnr('%')}}],
+    call ddu#start({'name': 'vim_type', 
         \ 'actionParams': {'getcmdline': getcmdline, 'getcmdpos': getcmdpos}})
 endfunction
 
-nmap <silent> ;b <Cmd>call ddu#start({'name': 'filer', 'sources': [{'name': 'buffer', 'params' : {'expandSymbolicLink': v:true}}]})<CR>
-nmap <silent> ;f <Cmd>call ddu#start({'name': 'filer', 'sources': [{'name': 'file_rec', 'params' : {'expandSymbolicLink': v:true}}]})<CR>
-nmap <silent> ;g <Cmd>call ddu#start({'name': 'grep',
+nnoremap <silent> ;b <Cmd>call ddu#start({'name': 'filer', 'sources': [{'name': 'buffer', 'params' : {'expandSymbolicLink': v:true}}]})<CR>
+nnoremap <silent> ;f <Cmd>call ddu#start({'name': 'filer', 'sources': [{'name': 'file_rec', 'params' : {'expandSymbolicLink': v:true}}]})<CR>
+nnoremap <silent> ;g <Cmd>call ddu#start({'name': 'grep',
                                     \ 'sources':[{'name': 'rg', 
                                     \             'params': {'input': expand('<cword>'),
                                     \                        'path':expand('.'),
                                     \                        'highlights': 'Search',
                                     \                        'args': ['--column', '--no-heading', '--json', '--follow']
                                     \ }}]})<CR>
-nmap <silent> ;q <Cmd>call ddu#start({
-    \   'name': 'qf',
-    \   'sources': [{
-    \       'name': 'qf',
-    \       'params': {'what': {'title': 'Diagnostics'}, 'format': format}
-    \               },
-    \       {'name': 'qf',
-    \        'params': {'what': {'title': 'VimTeX'}, 'format': format,
-    \                   'isSubst': v:true,
-    \                  }
-    \       }]})<CR>
-nmap <silent> ;v <Cmd> call ddu#start({
+nnoremap <silent> ;q <Cmd>call ddu#start({
+    \    'name': 'quickfix_history',
+    \    'sources': [{'name': 'quickfix_history'}],
+    \ })<CR>
+" nnoremap <silent> ;q <Cmd>call ddu#start({
+"     \   'name': 'qf',
+"     \   'sources': [{
+"     \       'name': 'qf',
+"     \       'params': {'what': {'title': 'Diagnostics'}, 'format': format}
+"     \               },
+"     \       {'name': 'qf',
+"     \        'params': {'what': {'title': 'VimTeX'}, 'format': format,
+"     \                   'isSubst': v:true,
+"     \                  }
+"     \       }]})<CR>
+nnoremap <silent> ;v <Cmd> call ddu#start({
             \ 'name': 'qf', 'sources': [
             \ {'name': 'qf', 
             \ 'params': {'what': {'title': ':vimgrep'},
@@ -44,11 +43,11 @@ nmap <silent> ;v <Cmd> call ddu#start({
             \            'format': format,
             \            'nr': 0,
             \            'dup': v:true}}]})<CR>
-nmap <silent> ;u <Cmd> call ddu#start({'name': 'url', 'sources': [{'name': 'url', 'params':{'ignoredDirectories': '.git'}}]})<CR>
-nmap <silent> ;a <Cmd> call ddu#start({'name': 'atcoder_facilitator', 'sources': [{'name': 'atcoder_facilitator', 'params':{'bufnr': bufnr("%")}}]})<CR>
-nmap <silent> ;s <Cmd> call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'params':{'bufnr': bufnr("%")}}]})<CR>
-nmap <silent> ;h <Cmd> call ddu#start({'name': 'vim_type'})<CR>
-nmap <silent> ;c <Cmd> call ddu#start({'name': 'select-sources','sources': [
+nnoremap <silent> ;u <Cmd> call ddu#start({'name': 'url', 'sources': [{'name': 'url', 'params':{'ignoredDirectories': '.git'}}]})<CR>
+nnoremap <silent> ;a <Cmd> call ddu#start({'name': 'atcoder_facilitator', 'sources': [{'name': 'atcoder_facilitator', 'params':{'bufnr': bufnr("%")}}]})<CR>
+nnoremap <silent> ;s <Cmd> call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'params':{'bufnr': bufnr("%")}}]})<CR>
+nnoremap <silent> ;h <Cmd> call ddu#start({'name': 'vim_type'})<CR>
+nnoremap <silent> ;c <Cmd> call ddu#start({'name': 'select-sources','sources': [
     \  {'name': 'custom-list',
     \   'params': {'texts': ['append', 'remove', 'head', 'last'], 'callbackId': g:ddcSourceSelectId}}],
     \   'kindOptions': {

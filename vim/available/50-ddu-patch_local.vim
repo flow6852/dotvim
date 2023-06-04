@@ -51,13 +51,14 @@ let format='%T|%p|%y|%t'
 call ddu#custom#patch_local('filer', Ddu_custom_cfg('floating', 15, 6*&lines/8, v:true, 'vertical',6*&columns/8-15, 6*&lines/8))
 call ddu#custom#patch_local('grep', Ddu_custom_cfg('floating', 6*&columns/8, 3*&lines/8, v:true, 'horizontal', 6*&columns/8, 3*&lines/8))
 call ddu#custom#patch_local('qf', Ddu_custom_cfg('floating',  6*&columns/8, 3*&lines/8, v:true, 'horizontal', 6*&columns/8, 3*&lines/8))
+call ddu#custom#patch_local('quickfix_history', Ddu_custom_cfg('floating',  6*&columns/8, 3*&lines/8, v:true, 'horizontal', 6*&columns/8, 3*&lines/8))
 call ddu#custom#patch_local('vim_type', extend(
     \ Ddu_custom_cfg('floating',  3*&columns/4, 10, v:true, 'horizontal', 3*&columns/8, 3*&lines/4 - 10), 
-    \ {'sources': [ {'name': 'vim_variable', 'params': {'bufnr': bufnr('%')}},
-                  \ {'name': 'vim_option', 'params': {'bufnr': bufnr('%')}},
-                  \ {'name': 'vim_function', 'params': {'bufnr': bufnr('%')}},
-                  \ {'name': 'vim_command', 'params': {'bufnr': bufnr('%')}},
-                  \ {'name': 'vim_event', 'params': {'bufnr': bufnr('%')}}]}))
+    \ {'sources': [ {'name': 'vim_variable'},
+                  \ {'name': 'vim_option'},
+                  \ {'name': 'vim_function'},
+                  \ {'name': 'vim_command'},
+                  \ {'name': 'vim_event'}]}))
 
 call ddu#custom#patch_local('atcoder_facilitator', Ddu_custom_cfg('floating',  3*&columns/4, 10, v:true, 'horizontal', 3*&columns/8, 3*&lines/4 - 10))
 call ddu#custom#patch_local('atcoder_status', Ddu_custom_cfg('floating',  3*&columns/4, 10, v:true, 'horizontal', 3*&columns/8, 3*&lines/4 - 10))

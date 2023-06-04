@@ -34,6 +34,11 @@ function! s:ddu_my_settings() abort
       \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'yank'})<CR>
   elseif b:ddu_ui_name == "grep"
   elseif b:ddu_ui_name == "qf"
+  elseif b:ddu_ui_name == "quickfix_history"
+    nnoremap <buffer> ;q
+      \ <Cmd>call DduChain('qf')<CR>
+    nnoremap <buffer> ;e
+      \ <Cmd>echom "test"<CR>
   elseif b:ddu_ui_name == "vim_type"
     " file
     nnoremap <buffer><silent> ;h
@@ -61,6 +66,9 @@ function! s:ddu_my_settings() abort
   elseif b:ddu_ui_name == "help"
     nnoremap <buffer><silent> ;h
       \ <Cmd>call DduChain('vim_type')<CR>
+  elseif b:ddu_ui_name == "window"
+    nnoremap <buffer><silent> ;s
+      \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'swap'})<CR>
   endif
 endfunction
 
@@ -104,12 +112,20 @@ endfunction
 
 function! DduChain(arg)
     let l:item = ddu#ui#get_item()
-    call ddu#ui#sync_action('quit')
-    let l:word = get(l:item, 'word')
-    if get(l:item, '__sourceName') == 'help' && match(l:word, ":") == 0
-        let l:word = l:word[1:len(l:word)]
+    if get(l:item, '__sourceName') == 'help'
+        call ddu#ui#sync_action('quit')
+        let l:word = get(l:item, 'word')
+        if match(l:word, ":") == 0
+            let l:word = l:word[1:len(l:word)]
+            call ddu#start({'name': a:arg, 'input': l:word})
+        endif
+    elseif get(l:item, '__sourceName') == 'quickfix_history'
+        let l:items = ddu#ui#get_selected_items()
+        call ddu#ui#sync_action('quit')
+        call ddu#start({'name': a:arg,
+                    \       'sources': map(copy(l:items), {key, val -> {'name': 'qf', 
+                    \                                                   'params': {'what': {'id': get(get(val, 'action'), 'id')}}}})})
     endif
-    call ddu#start({'name': a:arg, 'input': l:word})
 endfunction
 
 " Mappings

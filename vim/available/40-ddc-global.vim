@@ -1,5 +1,5 @@
 let g:ui = 'pum'
-call pum#set_option('auto_select', v:true)
+call pum#set_option('auto_select', v:false)
 let autoCompleteEvents = ['InsertEnter', 'TextChangedI', 'TextChangedP']
 let g:sources = ['vsnip', 'around', 'buffer', 'file', 'input']
 let g:sourceOptions = {

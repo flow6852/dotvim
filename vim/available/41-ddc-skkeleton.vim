@@ -77,7 +77,7 @@ function! s:changeSkk2Source() abort
         call ddc#custom#set_buffer(ddc#custom#get_current())
     endif
     call DduMappingChange(v:false)
-    call pum#set_option('auto_select', v:true)
+    call pum#set_option('auto_select', v:false)
 endfunction
 
 
