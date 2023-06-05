@@ -1,10 +1,13 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
-    Plug 'vim-jp/vimdoc-ja' " vimのhelpの日本語化
-    Plug 'vim-skk/skkeleton' " 日本語入力
+    " vimのhelpの日本語化
+    Plug 'vim-jp/vimdoc-ja'
+    " 日本語入力
+    Plug 'vim-skk/skkeleton'
     Plug 'thinca/vim-scouter'
 
-    Plug 'junegunn/fzf.vim' " needed for previews
+    " needed for previes
+    Plug 'junegunn/fzf.vim'
 
     """""""""""""""""""""""""""""
     "                           "
@@ -24,19 +27,26 @@ call plug#begin('~/.vim/plugged')
     Plug 'LumaKernel/coqpit.vim'
     Plug 'qnighy/satysfi.vim'
     if len(split(system('which latexmk'))) < 2
-        Plug 'lervag/vimtex' " for tex
+            " for tex
+        Plug 'lervag/vimtex'
     endif
 
     if has('nvim')
-        Plug 'williamboman/mason.nvim' " LSPInstaller
-        Plug 'williamboman/mason-lspconfig.nvim' " LSPInstaller
-        " Plug 'williamboman/nvim-lsp-installer'
-        Plug 'neovim/nvim-lspconfig' " neovim's lspconfig'
-        Plug 'Shougo/ddc-nvim-lsp' " lsp completion
+        " LSPInstaller
+        Plug 'williamboman/mason.nvim'
+        " LSPInstaller
+        Plug 'williamboman/mason-lspconfig.nvim'
+        " neovim's lspconfig'
+        Plug 'neovim/nvim-lspconfig'
+        " lsp completion
+        Plug 'Shougo/ddc-nvim-lsp'
     else
-        Plug 'prabirshrestha/vim-lsp' " vim lsp
-        Plug 'mattn/vim-lsp-settings' " vim-lsp auto setting
-        Plug 'shun/ddc-vim-lsp' " ddc for vim-lsp
+        " vim lsp
+        Plug 'prabirshrestha/vim-lsp'
+        " vim-lsp auto setting
+        Plug 'mattn/vim-lsp-settings'
+        " ddc for vim-lsp
+        Plug 'shun/ddc-vim-lsp'
     endif
 
     """"""""""""""""""""""""""""
@@ -52,19 +62,31 @@ call plug#begin('~/.vim/plugged')
     """"""""""""""""""""""""""""
     "       ddc sources        "
     """"""""""""""""""""""""""""
-    Plug 'Shougo/ddc-source-around' " カーソル周辺の既出単語を補完するsource
-    Plug 'LumaKernel/ddc-source-file' " ファイル名を補完するsource
-    Plug 'tani/ddc-path' " パス補完
-    Plug 'matsui54/ddc-buffer' "バッファから
-    Plug 'Shougo/ddc-source-cmdline' " コマンドライン補完
-    Plug 'Shougo/ddc-source-cmdline-history' " historyを使ったコマンドライン補完
-    Plug 'Shougo/ddc-source-omni' " オムニ補完
-    Plug 'Shougo/ddc-source-line' "ライン
-    Plug 'Shougo/ddc-source-input' "input()
-    Plug 'Shougo/ddc-source-rg' "ripgrep補完
+    " カーソル周辺の既出単語を補完するsource
+    Plug 'Shougo/ddc-source-around'
+    " ファイル名を補完するsource
+    Plug 'LumaKernel/ddc-source-file'
+    " パス補完
+    Plug 'tani/ddc-path'
+    " バッファから
+    Plug 'matsui54/ddc-buffer' 
+    " コマンドライン補完
+    Plug 'Shougo/ddc-source-cmdline'
+    " historyを使ったコマンドライン補完
+    Plug 'Shougo/ddc-source-cmdline-history'
+    " オムニ補完
+    Plug 'Shougo/ddc-source-omni'
+    " ライン
+    Plug 'Shougo/ddc-source-line'
+    " input()
+    Plug 'Shougo/ddc-source-input'
+    " ripgrep補完
+    Plug 'Shougo/ddc-source-rg'
 
-    Plug 'matsui54/denops-popup-preview.vim' " popup preview
-    Plug 'matsui54/denops-signature_help' " restrict preview popup preview
+    " popup preview
+    Plug 'matsui54/denops-popup-preview.vim'
+    " restrict preview popup preview
+    Plug 'matsui54/denops-signature_help' 
 
     """" snippet
     Plug  'hrsh7th/vim-vsnip'
@@ -88,9 +110,12 @@ call plug#begin('~/.vim/plugged')
     """"""""""""""""""""""""""""
     "       ddc filter         "
     """"""""""""""""""""""""""""
-    Plug 'tani/ddc-fuzzy' " fuzzy-finderを使った周辺検索，ソート，重複をするfilter
-    Plug 'matsui54/ddc-filter_editdistance' " 編集距離を使ったfilter
-    Plug 'Shougo/ddc-converter_remove_overlap' " 重複文字列を削除して置換
+    " fuzzy-finderを使った周辺検索，ソート，重複をするfilter
+    Plug 'tani/ddc-fuzzy' 
+    " 編集距離を使ったfilter
+    Plug 'matsui54/ddc-filter_editdistance'
+    " 重複文字列を削除して置換
+    Plug 'Shougo/ddc-converter_remove_overlap'
     Plug 'Shougo/ddc-sorter_rank'
     Plug 'Shougo/ddc-matcher_head'
 
@@ -105,8 +130,10 @@ call plug#begin('~/.vim/plugged')
     """"""""""""""""""""""""""""
     "         ddu  ui          "
     """"""""""""""""""""""""""""
-    Plug 'Shougo/ddu-ui-ff' " fuzzy finder UI
-    Plug 'Shougo/ddu-ui-filer' " filer UI
+    " fuzzy finder UI
+    Plug 'Shougo/ddu-ui-ff'
+    " filer UI
+    Plug 'Shougo/ddu-ui-filer'
 
     """"""""""""""""""""""""""""
     "         ddu source       "
