@@ -1,3 +1,6 @@
+call ddu#custom#action('kind', 'file', 'test',
+		    \ { args -> execute('let g:test =  ' . string(args) )})
+
 " keymapping
 augroup DduKeyMap
   au!
@@ -32,6 +35,8 @@ function! s:ddu_my_settings() abort
   if b:ddu_ui_name == "filer"
     nnoremap <buffer><silent> y
       \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'yank'})<CR>
+    nnoremap <buffer><silent> t
+      \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'test'})<CR>
   elseif b:ddu_ui_name == "grep"
   elseif b:ddu_ui_name == "qf"
   elseif b:ddu_ui_name == "quickfix_history"
@@ -117,8 +122,12 @@ function! DduChain(arg)
         let l:word = get(l:item, 'word')
         if match(l:word, ":") == 0
             let l:word = l:word[1:len(l:word)]
-            call ddu#start({'name': a:arg, 'input': l:word})
         endif
+        call ddu#start({'name': a:arg, 'input': l:word})
+    elseif get(l:item, 'kind') == 'vim_type'
+        call ddu#ui#sync_action('quit')
+        let l:word = get(l:item, 'word')
+        call ddu#start({'name': a:arg, 'input': l:word})
     elseif get(l:item, '__sourceName') == 'quickfix_history'
         let l:items = ddu#ui#get_selected_items()
         call ddu#ui#sync_action('quit')
