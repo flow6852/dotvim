@@ -19,7 +19,7 @@ nnoremap <silent> ;q <Cmd>call ddu#start({
     \    'name': 'quickfix_history',
     \    'sources': [{'name': 'quickfix_history'}],
     \ })<CR>
-nnoremap <silent> ;v <Cmd> call ddu#start({
+nnoremap <silent> ;v <Cmd>call ddu#start({
             \ 'name': 'qf', 'sources': [
             \ {'name': 'qf', 
             \ 'params': {'what': {'title': ':vimgrep'},
@@ -32,11 +32,12 @@ nnoremap <silent> ;v <Cmd> call ddu#start({
             \            'format': format,
             \            'nr': 0,
             \            'dup': v:true}}]})<CR>
-nnoremap <silent> ;u <Cmd> call ddu#start({'name': 'url', 'sources': [{'name': 'url', 'params':{'ignoredDirectories': '.git'}}]})<CR>
-nnoremap <silent> ;a <Cmd> call ddu#start({'name': 'atcoder_facilitator', 'sources': [{'name': 'atcoder_facilitator', 'params':{'bufnr': bufnr("%")}}]})<CR>
-nnoremap <silent> ;s <Cmd> call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'params':{'bufnr': bufnr("%")}}]})<CR>
-nnoremap <silent> ;h <Cmd> call ddu#start({'name': 'vim_type'})<CR>
-nnoremap <silent> ;c <Cmd> call ddu#start({'name': 'select-sources','sources': [
+nnoremap <silent> ;u <Cmd>call ddu#start({'name': 'url', 'sources': [{'name': 'url', 'params':{'ignoredDirectories': '.git'}}]})<CR>
+nnoremap <silent> ;a <Cmd>call ddu#start({'name': 'atcoder_facilitator', 'sources': [{'name': 'atcoder_facilitator', 'params':{'bufnr': bufnr("%")}}]})<CR>
+nnoremap <silent> ;s <Cmd>call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'params':{'bufnr': bufnr("%")}}]})<CR>
+nnoremap <silent> ;h <Cmd>call ddu#start({'name': 'vim_type'})<CR>
+nnoremap <silent> ;m <Cmd>call ddu#start({'name': 'markdown'})<CR>
+nnoremap <silent> ;c <Cmd>call ddu#start({'name': 'select-sources','sources': [
     \  {'name': 'custom-list',
     \   'params': {'texts': ['append', 'remove', 'head', 'last'], 'callbackId': g:ddcSourceSelectId}}],
     \   'kindOptions': {
