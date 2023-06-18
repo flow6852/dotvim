@@ -19,17 +19,6 @@ nnoremap <silent> ;q <Cmd>call ddu#start({
     \    'name': 'quickfix_history',
     \    'sources': [{'name': 'quickfix_history'}],
     \ })<CR>
-" nnoremap <silent> ;q <Cmd>call ddu#start({
-"     \   'name': 'qf',
-"     \   'sources': [{
-"     \       'name': 'qf',
-"     \       'params': {'what': {'title': 'Diagnostics'}, 'format': format}
-"     \               },
-"     \       {'name': 'qf',
-"     \        'params': {'what': {'title': 'VimTeX'}, 'format': format,
-"     \                   'isSubst': v:true,
-"     \                  }
-"     \       }]})<CR>
 nnoremap <silent> ;v <Cmd> call ddu#start({
             \ 'name': 'qf', 'sources': [
             \ {'name': 'qf', 

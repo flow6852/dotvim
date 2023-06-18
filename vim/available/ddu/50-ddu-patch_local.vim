@@ -6,6 +6,7 @@
 " split : floating or vertical
 
 " fuze finder spliter
+"
 
 function Ddu_custom_cfg(split, width, height, isPreview, previewSplit, previewWidth, previewHeight)
     let uiParams = {

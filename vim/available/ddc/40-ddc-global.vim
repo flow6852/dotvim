@@ -1,4 +1,3 @@
-let g:ui = 'pum'
 call pum#set_option('auto_select', v:false)
 let autoCompleteEvents = ['InsertEnter', 'TextChangedI', 'TextChangedP']
 let g:sources = ['vsnip', 'around', 'buffer', 'file', 'input']
@@ -51,11 +50,11 @@ elseif Global_is_plugged('ddc-vim-lsp')
     let g:sourceOptions = extend(g:sourceOptions, {'vim-lsp': {'mark': 'lsp',}})
 endif
 
-call ddc#custom#patch_global('sources', sources)
+call ddc#custom#patch_global('sources', g:sources)
 call ddc#custom#patch_global('backspaceCompletion', v:true)
 call ddc#custom#patch_global('sourceOptions', g:sourceOptions)
 call ddc#custom#patch_global('autoCompleteEvents', autoCompleteEvents)
-call ddc#custom#patch_global('ui', ui)
+call ddc#custom#patch_global('ui', g:ui)
 call ddc#custom#patch_global('sourceParams', g:sourceParams)
 call ddc#custom#patch_global('filterParams', {
   \   'converter_fuzzy': {
@@ -64,7 +63,7 @@ call ddc#custom#patch_global('filterParams', {
   \   'matcher_editdistance': {'showScore': v:true, 'diffLen': 0, 'limit': 100},
   \ })
 
-call ddc#custom#patch_filetype(['java'], 'keywordPattern', '[a-zA-Z_@\\\{\}*<>]*')
+
 
 autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
          

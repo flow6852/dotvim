@@ -1,0 +1,156 @@
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+depends = ['denops.vim']
+on_source = 'denops.vim'
+
+[[plugins]]
+repo='Shougo/ddu-filter-matcher_substring' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='Shougo/ddu-filter-matcher_relative' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='Shougo/ddu-filter-converter_display_word' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='yuki-yano/ddu-filter-fzf' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='matsui54/ddu-filter-fzy' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='Shougo/ddu-kind-file' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='4513ECHO/ddu-kind-url' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/ddu-kind-vim_type' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='Shougo/ddu-column-filename' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-filer'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file_rec'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-buffer'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='Shougo/ddu-source-rg' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='Shougo/ddu-source-line' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='matsui54/ddu-source-help' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='Shougo/ddu-source-register' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='mikanIchinose/ddu-source-markdown' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='liquidz/ddu-source-custom-list' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/ddu-source-qf' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/ddu-source-url' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='kamecha/ddu-source-window' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/ddu-source-vim_variable' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/ddu-source-vim_option' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/ddu-source-vim_function' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/ddu-source-vim_event' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/ddu-source-vim_command' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='kyoh86/ddu-source-quickfix_history' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='flow6852/dps-atcoder-facilitator' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+hooks_file = '$BASE_DIR/available/ddu/ddu.vim'

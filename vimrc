@@ -1,8 +1,51 @@
-if exists("vim_starting")
-    finish
+" if exists('vim_startup')
+"     finish
+" endif
+" 
+" let vim_startup = ''
+" set up the dein.vim directory
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let $BASE_DIR = expand('~/.vim')
+
+" automatic installation of dein.vim
+if !isdirectory(s:dein_repo_dir)
+  execute '!git clone https://github.com/Shougo/dein.vim ' s:dein_repo_dir
+endif
+execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+exec "source " . $BASE_DIR . "/available/startup/startup.vim"
+
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  " load the file which contain the plugin list
+  let s:toml      = $BASE_DIR . '/available/dein.toml'
+  let s:toml_lazy  = $BASE_DIR . '/available/dein_lazy.toml'
+  let s:neovim_toml = $BASE_DIR . '/available/neovim.toml'
+  let s:denops_toml = $BASE_DIR . '/available/denops_lazy.toml'
+  let s:ddc_toml = $BASE_DIR . '/available/ddc/ddc_lazy.toml'
+  let s:ddu_toml = $BASE_DIR . '/available/ddu/ddu_lazy.toml'
+
+  call dein#load_toml(s:toml, {'lazy': v:false})
+  call dein#load_toml(s:toml_lazy, {'lazy': v:true})
+  call dein#load_toml(s:denops_toml, {'lazy': v:true})
+  call dein#load_toml(s:ddc_toml, {'lazy': v:true})
+  call dein#load_toml(s:ddu_toml, {'lazy': v:true})
+
+  if has('nvim')
+      call dein#load_toml(s:neovim_toml, {'lazy': v:true})
+  else 
+
+  endif
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-let vim_starting = ''
+" automatically install any plug-ins that need to be installed.
+if dein#check_install()
+  call dein#install()
+endif
 
 au QuickfixCmdPost make,grep,vimgrep,grepadd copen
 
@@ -21,26 +64,7 @@ set hidden
 set updatetime=300
 set shortmess+=c
 
-filetype plugin on
-
-let g:enableConfigFiles = [
-    \ "00-prefuncs.vim", "01-terminal.vim",
-    \ "11-global-vars.vim",
-    \ "25-vsnip.vim",
-    \ "40-ddc-global.vim", "41-ddc-skkeleton.vim", "42-ddc-cmdline.vim", "43-ddc-patch_filetype.vim",
-    \ "50-ddu-patch_local.vim", "51-ddu-start.vim", "52-ddu-filetype_mapping.vim",
-    \ "90-keymapping.vim", "91-autocmd.vim"]
-
-" install enable
-" source <sfile>:h/.vim/enable/vim-plug.vim
-
-if has('unix')
-    let g:enableConfigFiles = extend(g:enableConfigFiles,
-            \ has('nvim') ? ["10-vim-plug-unix.vim", "30-vimtex.vim", "60-textlint.vim"]:
-                          \ ["10-vim-plug-unix.vim"])
-else
-    let g:enableConfigFiles = extend(g:enableConfigFiles, ["10-vim-plug-win.vim"])
-endif
+filetype plugin indent on
 
 if has('nvim')
     set cmdheight=0
@@ -53,10 +77,6 @@ else
     let &t_SR .= "\e[4 q"
     set noshowmode
 endif
-
-for file in sort(g:enableConfigFiles)
-    execute 'source' glob(expand("<sfile>:p:h") . "/.vim/available/" . file)
-endfor
 
 " popup color
 hi Pmenu ctermbg=black ctermfg=white

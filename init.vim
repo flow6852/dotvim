@@ -45,19 +45,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-local mason = require('mason')
-mason.setup()
+-- local mason = require('mason')
+-- mason.setup()
+-- 
+-- local nvim_lsp = require('lspconfig')
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- local mason_lspconfig = require('mason-lspconfig')
+-- mason_lspconfig.setup()
+-- mason_lspconfig.setup_handlers({ function(server_name)
+--     nvim_lsp[server_name].setup{on_attach = on_attach, capabilities = capabilities}
+-- end })
 
-local nvim_lsp = require('lspconfig')
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-local mason_lspconfig = require('mason-lspconfig')
-mason_lspconfig.setup()
-mason_lspconfig.setup_handlers({ function(server_name)
-    nvim_lsp[server_name].setup{on_attach = on_attach, capabilities = capabilities}
-end })
-
-require'lspconfig'.denols.setup{}
+-- require'lspconfig'.denols.setup{}
 
 -- local lsp_installer = require("nvim-lsp-installer")
 -- lsp_installer.on_server_ready(function(server)
@@ -67,9 +67,9 @@ require'lspconfig'.denols.setup{}
 --     server:setup(opts)
 -- end)
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-)
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--     vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+-- )
 
 -- vim.api.nvim_create_autocmd('FileWritePost', {
 --   callback = function() vim.diagnostic.setqflist({open=false}) end

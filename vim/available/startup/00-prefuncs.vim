@@ -2,7 +2,7 @@
 " for vim-plug
 " check the specified plugin is installed
 function Global_is_plugged(name)
-    if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
+    if match(&runtimepath, a:name) >= 0
         return 1
     else
         return 0

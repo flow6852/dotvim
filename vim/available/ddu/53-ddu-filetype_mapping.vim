@@ -1,6 +1,3 @@
-call ddu#custom#action('kind', 'file', 'test',
-		    \ { args -> execute('let g:test =  ' . string(args) )})
-
 " keymapping
 augroup DduKeyMap
   au!
@@ -41,13 +38,13 @@ function! s:ddu_my_settings() abort
   elseif b:ddu_ui_name == "qf"
   elseif b:ddu_ui_name == "quickfix_history"
     nnoremap <buffer> ;q
-      \ <Cmd>call DduChain('qf')<CR>
+                \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'qf_chain'})<CR>
     nnoremap <buffer> ;e
       \ <Cmd>echom "test"<CR>
   elseif b:ddu_ui_name == "vim_type"
     " file
     nnoremap <buffer><silent> ;h
-      \ <Cmd>call DduChain('help')<CR>
+      \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'help_chain'})<CR>
 
     nnoremap <buffer><silent> <C-c>
       \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'setcmdline'})<CR>
@@ -70,7 +67,7 @@ function! s:ddu_my_settings() abort
       \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'fetchUnstable', 'params': {'showHeader': v:true}})<CR>
   elseif b:ddu_ui_name == "help"
     nnoremap <buffer><silent> ;h
-      \ <Cmd>call DduChain('vim_type')<CR>
+        \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'vim_type_chain'})<CR>
   elseif b:ddu_ui_name == "window"
     nnoremap <buffer><silent> ;s
       \ <Cmd>call ddu#ui#do_action('itemAction', {'name': 'swap'})<CR>
@@ -114,29 +111,6 @@ endfunction
 function DduOpenWithPreview(name, sources)
     call ddu#start({'name':a:name, 'sources' : a:sources})
 endfunction
-
-function! DduChain(arg)
-    let l:item = ddu#ui#get_item()
-    if get(l:item, '__sourceName') == 'help'
-        call ddu#ui#sync_action('quit')
-        let l:word = get(l:item, 'word')
-        if match(l:word, ":") == 0
-            let l:word = l:word[1:len(l:word)]
-        endif
-        call ddu#start({'name': a:arg, 'input': l:word})
-    elseif get(l:item, 'kind') == 'vim_type'
-        call ddu#ui#sync_action('quit')
-        let l:word = get(l:item, 'word')
-        call ddu#start({'name': a:arg, 'input': l:word})
-    elseif get(l:item, '__sourceName') == 'quickfix_history'
-        let l:items = ddu#ui#get_selected_items()
-        call ddu#ui#sync_action('quit')
-        call ddu#start({'name': a:arg,
-                    \       'sources': map(copy(l:items), {key, val -> {'name': 'qf', 
-                    \                                                   'params': {'what': {'id': get(get(val, 'action'), 'id')}}}})})
-    endif
-endfunction
-
 " Mappings
 
 function DduMappingChange(isAutoSelected)

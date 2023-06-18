@@ -1,0 +1,10 @@
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'thinca/vim-scouter'
+
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+on_source = ['ddc.vim']

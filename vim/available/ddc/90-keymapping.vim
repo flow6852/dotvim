@@ -1,5 +1,5 @@
 " Mappings
-if Global_is_plugged('pum.vim') && ui == 'pum'
+if g:ui == 'pum'
     " custom popup window
     " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
     " call ddc#custom#patch_global('completionMenu', 'pum.vim')
