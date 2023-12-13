@@ -15,3 +15,4 @@ depends = ['denops.vim']
 [[plugins]]
 repo='kat0h/bufpreview.vim' 
 depends = ['denops.vim']
+on_ft = 'markdown'

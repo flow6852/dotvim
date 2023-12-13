@@ -1,3 +1,4 @@
+" hook_source {{{
 let g:vsnip_snippet_dirs = [expand('~/.vim/vsnip')]
 " " NOTE: You can use other key to expand snippet.
 " 
@@ -21,3 +22,4 @@ let g:vsnip_snippet_dirs = [expand('~/.vim/vsnip')]
 " xmap        s   <Plug>(vsnip-select-text)
 " nmap        S   <Plug>(vsnip-cut-text)
 " xmap        S   <Plug>(vsnip-cut-text)
+" }}}

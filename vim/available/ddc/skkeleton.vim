@@ -1,3 +1,4 @@
+" hook_source {{{
 inoremap }e <Plug>(skkeleton-enable)
 inoremap }t <Plug>(skkeleton-toggle)
 cnoremap }e <Plug>(skkeleton-enable)
@@ -32,7 +33,7 @@ function! s:skkeleton_init() abort
        \ 'ltu' : ['っ'],
        \ "z\<Space>": ["\u3000", ''],
        \ "}d" : "disable",
-       \ "}k" : "katakana"
+       \ "}k" : "katakana",
        \ })
  
      call add(g:skkeleton#mapped_keys, '<S-l>')
@@ -72,12 +73,10 @@ function! s:changeSkk2Source() abort
     if exists('s:bef_buffer')
         call ddc#custom#set_buffer(s:bef_buffer)
         unlet s:bef_buffer
-        call ddc#disable_cmdline_completion()
     else
         call ddc#custom#set_buffer(ddc#custom#get_current())
     endif
     call DduMappingChange(v:false)
     call pum#set_option('auto_select', v:false)
 endfunction
-
-
+" }}}
