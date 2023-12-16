@@ -24,7 +24,7 @@ if dpp#min#load_state(s:dpp_base)
 	autocmd User DenopsReady call dpp#make_state(s:dpp_base, s:dpp_config)
 endif
 
-exec "source " . $BASE_DIR . "/available/startup/startup.vim"
+exec "source " . $BASE_DIR . "/plugs/startup/startup.vim"
 
 " if exists('vim_startup')
 "     finish

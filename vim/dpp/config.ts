@@ -32,7 +32,7 @@ export class Config extends BaseConfig {
     };
 
     const [context, options] = await args.contextBuilder.get(args.denops);
-    const dotfilesDir = "~/.vim/available/";
+    const dotfilesDir = "~/.vim/plugs/";
 
     const tomls: Toml[] = [];
     const files: string[] = ["base_lazy.toml","neovim.toml", "denops_lazy.toml", "ddu/ddu_lazy.toml", "ddc/ddc_lazy.toml"];
