@@ -10,7 +10,7 @@ depends = ['denops.vim']
 repo = 'Shougo/ddc.vim'
 depends = ['denops.vim', 'denops-popup-preview.vim']
 on_event = ['InsertEnter', 'CmdlineEnter']
-hooks_file = ['$BASE_DIR/plugs/ddc/global.vim']
+hooks_file = ['$BASE_DIR/available/ddc/global.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-source-around'
@@ -31,7 +31,7 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'Shougo/ddc-source-cmdline'
 on_source = ['ddc.vim']
-hooks_file = ['$BASE_DIR/plugs/ddc/cmdline.vim']
+hooks_file = ['$BASE_DIR/available/ddc/cmdline.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-source-cmdline-history'
@@ -64,7 +64,7 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'uga-rosa/ddc-source-vsnip'
 on_source = 'vim-vsnip'
-hooks_file = ['$BASE_DIR/plugs/ddc/vsnip.vim']
+hooks_file = ['$BASE_DIR/available/ddc/vsnip.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-native'
@@ -97,14 +97,14 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'vim-skk/skkeleton'
 on_source = 'ddc.vim'
-hooks_file = ['$BASE_DIR/plugs/ddc/skkeleton.vim']
+hooks_file = ['$BASE_DIR/available/ddc/skkeleton.vim']
 
 # [[plugins]]
 # repo = 'kuuote/lspoints'
 # on_source =  'ddc.vim'
-# hooks_file = ['$BASE_DIR/plugs/ddc/lspoints.vim']
+# hooks_file = ['$BASE_DIR/available/ddc/lspoints.vim']
 
 # [[plugins]]
 # repo = 'prabirshrestha/vim-lsp'
 # on_source =  'ddc.vim'
-# hooks_file = ['$BASE_DIR/plugs/ddc/vim-lsp.vim']
+# hooks_file = ['$BASE_DIR/available/ddc/vim-lsp.vim']

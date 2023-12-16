@@ -1,3 +1,6 @@
 # public-dotfiles
 
+## config
+
+## vim
 

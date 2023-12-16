@@ -17,3 +17,7 @@ function! satysfi#compile(...)
         exec win_gotoid(nr)
 endfunction
 
+function! satysfi#quit()
+        killall evince
+endfunction
+
