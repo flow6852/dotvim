@@ -2,7 +2,7 @@
 repo = 'Shougo/ddu.vim'
 depends = ['denops.vim']
 on_event = ['VimEnter']
-hooks_file = ['$BASE_DIR/available/ddu/ddu-start.vim', ]
+hooks_file = ['$BASE_DIR/plugs/ddu/ddu-start.vim', ]
 
 [[plugins]]
 repo='Shougo/ddu-filter-matcher_substring' 
@@ -63,14 +63,14 @@ on_source = 'ddu.vim'
 repo = 'Shougo/ddu-ui-filer'
 depends = ['denops.vim', 'ddu.vim']
 on_source = 'ddu.vim'
-hooks_file = ['$BASE_DIR/available/ddu/ddu-patch_local.vim']
+hooks_file = ['$BASE_DIR/plugs/ddu/ddu-patch_local.vim']
 
 
 [[plugins]]
 repo = 'Shougo/ddu-source-file'
 depends = ['denops.vim', 'ddu.vim']
 on_source = 'ddu.vim'
-hooks_file = ['$BASE_DIR/available/ddu/ddu-filetype_mapping.vim']
+hooks_file = ['$BASE_DIR/plugs/ddu/ddu-filetype_mapping.vim']
 
 [[plugins]]
 repo = 'Shougo/ddu-source-file_rec'
