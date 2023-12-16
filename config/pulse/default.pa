@@ -1,0 +1,221 @@
+#!/usr/bin/pulseaudio -nF
+#
+# This file is part of PulseAudio.
+#
+# PulseAudio is free software; you can redistribute it and/or modify it
+# under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# PulseAudio is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with PulseAudio; if not, see <http://www.gnu.org/licenses/>.
+
+# This startup script is used only if PulseAudio is started per-user
+# (i.e. not in system mode)
+
+# .fail
+
+### Automatically restore the volume of streams and devices
+load-module module-device-restore
+#load-module module-stream-restore 
+load-module module-stream-restore restore_device=false
+load-module module-card-restore
+
+### Automatically augment property information from .desktop files
+### stored in /usr/share/application
+load-module module-augment-properties
+
+### Should be after module-*-restore but before module-*-detect
+load-module module-switch-on-port-available
+
+### Load audio drivers statically
+### (it's probably better to not load these drivers manually, but instead
+### use module-udev-detect -- see below -- for doing this automatically)
+#load-module module-alsa-sink device=hw:0,0 sink_name=inner_alsa_sink 
+#load-module module-alsa-source device=hw:0,0 source_name=inner_alsa_source
+#load-module module-oss device="/dev/dsp" sink_name=output source_name=input
+#load-module module-oss-mmap device="/dev/dsp" sink_name=output source_name=input
+#load-module module-null-sink
+#load-module module-pipe-sink
+
+# inner
+# https://kakurasan.tk/hatenadiary/pulseaudio-configuration-files-and-examples/
+# in /proc/asound/cards
+# hw:[]
+# load-module module-alsa-card device=hw:PCH sink_name=alsa_sink source_name=alsa_source
+load-module module-alsa-sink device=hw:PCH sink_name=alsa_sink
+load-module module-alsa-source device=hw:PCH source_name=alsa_source
+update-sink-proplist alsa_sink device.description=alsa_sink
+update-source-proplist alsa_source device.description=alsa_source
+
+# usb AVerMedia
+# load-module module-alsa-card device=L2 sink_name=AVer_sink source_name=AVer_source
+load-module module-alsa-source device=hw:L2 source_name=AVer_source
+update-source-proplist AVer_source device.description=AVer_source
+
+# USB Audio Interface
+# load-module module-alsa-card device=hw:CODEC sink_name=usb_alsa_sink source_name=usb_alsa_source
+load-module module-alsa-source device=hw:CODEC source_name=usb_mic
+update-source-proplist usb_mic device.description=usb_mic
+
+
+### Automatically load driver modules depending on the hardware available
+.ifexists module-udev-detect.so
+load-module module-udev-detect
+.else
+### Use the static hardware detection module (for systems that lack udev support)
+load-module module-detect
+.endif
+
+### Automatically connect sink and source if JACK server is present
+.ifexists module-jackdbus-detect.so
+.nofail
+load-module module-jackdbus-detect channels=2
+.fail
+.endif
+
+### Automatically load driver modules for Bluetooth hardware
+.ifexists module-bluetooth-policy.so
+load-module module-bluetooth-policy
+.endif
+
+.ifexists module-bluetooth-discover.so
+load-module module-bluetooth-discover
+.endif
+
+.ifexists module-bluez5-device.so
+load-module module-bluez5-device
+.endif
+
+.ifexists module-bluez5-discover.so
+load-module module-bluez5-discover
+.endif
+### Load several protocols
+load-module module-dbus-protocol
+.ifexists module-esound-protocol-unix.so
+load-module module-esound-protocol-unix
+.endif
+load-module module-native-protocol-unix
+
+### Network access (may be configured with paprefs, so leave this commented
+### here if you plan to use paprefs)
+#load-module module-esound-protocol-tcp
+#load-module module-native-protocol-tcp
+#load-module module-zeroconf-publish
+
+### Load the RTP receiver module (also configured via paprefs, see above)
+#load-module module-rtp-recv
+
+### Load the RTP sender module (also configured via paprefs, see above)
+#load-module module-null-sink sink_name=rtp format=s16be channels=2 rate=44100 sink_properties="device.description='RTP Multicast Sink'"
+#load-module module-rtp-send source=rtp.monitor
+
+### Load additional modules from GSettings. This can be configured with the paprefs tool.
+### Please keep in mind that the modules configured by paprefs might conflict with manually
+### loaded modules.
+.ifexists module-gsettings.so
+.nofail
+load-module module-gsettings
+.fail
+.endif
+
+
+### Automatically restore the default sink/source when changed by the user
+### during runtime
+### NOTE: This should be loaded as early as possible so that subsequent modules
+### that look up the default sink/source get the right value
+load-module module-default-device-restore
+
+### Automatically move streams to the default sink if the sink they are
+### connected to dies, similar for sources
+# load-module module-rescue-streams
+
+### Make sure we always have a sink around, even if it is a null sink.
+# load-module module-always-sink
+
+### Honour intended role device property
+load-module module-intended-roles
+
+### Automatically suspend sinks/sources that become idle for too long
+load-module module-suspend-on-idle
+
+### If autoexit on idle is enabled we want to make sure we only quit
+### when no local session needs us anymore.
+.ifexists module-console-kit.so
+load-module module-console-kit
+.endif
+.ifexists module-systemd-login.so
+load-module module-systemd-login
+.endif
+
+### Enable positioned event sounds
+load-module module-position-event-sounds
+
+### Cork music/video streams when a phone stream is active
+load-module module-role-cork
+
+### Modules to allow autoloading of filters (such as echo cancellation)
+### on demand. module-filter-heuristics tries to determine what filters
+### make sense, and module-filter-apply does the heavy-lifting of
+### loading modules and rerouting streams.
+load-module module-filter-heuristics
+load-module module-filter-apply
+
+### Make some devices default
+#set-default-sink output
+#set-default-source input
+
+# user space
+
+#### Enable Echo-Cancellation
+# load-module module-echo-cancel aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1" source_name=echoCancel_source sink_name=echoCancel_sink rate=8000 channels=1 source_master=usb_alsa_source sink_master=usb_alsa_sink
+# load-module module-echo-cancel aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1" source_name=echoCancel_source sink_name=echoCancel_sink rate=8000 channels=1 source_master=AVer_source
+# load-module module-echo-cancel aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=0" source_master="ALC887-VD Analog" source_name=echoCancel_source sink_master="ALC887-VD Analog" sink_name=echoCancel_sink
+# load-module module-echo-cancel aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1" source_master=3 source_name=echoCancel_source sink_master=3 sink_name=echoCancel_sink rate=98000
+# load-module module-echo-cancel aec_method=webrtc aec_args="analog_gain_control=0\ digital_gain_control=1" source_name=echoCancel_source sink_name=echoCancel_sink rate=98000 use_master_format=3
+# set-default-source echoCancel_source
+
+#### Enable Noise Cancellation
+# https://gist.github.com/buzztaiki/c7c7426ca662cd2a2356a3de3cedc7f7
+# 遅延が結構ありそうな気がする．
+# load-module module-null-sink sink_name=mic_denoised_out rate=48000
+# load-module module-ladspa-sink sink_name=mic_raw_in sink_master=mic_denoised_out label=noise_suppressor_mono channels=1 plugin=/usr/lib/ladspa/librnnoise_ladspa.so control=50
+# load-module module-loopback source=usb_alsa_source sink=mic_raw_in channels=1 source_dont_move=true sink_dont_move=true latency_msec=10
+# load-module module-remap-source source_name=denoised master=mic_denoised_out.monitor channels=1
+# update-source-proplist denoised device.description="Microphone (RNNoise)"
+# # 
+# set-default-source denoised
+# set-source-volume denoised 98303
+
+#### For Stream
+# load-module module-null-sink source_name=AVer_fx source_properties=device.descriptopn=AVer_source
+# load-module module-null-sink sink_name=sink_forDiscord
+# 
+# update-sink-proplist ForDiscord device.description=ForDiscord
+# update-source-proplist ForDiscord.monitor device.description=Monitor_of_ForDiscord
+# 
+# pactl load-module module-remap-source master=sink_mix.monitor \
+#       source_name=src_main source_properties="device.description=src_main"
+# 
+# pactl load-module module-loopback latency_msec=60 adjust_time=6 source=src_ec          sink=sink_mix
+# pactl load-module module-loopback latency_msec=60 adjust_time=6 source=sink_forDiscord.monitor sink=sink_mix
+# pactl load-module module-loopback latency_msec=60 adjust_time=6 source=sink_forDiscord.monitor sink=sink_main
+
+# noise suppresion for voice
+# load-module module-null-sink sink_name=mic_denoised_out rate=48000
+# load-module module-ladspa-sink sink_name=mic_raw_in sink_master=mic_denoised_out label=noise_suppressor_mono plugin=/usr/lib/ladspa/librnnoise_ladspa.so control=50,200,0,0,0
+# load-module module-loopback source=your_mic_name sink=mic_raw_in channels=1 source_dont_move=true sink_dont_move=true
+
+# set-default-source mic_denoised_out.monitor
+
+### For Default
+set-default-source alsa_source
+set-default-sink alsa_sink
+
+set-source-volume @DEFAULT_SOURCE@ 65535
+set-sink-volume @DEFAULT_SINK@ 65535
