@@ -1,6 +1,3 @@
-# public-dotfiles
+# dotvim
 
-## config
-
-## vim
-
+vimrc盆栽
