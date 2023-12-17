@@ -16,7 +16,8 @@ nnoremap <silent> ;g <Cmd>call ddu#start(#{name: 'split',
                                     \                     highlights: 'Search',
                                     \                     args: ['--column', '--no-heading', '--json', '--follow']
                                     \ }}]})<CR>
-nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'vsplit', sources: [{'name': 'quickfix_history'}]})<CR>
+" nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'vsplit', sources: [{'name': 'quickfix_history'}]})<CR>
+nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'vsplit', sources: [{'name': 'qf'}]})<CR>
 nnoremap <silent> ;v <Cmd>call ddu#start(#{
             \ name: 'vsplit',
             \ sources: [
