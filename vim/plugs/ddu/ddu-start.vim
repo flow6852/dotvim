@@ -7,8 +7,8 @@ function DduKindVim_typeSetcmdline()
         \ 'actionParams': {'getcmdline': getcmdline, 'getcmdpos': getcmdpos}})
 endfunction
 
-nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'vsplit', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
-nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'vsplit', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>
+nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
+nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;g <Cmd>call ddu#start(#{name: 'split',
                                     \ sources:[#{name: 'rg', 
                                     \           params: #{input: expand('<cword>'),
@@ -17,7 +17,7 @@ nnoremap <silent> ;g <Cmd>call ddu#start(#{name: 'split',
                                     \                     args: ['--column', '--no-heading', '--json', '--follow']
                                     \ }}]})<CR>
 " nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'vsplit', sources: [{'name': 'quickfix_history'}]})<CR>
-nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'vsplit', sources: [{'name': 'qf'}]})<CR>
+nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'split', sources: [{'name': 'qf'}]})<CR>
 nnoremap <silent> ;v <Cmd>call ddu#start(#{
             \ name: 'vsplit',
             \ sources: [
@@ -44,7 +44,7 @@ nnoremap <silent> ;h <Cmd>call ddu#start(#{name: 'split',
                 \ #{name: 'vim_command'},
                 \ #{name: 'vim_event'}
             \ ]}) <CR>
-nnoremap <silent> ;m <Cmd>call ddu#start(#{name: 'vsplit', sources: [#{name: 'markdown'}]})<CR>
+nnoremap <silent> ;m <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'markdown'}]})<CR>
 nnoremap <silent> ;c <Cmd>call ddu#start(#{
     \  {name: 'custom-list',
     \   params: #{texts: ['append', 'remove', 'head', 'last'], callbackId: g:ddcSourceSelectId}}],
@@ -54,7 +54,7 @@ nnoremap <silent> ;c <Cmd>call ddu#start(#{
     \     },
     \   }}) <CR>
 inoremap <C-l><Cmd>call ddu#start(#{name: 'ddc'})<CR>
-nnoremap <silent> ;w <Cmd>call ddu#start(#{name: 'vsplit', sources: [#{name: 'window'}]})<CR>
+nnoremap <silent> ;w <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'window'}]})<CR>
 cmap <silent> <C-h> <Cmd>call DduKindVim_typeSetcmdline()<CR>
 
 " ddu-source-custom

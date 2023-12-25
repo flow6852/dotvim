@@ -30,7 +30,7 @@ call ddu#custom#patch_local('vsplit', #{
     \       autoAction: #{ name: 'preview'},
     \       winCol: 0 ,
     \       winWidth: has('nvim') ? 20 : 15 ,
-    \       winRow: 0,
+    \       winRow: 1,
     \       winHeight: has('nvim') ? &lines : &lines ,
     \       previewFloating: has('nvim') ? v:true : v:false,
     \       previewSplit: has('nvim') ? 'horizontal' : 'no',
@@ -62,14 +62,17 @@ call ddu#custom#patch_local('split', #{
     \       autoAction: #{ name: 'preview'},
     \       winCol: 0 ,
     \       winWidth: has('nvim') ? &columns : 15 ,
-    \       winRow: 0,
+    \       winRow: has('nvim') ? 5*&lines/8-1 : 10,
     \       winHeight: has('nvim') ? 3*&lines/8 : 10 ,
     \       previewFloating: has('nvim') ? v:true : v:false,
     \       previewSplit: has('nvim') ? 'horizontal' : 'no',
-    \       previewWidth: has('nvim') ? &columns : 10,
-    \       previewHeight: has('nvim') ? 5*&lines/8 : 10,
-    \       splitDirection: "botright"
+    \       previewCol: &columns/2, 
+    \       previewWidth: has('nvim') ? &columns/2 : 10,
+    \       previewRow: 0,
+    \       previewHeight: has('nvim') ? 5*&lines/8-2 : 10,
+    \       splitDirection: "topleft"
     \     }
     \   }
     \ })
 " }}}
+
