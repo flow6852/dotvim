@@ -129,3 +129,7 @@ hi Pmenu ctermbg=black ctermfg=white
 hi PmenuSel ctermbg=yellow ctermfg=black
 hi PmenuSbar ctermbg=black
 hi PmenuThumb ctermfg=gray
+
+if has('win32')
+    source ~\.vim\rc\win.vim
+endif
