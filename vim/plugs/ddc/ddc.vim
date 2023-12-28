@@ -5,3 +5,7 @@
 " 
 " execute 'source ' . glob($BASE_DIR . "/available/ddc/" . "ddc-cmdline.vim")
 " }}}
+"
+" hook_post_update {{{
+call ddc#set_static_import_path()
+" }}}

@@ -135,3 +135,7 @@ call ddc#enable()
 call popup_preview#enable()
 call signature_help#enable()
 " }}}
+
+" hook_post_update {{{
+call ddc#set_static_import_path()
+" }}}

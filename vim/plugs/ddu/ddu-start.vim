@@ -103,3 +103,8 @@ let g:ddcSourcesHeadId =  denops#callback#register(
 let g:ddcSourcesLastId =  denops#callback#register(
     \ {s -> ddc#custom#set_buffer(extend(ddc#custom#get_buffer(), {'sources': add(filter(ddc#custom#get_current()['sources'],{_, val -> val != s}), s)}))})
 " }}}
+
+
+" hook_post_update {{{
+call ddu#set_static_import_path()
+" }}}
