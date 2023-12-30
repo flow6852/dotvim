@@ -158,6 +158,21 @@ depends = ['denops.vim', 'ddu.vim']
 on_source = 'ddu.vim'
 
 [[plugins]]
+repo='kyoh86/ddu-source-git_log' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='kuuote/ddu-source-git_status' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo='kuuote/ddu-source-git_diff' 
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
 repo='flow6852/ddu-fully_understand' 
 depends = ['denops.vim', 'ddu.vim']
 on_source = 'ddu.vim'

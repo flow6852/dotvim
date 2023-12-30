@@ -99,10 +99,10 @@ repo = 'vim-skk/skkeleton'
 on_source = 'ddc.vim'
 hooks_file = ['$BASE_DIR/plugs/ddc/skkeleton.vim']
 
-# [[plugins]]
-# repo = 'kuuote/lspoints'
-# on_source =  'ddc.vim'
-# hooks_file = ['$BASE_DIR/available/ddc/lspoints.vim']
+[[plugins]]
+repo = 'kuuote/lspoints'
+on_source =  'ddc.vim'
+hooks_file = ['$BASE_DIR/plugs/ddc/lspoints.vim']
 
 # [[plugins]]
 # repo = 'prabirshrestha/vim-lsp'

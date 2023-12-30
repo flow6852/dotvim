@@ -7,9 +7,9 @@ function DduKindVim_typeSetcmdline()
         \ 'actionParams': {'getcmdline': getcmdline, 'getcmdpos': getcmdpos}})
 endfunction
 
-nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
+nnoremap <silent> ;b <Cmd>call ddu#gtart(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>
-nnoremap <silent> ;g <Cmd>call ddu#start(#{name: 'split',
+nnoremap <silent> ;rg <Cmd>call ddu#start(#{name: 'split',
                                     \ sources:[#{name: 'rg', 
                                     \           params: #{input: expand('<cword>'),
                                     \                     path:expand('.'),
@@ -55,6 +55,9 @@ nnoremap <silent> ;c <Cmd>call ddu#start(#{
     \   }}) <CR>
 inoremap <C-l><Cmd>call ddu#start(#{name: 'ddc'})<CR>
 nnoremap <silent> ;w <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'window'}]})<CR>
+nnoremap <silent> ;gs <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_status'}]})<CR>
+nnoremap <silent> ;gl <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_log'}]})<CR>
+nnoremap <silent> ;gd <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_diff'}]})<CR>
 cmap <silent> <C-h> <Cmd>call DduKindVim_typeSetcmdline()<CR>
 
 " ddu-source-custom

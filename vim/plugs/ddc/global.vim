@@ -36,7 +36,7 @@ let l:sourceParams = #{
       \ line: #{maxSize: 10 },
       \ input: #{maxSize: 10},
       \ lsp: #{
-      \   lspEngine: 'nvim-lsp', 
+      \   lspEngine: 'lspoints', 
       \   snippetEngine: denops#callback#register({
       \         body -> vsnip#anonymous(body)
       \   }),

@@ -1,4 +1,4 @@
-" see also ./config.ts
+" hook_source {{{
 
 " function style
 call lspoints#load_extensions([
@@ -41,3 +41,5 @@ function s:on_attach() abort
 endfunction
 
 autocmd User LspointsAttach:* call s:on_attach()
+
+" }}}

@@ -35,7 +35,7 @@ export class Config extends BaseConfig {
     const dotfilesDir = "~/.vim/plugs/";
 
     const tomls: Toml[] = [];
-    const files: string[] = ["base_lazy.toml","neovim.toml", "denops_lazy.toml", "ddu/ddu_lazy.toml", "ddc/ddc_lazy.toml"];
+    const files: string[] = ["base_lazy.toml", "denops_lazy.toml", "ddu/ddu_lazy.toml", "ddc/ddc_lazy.toml"];
 
     const recordPlugins: Record<string, Plugin> = {};
     for (const file of files){
