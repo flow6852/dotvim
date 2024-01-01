@@ -17,7 +17,8 @@ nnoremap <silent> ;rg <Cmd>call ddu#start(#{name: 'split',
                                     \                     args: ['--column', '--no-heading', '--json', '--follow']
                                     \ }}]})<CR>
 " nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'vsplit', sources: [{'name': 'quickfix_history'}]})<CR>
-nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'split', sources: [{'name': 'qf'}]})<CR>
+nnoremap <silent> ;qf <Cmd>call ddu#start(#{name: 'split', sources: [{'name': 'qf'}]})<CR>
+nnoremap <silent> ;qh <Cmd>call ddu#start(#{name: 'split', sources: [{'name': 'qf'}]})<CR>
 nnoremap <silent> ;v <Cmd>call ddu#start(#{
             \ name: 'vsplit',
             \ sources: [
@@ -53,11 +54,14 @@ nnoremap <silent> ;c <Cmd>call ddu#start(#{
     \       defaultAction: 'callback',
     \     },
     \   }}) <CR>
-inoremap <C-l><Cmd>call ddu#start(#{name: 'ddc'})<CR>
+inoremap <C-d><C-d><C-c> <Cmd>call ddu#start(#{name: 'ddc'})<CR>
 nnoremap <silent> ;w <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'window'}]})<CR>
 nnoremap <silent> ;gs <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_status'}]})<CR>
 nnoremap <silent> ;gl <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_log'}]})<CR>
 nnoremap <silent> ;gd <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_diff'}]})<CR>
+nnoremap <silent> ;ld <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_definition', params: #{clientName: 'lspoints'}} ]})<CR>
+nnoremap <silent> ;lr <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_references', params: #{clientName: 'lspoints'}} ]})<CR>
+nnoremap <silent> ;lc <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_codeAction', params: #{clientName: 'lspoints'}} ]})<CR>
 cmap <silent> <C-h> <Cmd>call DduKindVim_typeSetcmdline()<CR>
 
 " ddu-source-custom

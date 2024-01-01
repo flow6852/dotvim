@@ -30,6 +30,9 @@ export class Extension extends BaseExtension {
             },
           },
         },
+        marksman: {
+          cmd: ["marksman", "server"],
+        },
       },
     });
   }

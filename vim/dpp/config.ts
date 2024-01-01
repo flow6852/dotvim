@@ -35,50 +35,55 @@ export class Config extends BaseConfig {
     const dotfilesDir = "~/.vim/plugs/";
 
     const tomls: Toml[] = [];
-    const files: string[] = ["base_lazy.toml", "denops_lazy.toml", "ddu/ddu_lazy.toml", "ddc/ddc_lazy.toml"];
+    const files: string[] = [
+      "base_lazy.toml",
+      "denops_lazy.toml",
+      "ddu/ddu_lazy.toml",
+      "ddc/ddc_lazy.toml",
+      "neovim.toml",
+    ];
 
     const recordPlugins: Record<string, Plugin> = {};
-    for (const file of files){
-        tomls.push(
-          await args.dpp.extAction(
-            args.denops,
-            context,
-            options,
-            "toml",
-            "load",
-            {
-              path: await fn.expand(args.denops, dotfilesDir + file),
-              options: {
-                lazy: true,
-                merged: false
-              },
+    for (const file of files) {
+      tomls.push(
+        await args.dpp.extAction(
+          args.denops,
+          context,
+          options,
+          "toml",
+          "load",
+          {
+            path: await fn.expand(args.denops, dotfilesDir + file),
+            options: {
+              lazy: true,
+              merged: false,
             },
-          ) as Toml,
-        );
+          },
+        ) as Toml,
+      );
 
+      const ftplugins: Record<string, string> = {};
+      const hooksFiles: string[] = [];
 
-        const ftplugins: Record<string, string> = {};
-        const hooksFiles: string[] = [];
+      tomls.forEach((toml) => {
+        for (const plugin of toml.plugins) {
+          recordPlugins[plugin.name] = plugin;
+        }
 
-        tomls.forEach((toml) => {
-          for (const plugin of toml.plugins) {
-            recordPlugins[plugin.name] = plugin;
-          }
-
-          if (toml.ftplugins) {
-            for (const filetype of Object.keys(toml.ftplugins)) {
-              if (ftplugins[filetype]) {
-                ftplugins[filetype] += `\n${toml.ftplugins[filetype]}`;
-              } else {
-                ftplugins[filetype] = toml.ftplugins[filetype];
-              }
+        if (toml.ftplugins) {
+          for (const filetype of Object.keys(toml.ftplugins)) {
+            if (ftplugins[filetype]) {
+              ftplugins[filetype] += `\n${toml.ftplugins[filetype]}`;
+            } else {
+              ftplugins[filetype] = toml.ftplugins[filetype];
             }
           }
+        }
 
-          if (toml.hooks_file) {
-            hooksFiles.push(toml.hooks_file);
-          }
-        });
+        if (toml.hooks_file) {
+          hooksFiles.push(toml.hooks_file);
+        }
+      });
     }
 
     const lazyResult = await args.dpp.extAction(
@@ -91,7 +96,6 @@ export class Config extends BaseConfig {
         plugins: Object.values(recordPlugins),
       },
     ) as LazyMakeStateResult;
-
 
     return {
       plugins: lazyResult.plugins,

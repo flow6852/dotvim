@@ -7,11 +7,11 @@ call lspoints#load_extensions([
 \   'nvim_diagnostics',
 \ ])
 " or variable style
-let g:lspoints#extensions = [
-\   'config',
-\   'format',
-\   'nvim_diagnostics',
-\ ]
+" let g:lspoints#extensions = [
+" \   'config',
+" \   'format',
+" \   'nvim_diagnostics',
+" \ ]
 function s:post() abort
   call lspoints#settings#patch(#{
   \   tracePath: '/tmp/lspoints',
@@ -34,10 +34,19 @@ function s:attach_denols() abort
   \ })
 endfunction
 
+function s:attach_marksman() abort
+  " Vim script way to given options
+  call lspoints#attach('marksman', #{
+  \   cmd: ['marksman', 'server'],
+  \ })
+endfunction
+
 autocmd FileType typescript,typescriptreact call s:attach_denols()
+autocmd FileType markdown call s:attach_marksman()
 
 function s:on_attach() abort
   nnoremap <buffer> mf <Cmd>call denops#request('lspoints', 'executeCommand', ['format', 'execute', bufnr()])<CR>
+  nnoremap <buffer> me <Cmd>call denops#request('lspoints', 'executeCommand', ['diagnostic'])<CR>
 endfunction
 
 autocmd User LspointsAttach:* call s:on_attach()
