@@ -128,9 +128,6 @@ else
     inoremap <expr><C-TAB> pumvisible() ? '<C-p>' : '<C-h>'
 endif
 
-call ddc#custom#patch_global('sourceParams', #{
-      \ })
-
 call ddc#enable()
 call popup_preview#enable()
 call signature_help#enable()
