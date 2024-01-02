@@ -7,7 +7,7 @@ function DduKindVim_typeSetcmdline()
         \ 'actionParams': {'getcmdline': getcmdline, 'getcmdpos': getcmdpos}})
 endfunction
 
-nnoremap <silent> ;b <Cmd>call ddu#gtart(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
+nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;rg <Cmd>call ddu#start(#{name: 'split',
                                     \ sources:[#{name: 'rg', 
