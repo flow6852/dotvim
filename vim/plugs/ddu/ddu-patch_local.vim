@@ -50,6 +50,9 @@ call ddu#custom#patch_local('split', #{
     \     },
     \   },
     \ kindOptions: #{
+    \     lsp_codeAction: #{
+    \       defaultAction: 'apply',
+    \     },
     \     _: #{
     \       defaultAction: 'open',
     \     },

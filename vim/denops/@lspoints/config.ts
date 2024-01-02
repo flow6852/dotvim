@@ -18,18 +18,6 @@ export class Extension extends BaseExtension {
             unstable: true,
           },
         },
-        luals: {
-          cmd: ["lua-language-server"],
-          params: {
-            settings: {
-              Lua: {
-                diagnostics: {
-                  globals: ["vim"],
-                },
-              },
-            },
-          },
-        },
         marksman: {
           cmd: ["marksman", "server"],
         },

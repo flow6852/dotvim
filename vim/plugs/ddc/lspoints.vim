@@ -46,7 +46,6 @@ autocmd FileType markdown call s:attach_marksman()
 
 function s:on_attach() abort
   nnoremap <buffer> mf <Cmd>call denops#request('lspoints', 'executeCommand', ['format', 'execute', bufnr()])<CR>
-  nnoremap <buffer> me <Cmd>call denops#request('lspoints', 'executeCommand', ['diagnostic'])<CR>
 endfunction
 
 autocmd User LspointsAttach:* call s:on_attach()
