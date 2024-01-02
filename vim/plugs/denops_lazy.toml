@@ -1,10 +1,4 @@
 [[plugins]]
-repo = 'Shougo/pum.vim'
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
-
-[[plugins]]
 repo =  'flow6852/dps-mergeqf'
 depends = ['denops.vim']
 

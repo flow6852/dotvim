@@ -35,16 +35,41 @@ export class Config extends BaseConfig {
     const dotfilesDir = "~/.vim/plugs/";
 
     const tomls: Toml[] = [];
-    const files: string[] = [
-      "base_lazy.toml",
-      "denops_lazy.toml",
-      "ddu/ddu_lazy.toml",
-      "ddc/ddc_lazy.toml",
-      "neovim.toml",
-    ];
+    for (
+      const file of [
+        "base.toml",
+        "dpp.toml",
+      ]
+    ) {
+      const toml = await args.dpp.extAction(
+        args.denops,
+        context,
+        options,
+        "toml",
+        "load",
+        {
+          path: await fn.expand(args.denops, dotfilesDir + file),
+          options: {
+            lazy: false,
+          },
+        },
+      ) as Toml | undefined;
+
+      if (toml) {
+        tomls.push(toml);
+      }
+    }
 
     const recordPlugins: Record<string, Plugin> = {};
-    for (const file of files) {
+    for (
+      const file of [
+        "base_lazy.toml",
+        "denops_lazy.toml",
+        "ddu/ddu_lazy.toml",
+        "ddc/ddc_lazy.toml",
+        "neovim.toml",
+      ]
+    ) {
       tomls.push(
         await args.dpp.extAction(
           args.denops,
