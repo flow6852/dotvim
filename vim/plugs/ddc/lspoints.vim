@@ -1,11 +1,12 @@
 " hook_source {{{
 
 " function style
-call lspoints#load_extensions([
-\   'config',
-\   'format',
-\   'nvim_diagnostics',
-\ ])
+autocmd User DenopsPluginPost:lspoints
+            \ call lspoints#load_extensions([
+            \   'config',
+            \   'format',
+            \   'nvim_diagnostics',
+            \ ])
 " or variable style
 " let g:lspoints#extensions = [
 " \   'config',

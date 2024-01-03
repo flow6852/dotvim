@@ -13,9 +13,9 @@ let l:sourceOptions = #{
       \ input: #{mark: '[input]'},
       \ line: #{mark: '[line]' },
       \ vsnip : #{mark: '[vsnip]',
-      \           dup: v:false},
+      \           dup: "keep"},
       \ file: #{ mark : '[file]', isVolatile: v:true, minAutoCompleteLength: 0, forceCompletionPattern: '\S/\S*'},
-      \ lsp: #{mark: 'lsp', forceCompletionPattern: '\.\w*|:\w*|->\w*'}
+      \ lsp: #{mark: 'lsp', forceCompletionPattern: '\.\w*|:\w*|->\w*', dup: "keep"}
       \ }
 let l:sourceParams = #{
       \ around: #{maxSize: 10000},

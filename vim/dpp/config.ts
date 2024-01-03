@@ -67,7 +67,6 @@ export class Config extends BaseConfig {
         "denops_lazy.toml",
         "ddu/ddu_lazy.toml",
         "ddc/ddc_lazy.toml",
-        "neovim.toml",
       ]
     ) {
       tomls.push(
