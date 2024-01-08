@@ -7,6 +7,8 @@ function DduKindVim_typeSetcmdline()
         \ 'actionParams': {'getcmdline': getcmdline, 'getcmdpos': getcmdpos}})
 endfunction
 
+let g:qfFormat = "%b\:%c\:%l|%T|%t"
+
 nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;rg <Cmd>call ddu#start(#{name: 'split',
@@ -16,24 +18,23 @@ nnoremap <silent> ;rg <Cmd>call ddu#start(#{name: 'split',
                                     \                     highlights: 'Search',
                                     \                     args: ['--column', '--no-heading', '--json', '--follow']
                                     \ }}]})<CR>
-" nnoremap <silent> ;q <Cmd>call ddu#start(#{name: 'vsplit', sources: [{'name': 'quickfix_history'}]})<CR>
 nnoremap <silent> ;qf <Cmd>call ddu#start(#{name: 'split', sources: [{'name': 'qf'}]})<CR>
-nnoremap <silent> ;qh <Cmd>call ddu#start(#{name: 'split', sources: [{'name': 'qf'}]})<CR>
+nnoremap <silent> ;qh <Cmd>call ddu#start(#{name: 'split', sources: [{'name': 'quickfix_history'}]})<CR>
 nnoremap <silent> ;v <Cmd>call ddu#start(#{
-            \ name: 'vsplit',
+            \ name: 'split',
             \ sources: [
             \   #{name: 'qf', 
             \     params: #{what: #{title: ':vimgrep'},
             \               isSubst: v:true,
-            \               format: format,
+            \               format: g:qfFormat,
             \               dup: v:true}},
             \   #{name: 'qf', 
             \     params: #{what: #{title: ':lvimgrep'},
             \               isSubst: v:true,
-            \               format: format,
+            \               format: g:qfFormat,
             \               nr: 0,
-            \               dup: v:true 
-            \ }}]})<CR>
+            \               dup: v:true }}
+            \ ]})<CR>
 nnoremap <silent> ;u <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'url', params: #{ignoredDirectories: '.git'}}]})<CR>
 nnoremap <silent> ;a <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'atcoder_facilitator', 'params':#{bufnr: bufnr("%")}}]})<CR>
 nnoremap <silent> ;s <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'atcoder_status', 'params':#{bufnr: bufnr("%")}}]})<CR>
