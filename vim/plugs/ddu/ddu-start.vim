@@ -7,7 +7,7 @@ function DduKindVim_typeSetcmdline()
         \ 'actionParams': {'getcmdline': getcmdline, 'getcmdpos': getcmdpos}})
 endfunction
 
-let g:qfFormat = "%b\:%c\:%l|%T|%t"
+let g:qfFormat = "%b|col\:%c|line\:%l|%T|%t"
 
 nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>

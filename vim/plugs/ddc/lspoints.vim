@@ -42,8 +42,13 @@ function s:attach_marksman() abort
   \ })
 endfunction
 
-autocmd FileType typescript,typescriptreact call s:attach_denols()
-autocmd FileType markdown call s:attach_marksman()
+if executable("deno")
+    autocmd FileType typescript,typescriptreact call s:attach_denols()
+endif
+
+if executable("marksman")
+    autocmd FileType markdown call s:attach_marksman()
+endif
 
 function s:on_attach() abort
   nnoremap <buffer> mf <Cmd>call denops#request('lspoints', 'executeCommand', ['format', 'execute', bufnr()])<CR>
