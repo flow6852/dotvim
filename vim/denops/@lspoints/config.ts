@@ -7,21 +7,28 @@ import {
 // place to {runtimepath}/denops/@lspoints/config.ts
 
 export class Extension extends BaseExtension {
-  override initialize(_denops: Denops, lspoints: Lspoints) {
-    lspoints.settings.patch({
-      startOptions: {
-        // TypeScript way to given options
-        denols: {
-          cmd: ["deno", "lsp"],
-          initializationOptions: {
-            enable: true,
-            unstable: true,
-          },
-        },
-        marksman: {
-          cmd: ["marksman", "server"],
+  override initialize(denops: Denops, lspoints: Lspoints) {
+    let startOptions = {
+      // TypeScript way to given options
+      denols: {
+        cmd: ["deno", "lsp"],
+        initializationOptions: {
+          enable: true,
+          unstable: true,
         },
       },
+    }
+    if(await denops.call('executable marksman')) {
+        const marksman = {
+            marksman: {
+                cmd: ["marksman", "server"],
+            }
+        }
+        startOptions = { ...startOptions, ...marksman }
+    }
+
+    lspoints.settings.patch({
+      startOptions: startOptions
     });
   }
 }
