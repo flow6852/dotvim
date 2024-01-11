@@ -63,6 +63,7 @@ export class Config extends BaseConfig {
     const recordPlugins: Record<string, Plugin> = {};
     for (
       const file of [
+        "neovim.toml",
         "base_lazy.toml",
         "denops_lazy.toml",
         "ddu/ddu_lazy.toml",

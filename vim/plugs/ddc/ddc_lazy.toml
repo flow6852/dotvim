@@ -55,8 +55,7 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-lsp'
-on_source = ['ddc.vim']
-depends = ['lspoints']
+on_source = ['ddc.vim', 'nvim-lspconfig']
 lua_source = '''
 -- local capabilities = require("ddc_source_lsp").make_client_capabilities()
 -- require("lspconfig").denols.setup({

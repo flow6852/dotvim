@@ -36,7 +36,7 @@ let l:sourceParams = #{
       \ line: #{maxSize: 10 },
       \ input: #{maxSize: 10},
       \ lsp: #{
-      \   lspEngine: 'lspoints', 
+      \   lspEngine: 'nvim-lsp', 
       \   snippetEngine: denops#callback#register({
       \         body -> vsnip#anonymous(body)
       \   }),
@@ -134,5 +134,5 @@ call signature_help#enable()
 " }}}
 
 " hook_post_update {{{
-call ddc#set_static_import_path()
+" call ddc#set_static_import_path()
 " }}}

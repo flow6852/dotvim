@@ -60,9 +60,9 @@ nnoremap <silent> ;w <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'win
 nnoremap <silent> ;gs <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_status'}]})<CR>
 nnoremap <silent> ;gl <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_log'}]})<CR>
 nnoremap <silent> ;gd <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'git_diff'}]})<CR>
-nnoremap <silent> ;ld <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_definition', params: #{clientName: 'lspoints'}} ]})<CR>
-nnoremap <silent> ;lr <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_references', params: #{clientName: 'lspoints'}} ]})<CR>
-nnoremap <silent> ;lc <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_codeAction', params: #{clientName: 'lspoints'}} ]})<CR>
+nnoremap <silent> ;ld <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_definition', params: #{clientName: 'nvim-lsp'}} ]})<CR>
+nnoremap <silent> ;lr <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_references', params: #{clientName: 'nvim-lsp'}} ]})<CR>
+nnoremap <silent> ;lc <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_codeAction', params: #{clientName: 'nvim-lsp'}} ]})<CR>
 cmap <silent> <C-h> <Cmd>call DduKindVim_typeSetcmdline()<CR>
 
 " ddu-source-custom
@@ -114,5 +114,5 @@ let g:ddcSourcesLastId =  denops#callback#register(
 
 
 " hook_post_update {{{
-call ddu#set_static_import_path()
+" call ddu#set_static_import_path()
 " }}}

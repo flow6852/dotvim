@@ -3,7 +3,3 @@ repo = 'vim-denops/denops.vim'
 
 [[plugins]]
 repo = 'Shougo/pum.vim'
-
-[[plugins]]
-repo = 'kuuote/lspoints'
-hooks_file = ['$BASE_DIR/plugs/ddc/lspoints.vim']
