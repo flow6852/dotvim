@@ -7,6 +7,7 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 '''
 lua_source = '''
+local on_windows = vim.loop.os_uname().version:match 'Windows'
 
 local function join_paths(...) 
   local path_sep = on_windows and "\\" or "/"
@@ -55,11 +56,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local home_dir = vim.loop.os_getenv("HOME")
-
 require('lspconfig').denols.setup{}
 require('lspconfig').marksman.setup{}
-local pwes_path = join_paths(home_dir, ".local", "src" ,"PowerShellEditorServices")
+local pwes_path = join_paths(vim.env.HOME, ".local", "src" ,"PowerShellEditorServices")
 
 require('lspconfig').powershell_es.setup{
     bundle_path = pwes_path,
