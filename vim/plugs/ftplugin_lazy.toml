@@ -1,0 +1,8 @@
+[[plugins]]
+repo = 'lervag/vimtex'
+on_ft = 'tex'
+# on_source = ['ddc.vim']
+
+[[plugins]]
+repo = 'mattn/vim-maketable'
+on_ft = ['csv', 'markdown']
