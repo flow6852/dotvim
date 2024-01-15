@@ -18,20 +18,12 @@ function! s:skkeleton_init() abort
        \ })
  
      call skkeleton#register_kanatable('rom', {
-       \ 'la' : ['ぁ'],
-       \ 'li' : ['ぃ'],
-       \ 'lu' : ['ぅ'],
-       \ 'le' : ['ぇ'],
-       \ 'lo' : ['ぉ'],
-       \ 'ltu' : ['っ'],
        \ "z\<Space>": ["\u3000", ''],
        \ "}d" : "disable",
        \ "}k" : "katakana",
        \ })
  
-     call add(g:skkeleton#mapped_keys, '<S-l>')
      call skkeleton#register_keymap('input', '<S-l>', v:false)
-     call skkeleton#register_keymap('input', 'kt', 'katakana')
 endfunction
 
 function! s:changeSource2Skk() abort
