@@ -3,8 +3,13 @@ function DduKindVim_typeSetcmdline()
     let getcmdline = getcmdline()
     let getcmdpos = getcmdpos()
     call feedkeys("\<Esc>", 't')
-    call ddu#start({'name': 'vim_type', 
-        \ 'actionParams': {'getcmdline': getcmdline, 'getcmdpos': getcmdpos}})
+    call ddu#start(#{name: 'split',
+        \ sources:[ #{name: 'vim_variable'},
+                  \ #{name: 'vim_option'},
+                  \ #{name: 'vim_function'},
+                  \ #{name: 'vim_command'},
+                  \ #{name: 'vim_event'}],
+        \ actionParams: #{getcmdline: getcmdline, getcmdpos: getcmdpos}})
 endfunction
 
 let g:qfFormat = "%b|col\:%c|line\:%l|%T|%t"
@@ -63,7 +68,7 @@ nnoremap <silent> ;gd <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'gi
 nnoremap <silent> ;ld <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_definition', params: #{clientName: 'nvim-lsp'}} ]})<CR>
 nnoremap <silent> ;lr <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_references', params: #{clientName: 'nvim-lsp'}} ]})<CR>
 nnoremap <silent> ;lc <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'lsp_codeAction', params: #{clientName: 'nvim-lsp'}} ]})<CR>
-cmap <silent> <C-h> <Cmd>call DduKindVim_typeSetcmdline()<CR>
+cnoremap <silent> <C-h> <Cmd>call DduKindVim_typeSetcmdline()<CR>
 
 " ddu-source-custom
 let g:allDdcSources = ['around', 'rg', 'buffer', 'file', 'path', 'input', 'cmdline', 'cmdline-history', 'omni', 'nvim-lsp', 'skkeleton']
