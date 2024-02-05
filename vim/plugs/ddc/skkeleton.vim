@@ -8,7 +8,7 @@ tnoremap }t <Plug>(skkeleton-toggle)
 
 function! s:skkeleton_init() abort
      call skkeleton#config({
-       \ 'eggLikeNewline': v:false,
+       \ 'eggLikeNewline': v:true,
        \ 'globalDictionaries': has('unix') ? ['/usr/share/skk/SKK-JISYO.L','/usr/share/skk/SKK-JISYO.S','/usr/share/skk/SKK-JISYO.M' ,'/usr/share/skk/SKK-JISYO.ML' ] 
        \                                   : ['~/.skk/SKK-JISYO.L','~/.skk/SKK-JISYO.S','~/.skk/SKK-JISYO.M' ,'~/.skk/SKK-JISYO.ML' ],
        \ 'completionRankFile': '~/.skkeleton/rank.json',
@@ -49,7 +49,7 @@ function! s:changeSource2Skk() abort
         \     'isVolatile': v:true
         \   },
         \ }})
-    call DduMappingChange(v:true)
+    " call DduMappingChange(v:true)
     call pum#set_option('auto_select', v:false)
 endfunction
 
@@ -61,7 +61,7 @@ function! s:changeSkk2Source() abort
     else
         call ddc#custom#set_buffer(ddc#custom#get_current())
     endif
-    call DduMappingChange(v:false)
+    "  call DduMappingChange(v:false)
     call pum#set_option('auto_select', v:false)
 endfunction
 
