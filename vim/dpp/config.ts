@@ -37,8 +37,6 @@ export class Config extends BaseConfig {
     const tomls: Toml[] = [];
     for (
       const file of [
-        "base.toml",
-        "dpp.toml",
       ]
     ) {
       const toml = await args.dpp.extAction(
@@ -63,6 +61,7 @@ export class Config extends BaseConfig {
     const recordPlugins: Record<string, Plugin> = {};
     for (
       const file of [
+        "dpp.toml",
         "neovim.toml",
         "base_lazy.toml",
         "denops_lazy.toml",

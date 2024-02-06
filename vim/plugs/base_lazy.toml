@@ -1,4 +1,15 @@
 [[plugins]]
+repo = 'vim-denops/denops.vim'
+hook_source = '''
+let g:denops_server_addr = "127.0.0.1:32123"
+"let g:denops#disabled = 0
+call denops#server#connect()
+'''
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
+
+[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
