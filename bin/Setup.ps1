@@ -10,6 +10,6 @@ Move-Item "$HOME\.vimrc" "$BackupDir\vimrc"
 Move-Item "$HOME\AppData\Local\nvim\init.vim" "$BackupDir\init.vim"
 Move-Item "$HOME\.vim" "$BackupDir\vim"
 
-Copy-Item "vimrc" "$HOME\.vimrc"
-Copy-Item "init.vim" "$HOME\AppData\Local\nvim\init.vim"
-Copy-Item "vim" "$HOME\.vim" -Recurse
+Copy-Item "..\vimrc" "$HOME\.vimrc"
+Copy-Item "..\init.vim" "$HOME\AppData\Local\nvim\init.vim"
+Copy-Item "..\vim" "$HOME\.vim" -Recurse

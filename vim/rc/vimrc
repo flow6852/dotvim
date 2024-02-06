@@ -1,6 +1,8 @@
 set nocompatible
 
 let $BASE_DIR = expand('~/.vim')
+let g:denops_server_addr = '127.0.0.1:32123'
+
 const s:dpp_base = expand("~/.cache/dpp")
 const s:dpp_src = expand("~/.cache/dpp/repos/github.com/Shougo/dpp.vim")
 const s:ext_toml = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-toml")
@@ -11,12 +13,10 @@ const s:denops_src = expand("~/.cache/dpp/repos/github.com/vim-denops/denops.vim
 const s:dpp_config = expand("~/.vim/dpp/config.ts")
 
 execute 'set runtimepath^=' .. s:dpp_src
-
 execute 'set runtimepath+=' .. s:ext_toml
 execute 'set runtimepath+=' .. s:ext_git
 execute 'set runtimepath+=' .. s:ext_lazy
 execute 'set runtimepath+=' .. s:ext_installer
-
 execute 'set runtimepath+=' .. $BASE_DIR
 
 if dpp#min#load_state(s:dpp_base)

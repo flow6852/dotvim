@@ -11,12 +11,12 @@ fi
 
 cd ${HOME}
 unlink .vimrc
-ln -s ${BASE}/vimrc .vimrc
+ln -s ${BASE}/../vimrc .vimrc
 unlink .vim
-ln -s ${BASE}/vim .vim
+ln -s ${BASE}/../vim .vim
 cd ${BASE}
 
 cd ${HOME}/.config/nvim
 unlink init.vim
-ln -s ${BASE}/init.vim
+ln -s ${BASE}/../init.vim
 cd ${BASE}
