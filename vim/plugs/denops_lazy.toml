@@ -6,7 +6,3 @@ depends = ['denops.vim']
 repo =  'flow6852/dps-taskrunner'
 depends = ['denops.vim']
 
-[[plugins]]
-repo='kat0h/bufpreview.vim' 
-depends = ['denops.vim']
-on_ft = 'markdown'

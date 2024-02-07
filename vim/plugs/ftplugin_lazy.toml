@@ -6,3 +6,11 @@ on_ft = 'tex'
 [[plugins]]
 repo = 'mattn/vim-maketable'
 on_ft = ['csv', 'markdown']
+
+[[plugins]]
+repo='kat0h/bufpreview.vim' 
+depends = ['denops.vim']
+on_event = ['CmdlineEnter']
+hook_source = '''
+
+'''
