@@ -1,3 +1,4 @@
+""" hook_source {{{
 let g:vimsyn_embed = 'lPr'
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
@@ -55,27 +56,17 @@ local lspconfig = require('lspconfig')
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- lspconfig.marksman.setup({capabilities = capabilities})
-lspconfig.denols.setup({capabilities = capabilities})
+lspconfig.denols.setup({
+    filetypes = {"typescript"},
+    capabilities = capabilities,
+})
 
 lspconfig.powershell_es.setup({
+    filetypes = {"powershell"},
     bundle_path = join_paths(vim.env.HOME, ".local", "src" ,"PowerShellEditorServices"),
     shell="pwsh",
     capabilities = capabilities,
 })
-
--- lspconfig.efm.setup {
---     filetypes = ["markdown"],
---     single_file_support = true,
---     init_options = {documentFormatting = true},
---     cmd = [join_paths(vim.env.HOME, ".local", "efm-langserver", "efm-langserver")],
---     settings = {
---         languages = {
---             markdown = {
---                 {formatCommand = "deno fmt ${INPUT}", formatStdin = true}
---             }
---         }
---     }
--- }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
@@ -85,3 +76,4 @@ vim.api.nvim_create_autocmd('FileWritePost', {
   callback = function() vim.diagnostic.setqflist({open=false}) end
 })
 EOF
+" }}}
