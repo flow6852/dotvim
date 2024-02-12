@@ -1,0 +1,15 @@
+version: 2
+lint-debounce: 1s
+commands:
+    - command: nvim
+      arguments:
+        - ${INPUT}
+      title: NVIM
+
+tools:
+    markdown: &markdown-formatter
+    format-command: 'deno fmt ${INPUT}'
+
+languages:
+  markdown:
+    - <<: *markdown-format

@@ -10,4 +10,4 @@ $ setup.sh
 
 # 方針
 
-dpp.vim+ddc.vim+ddu.vim
+dpp.vim+ddc.vim+ddu.vim  

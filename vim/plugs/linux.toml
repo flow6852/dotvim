@@ -1,0 +1,3 @@
+[[plugins]]
+repo = 'gamoutatsumi/dps-ghosttext.vim'
+depends = ['denops.vim']

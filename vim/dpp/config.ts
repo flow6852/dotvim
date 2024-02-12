@@ -36,8 +36,7 @@ export class Config extends BaseConfig {
 
     const tomls: Toml[] = [];
     for (
-      const file of [
-      ]
+      const file of []
     ) {
       const toml = await args.dpp.extAction(
         args.denops,
@@ -59,6 +58,7 @@ export class Config extends BaseConfig {
     }
 
     const recordPlugins: Record<string, Plugin> = {};
+
     for (
       const file of [
         "dpp.toml",
@@ -67,7 +67,7 @@ export class Config extends BaseConfig {
         "denops_lazy.toml",
         "ddu/ddu_lazy.toml",
         "ddc/ddc_lazy.toml",
-        "ftplugin_lazy.toml"
+        "ftplugin_lazy.toml",
       ]
     ) {
       tomls.push(
@@ -109,6 +109,50 @@ export class Config extends BaseConfig {
           hooksFiles.push(toml.hooks_file);
         }
       });
+    }
+
+    if (Deno.build.os == "linux"){
+      for (const file of ["linux.toml"]) {
+        tomls.push(
+          await args.dpp.extAction(
+            args.denops,
+            context,
+            options,
+            "toml",
+            "load",
+            {
+              path: await fn.expand(args.denops, dotfilesDir + file),
+              options: {
+                lazy: false,
+                merged: false,
+              },
+            },
+          ) as Toml,
+        );
+
+        const ftplugins: Record<string, string> = {};
+        const hooksFiles: string[] = [];
+
+        tomls.forEach((toml) => {
+          for (const plugin of toml.plugins) {
+            recordPlugins[plugin.name] = plugin;
+          }
+
+          if (toml.ftplugins) {
+            for (const filetype of Object.keys(toml.ftplugins)) {
+              if (ftplugins[filetype]) {
+                ftplugins[filetype] += `\n${toml.ftplugins[filetype]}`;
+              } else {
+                ftplugins[filetype] = toml.ftplugins[filetype];
+              }
+            }
+          }
+
+          if (toml.hooks_file) {
+            hooksFiles.push(toml.hooks_file);
+          }
+        });
+      }
     }
 
     const lazyResult = await args.dpp.extAction(
