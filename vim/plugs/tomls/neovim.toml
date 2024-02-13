@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_source = ['ddc.vim']
-hooks_file = ['$BASE_DIR/plugs/nvim-lspconfig.vim']
+hooks_file = ['$BASE_DIR/plugs/ddc/nvim-lspconfig.vim']
 
 # [[plugins]]
 # repo = 'williamboman/mason-lspconfig.nvim'

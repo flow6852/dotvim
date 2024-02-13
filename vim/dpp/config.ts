@@ -31,88 +31,35 @@ export class Config extends BaseConfig {
       stateLines: string[];
     };
 
+    type ExtType = {
+      target: string;
+      isLazy: boolean;
+      ext: string;
+      os: string;
+    };
+
     const [context, options] = await args.contextBuilder.get(args.denops);
     const dotfilesDir = "~/.vim/plugs/";
 
+    // for using toml
     const tomls: Toml[] = [];
-    for (
-      const file of []
-    ) {
-      const toml = await args.dpp.extAction(
-        args.denops,
-        context,
-        options,
-        "toml",
-        "load",
-        {
-          path: await fn.expand(args.denops, dotfilesDir + file),
-          options: {
-            lazy: false,
-          },
-        },
-      ) as Toml | undefined;
-
-      if (toml) {
-        tomls.push(toml);
-      }
-    }
-
     const recordPlugins: Record<string, Plugin> = {};
+    const os = Deno.build.os;
 
+    // with lazy
     for (
       const file of [
-        "dpp.toml",
-        "neovim.toml",
-        "base_lazy.toml",
-        "denops_lazy.toml",
-        "ddu/ddu_lazy.toml",
-        "ddc/ddc_lazy.toml",
-        "ftplugin_lazy.toml",
-      ]
+        { target: "dpp.toml", isLazy: true, os: "" },
+        { target: "neovim.toml", isLazy: true, os: "" },
+        { target: "base_lazy.toml", isLazy: true, os: "" },
+        { target: "denops_lazy.toml", isLazy: true, os: "" },
+        { target: "ddu_lazy.toml", isLazy: true, os: "" },
+        { target: "ddc_lazy.toml", isLazy: true, os: "" },
+        { target: "ftplugin_lazy.toml", isLazy: true, os: "" },
+        { target: "linux.toml", isLazy: true, os: "linux" },
+      ] as ExtType[]
     ) {
-      tomls.push(
-        await args.dpp.extAction(
-          args.denops,
-          context,
-          options,
-          "toml",
-          "load",
-          {
-            path: await fn.expand(args.denops, dotfilesDir + file),
-            options: {
-              lazy: true,
-              merged: false,
-            },
-          },
-        ) as Toml,
-      );
-
-      const ftplugins: Record<string, string> = {};
-      const hooksFiles: string[] = [];
-
-      tomls.forEach((toml) => {
-        for (const plugin of toml.plugins) {
-          recordPlugins[plugin.name] = plugin;
-        }
-
-        if (toml.ftplugins) {
-          for (const filetype of Object.keys(toml.ftplugins)) {
-            if (ftplugins[filetype]) {
-              ftplugins[filetype] += `\n${toml.ftplugins[filetype]}`;
-            } else {
-              ftplugins[filetype] = toml.ftplugins[filetype];
-            }
-          }
-        }
-
-        if (toml.hooks_file) {
-          hooksFiles.push(toml.hooks_file);
-        }
-      });
-    }
-
-    if (Deno.build.os == "linux"){
-      for (const file of ["linux.toml"]) {
+      if (os == file.os || file.os == "") {
         tomls.push(
           await args.dpp.extAction(
             args.denops,
@@ -121,9 +68,9 @@ export class Config extends BaseConfig {
             "toml",
             "load",
             {
-              path: await fn.expand(args.denops, dotfilesDir + file),
+              path: await fn.expand(args.denops, dotfilesDir + "tomls/" + file.target),
               options: {
-                lazy: false,
+                lazy: file.isLazy,
                 merged: false,
               },
             },
@@ -155,7 +102,26 @@ export class Config extends BaseConfig {
       }
     }
 
-    const lazyResult = await args.dpp.extAction(
+    // from local
+    for (const target of ["local"]) {
+      (await args.dpp.extAction(
+        args.denops,
+        context,
+        options,
+        "local",
+        "local",
+        {
+          directory: dotfilesDir + target,
+          options: {
+            merged: false,
+          },
+        },
+      ) as Plugin[]).forEach((plugin: Plugin) => {
+        recordPlugins[plugin.name] = plugin;
+      });
+    }
+
+    const result = await args.dpp.extAction(
       args.denops,
       context,
       options,
@@ -167,8 +133,8 @@ export class Config extends BaseConfig {
     ) as LazyMakeStateResult;
 
     return {
-      plugins: lazyResult.plugins,
-      stateLines: lazyResult.stateLines,
+      plugins: result.plugins,
+      stateLines: result.stateLines,
     };
   }
 }

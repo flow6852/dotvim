@@ -9,6 +9,7 @@ const s:ext_toml = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-toml")
 const s:ext_lazy = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-lazy")
 const s:ext_installer = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-installer")
 const s:ext_git = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-protocol-git")
+const s:ext_local = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-local")
 const s:denops_src = expand("~/.cache/dpp/repos/github.com/vim-denops/denops.vim")
 const s:dpp_config = expand("~/.vim/dpp/config.ts")
 
@@ -16,6 +17,7 @@ execute 'set runtimepath^=' .. s:dpp_src
 execute 'set runtimepath+=' .. s:ext_toml
 execute 'set runtimepath+=' .. s:ext_git
 execute 'set runtimepath+=' .. s:ext_lazy
+execute 'set runtimepath+=' .. s:ext_local
 execute 'set runtimepath+=' .. s:ext_installer
 execute 'set runtimepath+=' .. $BASE_DIR
 
