@@ -99,18 +99,6 @@ function! StatusAfterSubmit(arg) abort
     call ddu#ui#sync_action('quit')
     if a:arg
         call ddu#start({'name': 'atcoder_status', 'sources': [{'name': 'atcoder_status', 'params': {'bufnr': get(get(l:item, "action"), "bufnr")}}]})
-        " call atcoder_facilitator#statusAfterSubmit(get(get(l:item, "action"), "qdict"), a:arg, 'atcoder_status')
-        " let l:item = ddu#ui#get_item()
-        " echom l:item
-        " echom get(l:item, "word")
-        " echom match(get(l:item, "word"), "WJ")
-        " echom match(get(l:item, "word"), "/")
-        " while match(get(l:item, "word"), "WJ") > 0 || match(get(l:item, "word"), "/") > 0
-        "     echom "redraw"
-        "     call ddu#redraw('atcoder_status', {'refreshItems': v:true})
-        "     execute "3sleep"
-        "     let item = ddu#ui#get_item()
-        " endwhile
     else
         echo atcoder_facilitator#statusAfterSubmit(get(get(l:item, "action"), "qdict"), a:arg, 'atcoder_status')
     endif

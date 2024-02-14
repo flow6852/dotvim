@@ -50,17 +50,6 @@ if executable('rg')
     let l:sourceOptions = extend(l:sourceOptions, {'rg': { 'mark': '[ripgrep]' }})
 endif
 
-" if Global_is_plugged('ddc-nvim-lsp') && has('nvim')
-"     " https://github.com/Shougo/ddc-nvim-lsp
-"     let l:sources = insert(l:sources, 'nvim-lsp', 0)
-"     let l:sourceOptions = extend(l:sourceOptions, #{nvim-lsp: #{mark: '[lsp]', forceCompletionPattern: '\.\w*|:\w*|->\w*'}})
-"     let l:sourceParams = extend(l:sourceParams, #{nvim-lsp: #{kindLabels: #{Class: '[Class]'}}
-"     \ })
-" elseif Global_is_plugged('ddc-vim-lsp')
-"     let sources = add(sources, 'vim-lsp')
-"     let l:sourceOptions = extend(l:sourceOptions, #{vim-lsp: #{mark: 'lsp',}})
-" endif
-
 call ddc#custom#patch_global(#{sources: l:sources,
                              \ backspaceCompletion: v:true,
                              \ sourceOptions: l:sourceOptions,
@@ -77,7 +66,6 @@ call ddc#custom#patch_global(#{sources: l:sources,
 
 "autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 
-"" Mappings
 " Mappings
 
 function DdcMappingChange(isAutoSelected)
