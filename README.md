@@ -1,13 +1,25 @@
 # dotvim
 
+## 概要
+
 vimrc盆栽
 
-# setup
+## setup
+
+### Linux 
 
 ```bash
-$ setup.sh
+$ ./bin/setup.sh
 ```
 
-# 方針
+### Windows 
 
-dpp.vim+ddc.vim+ddu.vim  
+```powershell
+$ ./bin/Setup.ps1
+```
+
+## 方針
+
+* dpp.vim+ddc.vim+ddu.vim  
+* denops shared serverを利用`pwsh ./bin/DenopsSharedServer.ps1`
+* markdownは`deno fmt`を利用(`vim/plugs/local/formatter`利用)
