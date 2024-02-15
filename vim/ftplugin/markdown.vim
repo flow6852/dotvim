@@ -1,7 +1,7 @@
 setl tabstop=4
 setl shiftwidth=10
 
-nnoremap <silent> <Space>f <Cmd>call formatter#markdown(expand("%:p"))<CR>
+nnoremap <silent> <Space>f <Cmd>call markdownUtil#formatter(expand("%:p"))<CR>
 " 
 " if !exists('g:l_ftplugin_markdown')
 " function! MarkdownFormatUsingDeno(file)
