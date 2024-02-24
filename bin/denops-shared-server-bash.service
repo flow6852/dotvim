@@ -1,0 +1,10 @@
+[Unit]
+Description=Denops Shared Server
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/deno run -q --no-lock -A %h/.cache/dpp/repos/github.com/vim-denops/denops.vim/denops/@denops-private/cli.ts --hostname 127.0.0.1  --port 32123
+Restart=always
+
+[Install]
+WantedBy=default.target

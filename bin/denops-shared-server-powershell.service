@@ -1,0 +1,10 @@
+[Unit]
+Description=Denops Shared Server
+
+[Service]
+Type=simple
+ExecStart=pwsh /home/flow_6852/dotfiles/dotvim/bin/DenopsSharedServer.ps1
+Restart=always
+
+[Install]
+WantedBy=default.target
