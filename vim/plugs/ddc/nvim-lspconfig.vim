@@ -55,7 +55,7 @@ local lspconfig = require('lspconfig')
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
--- lspconfig.marksman.setup({capabilities = capabilities})
+lspconfig.marksman.setup({capabilities = capabilities})
 lspconfig.denols.setup({
     filetypes = {"typescript"},
     capabilities = capabilities,
