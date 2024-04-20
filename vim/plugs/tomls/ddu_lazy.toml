@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
 depends = ['denops.vim']
-on_event = ['VimEnter']
+on_event = ['BufEnter']
 hooks_file = ['$BASE_DIR/plugs/ddu/ddu-start.vim', ]
 
 [[plugins]]
