@@ -54,19 +54,6 @@ repo = 'Shougo/ddc-source-rg'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-source-lsp'
-on_source = ['ddc.vim', 'nvim-lspconfig']
-lua_source = '''
--- local capabilities = require("ddc_source_lsp").make_client_capabilities()
--- require("lspconfig").denols.setup({
---   capabilities = capabilities,
--- })
--- require("lspconfig").marksman.setup({
---   capabilities = capabilities,
--- })
-'''
-
-[[plugins]]
 repo = 'hrsh7th/vim-vsnip'
 on_source = 'ddc.vim'
 
