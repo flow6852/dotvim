@@ -9,7 +9,7 @@ depends = ['denops.vim']
 [[plugins]] 
 repo = 'Shougo/ddc.vim'
 depends = ['denops.vim', 'denops-popup-preview.vim']
-on_event = ['BufEnter']
+on_event = ['BufReadPost']
 hooks_file = ['$BASE_DIR/plugs/ddc/global.vim']
 
 [[plugins]]
@@ -93,7 +93,7 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'vim-skk/skkeleton'
 depends = 'denops.vim'
-on_event = ['BufEnter']
+on_event = ['BufReadPost']
 hooks_file = ['$BASE_DIR/plugs/ddc/skkeleton.vim']
 
 # [[plugins]]
