@@ -61,9 +61,14 @@ lspconfig.denols.setup({
 })
 
 lspconfig.powershell_es.setup({
-    filetypes = {"powershell"},
+    filetypes = {"powershell", "ps1"},
     bundle_path = join_paths(vim.env.HOME, ".local", "src" ,"PowerShellEditorServices"),
     shell="pwsh",
+    capabilities = capabilities,
+})
+
+lspconfig.rust_analyzer.setup({
+    filetypes = {"rust"},
     capabilities = capabilities,
 })
 
