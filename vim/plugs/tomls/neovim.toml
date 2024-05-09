@@ -23,4 +23,3 @@ on_source = ['ddc.vim', 'nvim-lspconfig']
 #     require('lspconfig')[server_name].setup{on_attach = on_attach, capabilities = vim.lsp.protocol.make_client_capabilities()}
 # end })
 # '''
-# 

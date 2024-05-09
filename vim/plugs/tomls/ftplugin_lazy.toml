@@ -1,9 +1,4 @@
 [[plugins]]
-repo = 'lervag/vimtex'
-on_ft = 'tex'
-# on_source = ['ddc.vim']
-
-[[plugins]]
 repo='kat0h/bufpreview.vim' 
 depends = ['denops.vim']
 on_event = ['CmdlineEnter']

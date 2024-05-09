@@ -176,14 +176,3 @@ on_source = 'ddu.vim'
 repo='uga-rosa/ddu-source-lsp' 
 depends = ['denops.vim', 'ddu.vim']
 on_source = 'ddu.vim'
-
-[[plugins]]
-repo='flow6852/ddu-fully_understand' 
-depends = ['denops.vim', 'ddu.vim']
-on_source = 'ddu.vim'
-
-[[plugins]]
-repo='flow6852/dps-atcoder-facilitator' 
-depends = ['denops.vim', 'ddu.vim']
-on_ft = "rust"
-
