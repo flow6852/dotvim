@@ -56,7 +56,7 @@ export class Config extends BaseConfig {
         { target: "ddu_lazy.toml", isLazy: true, os: "" },
         { target: "ddc_lazy.toml", isLazy: true, os: "" },
         { target: "ftplugin_lazy.toml", isLazy: true, os: "" },
-        { target: "linux.toml", isLazy: true, os: "linux" },
+        { target: "local_lazy.toml", isLazy: true, os: "" },
       ] as ExtType[]
     ) {
       if (os == file.os || file.os == "") {

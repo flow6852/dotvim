@@ -66,6 +66,13 @@ hi PmenuSel ctermbg=yellow ctermfg=black
 hi PmenuSbar ctermbg=black
 hi PmenuThumb ctermfg=gray
 
+" background color
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
+
 if has('win32')
     source ~\.vim\rc\win.vim
 endif
