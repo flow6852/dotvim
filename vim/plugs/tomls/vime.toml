@@ -1,34 +1,11 @@
-[[plugins]]
-repo = 'matsui54/denops-popup-preview.vim'
-depends = ['denops.vim']
-
-[[plugins]]
-repo = 'matsui54/denops-signature_help'
-depends = ['denops.vim']
-
 [[plugins]] 
 repo = 'Shougo/ddc.vim'
-depends = ['denops.vim', 'denops-popup-preview.vim']
+depends = ['denops.vim']
 on_event = ['BufEnter']
-hooks_file = ['$BASE_DIR/plugs/ddc/ddc.vim', '$BASE_DIR/plugs/ddc/global.vim']
+hooks_file = ['$BASE_DIR/plugs/ddc/ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-source-around'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'LumaKernel/ddc-source-file'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'tani/ddc-path'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'matsui54/ddc-buffer'
 on_event = ['BufNew']
 on_source = 'ddc.vim'
 
@@ -44,48 +21,12 @@ on_event = ['BufNew']
 on_source = 'ddc-source-cmdline'
 
 [[plugins]]
-repo = 'Shougo/ddc-source-omni'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-source-line'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-source-input'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-source-rg'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'uga-rosa/ddc-source-vsnip'
-on_event = ['BufNew']
-on_source = 'vim-vsnip'
-hooks_file = ['$BASE_DIR/plugs/ddc/vsnip.vim']
-
-[[plugins]]
 repo = 'Shougo/ddc-ui-native'
 on_event = ['BufNew']
 on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-pum'
-on_event = ['BufNew']
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'tani/ddc-fuzzy'
 on_event = ['BufNew']
 on_source = 'ddc.vim'
 
