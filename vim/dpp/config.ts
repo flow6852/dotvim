@@ -109,6 +109,9 @@ export class Config extends BaseConfig {
           }
         });
       }
+      else {
+        console.error(path + " is not found.")
+      }
     }
 
     // from local
