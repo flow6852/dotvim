@@ -2,7 +2,7 @@
 repo = 'Shougo/ddc.vim'
 depends = ['denops.vim']
 on_event = ['BufEnter']
-hooks_file = ['$BASE_DIR/plugs/ddc/ddc.vim']
+hooks_file = ['$BASE_DIR/plugs/ddc/vime.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-source-around'

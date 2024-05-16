@@ -75,9 +75,12 @@ function DdcMappingChange(isAutoSelected)
 endfunction
 
 call ddc#custom#patch_global(#{
+                             \ sources: l:sources,
                              \ backspaceCompletion: v:true,
+                             \ sourceOptions: l:sourceOptions,
                              \ autoCompleteEvents: l:autoCompleteEvents,
                              \ ui: g:ui,
+                             \ sourceParams: l:sourceParams,
                              \ filterParams : #{
                              \   converter_fuzzy: #{
                              \     hlGroup: 'SpellBad'

@@ -3,7 +3,7 @@
 FloatingVim=$(swaymsg -t get_tree | jq -c '.. | .floating_nodes? | arrays[] | select(.app_id=="FloatingVim")')
 
 if [ -z $FloatingVim ]; then
-    alacritty --option window.opacity=0.6 --class FloatingVim -e nvim /tmp/clipboard
+    NVIM_APPNAME=vime alacritty --option window.opacity=0.6 --class FloatingVim -e nvim /tmp/clipboard
     if [ -e /tmp/clipboard ]
     then
         cat /tmp/clipboard | xclip -selection clipboard
