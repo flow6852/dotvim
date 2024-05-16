@@ -1,18 +1,6 @@
 " hook_source {{{
+
 call pum#set_option('auto_select', v:false)
-let l:autoCompleteEvents = ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineEnter', 'CmdlineChanged']
-let l:sources = ['around']
-
-" Mappings
-let sourceOptions = #{
-      \ _: #{ matchers: ['matcher_editdistance'],
-      \       converters: ['converter_remove_overlap'],
-      \       isVolatile: v:true,
-      \     },
-      \ around: #{mark: '[around]'},
-      \ }
-
-let l:sourceParams = #{around: #{maxSize: 10000}}
 
 function DdcMappingChange(isAutoSelected)
     if Global_is_plugged('pum.vim') && g:ui == 'pum'
@@ -76,7 +64,7 @@ endfunction
 
 call ddc#custom#patch_global(#{
                              \ backspaceCompletion: v:true,
-                             \ autoCompleteEvents: l:autoCompleteEvents,
+                             \ autoCompleteEvents: ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineEnter', 'CmdlineChanged'],
                              \ ui: g:ui,
                              \ filterParams : #{
                              \   converter_fuzzy: #{

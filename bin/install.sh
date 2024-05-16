@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 mkdir -p ~/.cache/dpp/repos/github.com/
+mkdir -p ~/.cache/vime
+
 cd ~/.cache/dpp/repos/github.com/
 
 mkdir Shougo
