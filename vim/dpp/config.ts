@@ -67,7 +67,7 @@ export class Config extends BaseConfig {
         ),
       );
       if (
-        (os == file.os || file.os == "") && await fn.exists(args.denops, path)
+        (os == file.os || file.os == "") && await fn.filereadable(args.denops, path)
       ) {
         tomls.push(
           await args.dpp.extAction(
