@@ -1,6 +1,11 @@
 " hook_source {{{
 let l:sources = ['lsp', 'vsnip', 'around', 'buffer', 'file', 'input']
 let l:sourceOptions = #{
+      \ _: #{ matchers: ['matcher_editdistance'],
+      \       converters: ['converter_remove_overlap'],
+      \       isVolatile: v:true,
+      \     },
+      \ around: #{mark: '[around]'},
       \ buffer: #{mark: '[buffer]'},
       \ path: #{mark: '[path]'},
       \ input: #{mark: '[input]'},
