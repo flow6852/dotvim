@@ -51,6 +51,11 @@ on_event = ['BufNewFile']
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo = 'LumaKernel/ddc-source-file'
+on_event = ['BufNew', 'BufNewFile']
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'vim-skk/skkeleton'
 depends = 'denops.vim'
 on_event = ['BufNewFile']
