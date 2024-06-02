@@ -72,6 +72,11 @@ lspconfig.rust_analyzer.setup({
     capabilities = capabilities,
 })
 
+lspconfig.bashls.setup({
+    filetypes = {"sh"},
+    capabilities = capabilities,
+})
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
 )
