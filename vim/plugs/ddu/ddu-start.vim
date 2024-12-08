@@ -15,7 +15,8 @@ endfunction
 let g:qfFormat = "%b|col\:%c|line\:%l|%T|%t"
 
 nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
-nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>
+nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file', params : #{expandSymbolicLink: v:true}}]})<CR>
+nnoremap <silent> ;r <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;rg <Cmd>call ddu#start(#{name: 'split',
                                     \ sources:[#{name: 'rg', 
                                     \           params: #{input: expand('<cword>'),
@@ -115,9 +116,4 @@ let g:ddcSourcesHeadId =  denops#callback#register(
 
 let g:ddcSourcesLastId =  denops#callback#register(
     \ {s -> ddc#custom#set_buffer(extend(ddc#custom#get_buffer(), {'sources': add(filter(ddc#custom#get_current()['sources'],{_, val -> val != s}), s)}))})
-" }}}
-
-
-" hook_post_update {{{
-" call ddu#set_static_import_path()
 " }}}

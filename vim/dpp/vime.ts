@@ -52,7 +52,6 @@ export class Config extends BaseConfig {
         { target: "dpp.toml", isLazy: true, os: "" },
         { target: "base_lazy.toml", isLazy: true, os: "" },
         { target: "denops_lazy.toml", isLazy: true, os: "" },
-        { target: "ftplugin_lazy.toml", isLazy: true, os: "" },
         { target: "vime.toml", isLazy: true, os: "" },
       ] as ExtType[]
     ) {

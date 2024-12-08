@@ -1,4 +1,31 @@
 " hook_source {{{
+
+" custom actions
+
+function! SelectDirInDduFile(dirname, isDir)
+    if a:isDir
+        call ddu#start({'name': 'split', 'sources': [{'name': 'file', 'options': {'path': a:dirname}}]})
+    else
+        execute 'e ' . a:dirname
+    endif
+endfunction
+
+call ddu#custom#action('kind', 'file', 'test',
+		    \ { args -> execute('let g:test =  ' . string(args) )})
+call ddu#custom#action('kind', 'file', 'open_chain',
+            \ { args -> SelectDirInDduFile(get(get(get(args, 'items')[0], 'action'), 'path'), get(get(get(args, 'items')[0], 'action'), 'isDirectory'))})
+call ddu#custom#action('kind', 'help', 'vim_type_chain',
+            \ {args -> ddu#start({'name': 'vim_type',
+                                \ 'input': match(get(get(args, 'items')[0], 'word'), ':') == 0
+                                    \ ? get(get(args, 'items')[0], 'word')[1:len(get(get(args, 'items')[0], 'word'))]
+                                    \ : get(get(args, 'items')[0], 'word')})})
+call ddu#custom#action('source', 'quickfix_history', 'qf_chain',
+            \ {args -> ddu#start({'name': 'qf', 'sources': map(copy(get(args, 'items')), 
+                               \ {key, val -> {'name': 'qf', 'params': {'what': {'id': get(get(val, 'action'), 'id')}}}})})})
+call ddu#custom#action('kind', 'vim_type', 'help_chain',
+            \ {args -> ddu#start({'name': 'help', 'input': get(get(args, 'items')[0], 'word')})})
+
+" key mapping 
 augroup DduKeyMap
   au!
   autocmd FileType ddu-ff call s:ddu_my_settings()
@@ -29,7 +56,10 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> v
     \ <Cmd>call ddu#ui#async_action('getItem')<CR>
 
-  if b:ddu_ui_name == "filer"
+  nnoremap <buffer><silent> t
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'test'})<CR>
+
+  if b:ddu_ui_name == "file_rec"
     nnoremap <buffer><silent> y
       \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'yank'})<CR>
     nnoremap <buffer><silent> t
