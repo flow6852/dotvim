@@ -1,5 +1,5 @@
 setl tabstop=4
-setl shiftwidth=10
+setl shiftwidth=4
 
 nnoremap <silent> <Space>f <Cmd>call markdownUtil#formatter(expand("%:p"))<CR>
 " 
