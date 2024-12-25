@@ -50,9 +50,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-local capabilities = require("ddc_source_lsp").make_client_capabilities()
+local lspCmpPlugin = require(vim.g.myLspCmpPluginName)
+local capabilities = nil
+if vim.g.myLspCmpPluginName == "ddc_source_lsp" then
+    capabilities = lspCmpPlugin.make_client_capabilities()
+elseif vim.g.myLspCmpPluginName == "cmp_nvim_lsp" then
+    capabilities = lspCmpPlugin.default_capabilities()
+else
+    capabilities = nil
+end
 local lspconfig = require('lspconfig')
-
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 lspconfig.denols.setup({
