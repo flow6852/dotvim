@@ -6,11 +6,11 @@ function DdcMappingChange(isAutoSelected)
     if Global_is_plugged('pum.vim') && g:ui == 'pum'
         " custom popup window
         " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
-        inoremap <silent><expr><CR>
+        inoremap <silent><expr><C-l>
             \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
             \ vsnip#jumpable() ? '<Plug>(vsnip-jump-next)' :
             \ vsnip#expandable() ? '<Plug>(vsnip-expand)' :
-            \ '<CR>'
+            \ '<Cmd>echom "Failed completion"<CR>'
         inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
         inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
     
@@ -18,19 +18,17 @@ function DdcMappingChange(isAutoSelected)
         " autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 
         if (a:isAutoSelected)
-            inoremap <silent><expr> <Tab>
-                \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ? '<Tab>' :
-                \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+            inoremap <silent><expr> <C-j>
+                pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
                 \ ddc#map#manual_complete()
-            inoremap <expr><S-Tab> '<Cmd>call pum#map#insert_relative(-1)<CR>'
+            inoremap <expr><C-k> '<Cmd>call pum#map#insert_relative(-1)<CR>'
             inoremap <expr><C-n>   '<Cmd>call pum#map#insert_relative(+1)<CR>'
             inoremap <expr><C-p>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
         else
-            inoremap <silent><expr> <Tab>
-                \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ? '<Tab>' :
+            inoremap <silent><expr> <C-j>
                 \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
                 \ ddc#map#manual_complete()
-            inoremap <expr><S-Tab> '<Cmd>call pum#map#select_relative(-1)<CR>'
+            inoremap <expr><C-k> '<Cmd>call pum#map#select_relative(-1)<CR>'
             inoremap <expr><C-n>   '<Cmd>call pum#map#select_relative(+1)<CR>'
             inoremap <expr><C-p>   '<Cmd>call pum#map#select_relative(-1)<CR>'
 
@@ -39,7 +37,7 @@ function DdcMappingChange(isAutoSelected)
         " custom popup window
         " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
         " call ddc#custom#patch_global('completionMenu', 'pum.vim')
-        inoremap <silent><expr> <Tab>
+        inoremap <silent><expr> <C-j>
             \ pumvisible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
             \ '<Tab>' : ddc#map#manual_complete()
         inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>

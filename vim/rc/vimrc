@@ -3,11 +3,12 @@ set nocompatible
 let $BASE_DIR = expand('~/.vim')
 let s:deno_version = systemlist("deno --version")
 
-if match(s:deno_version, "release") < 0 || match(s:deno_version, "aarch") > -1
+if v:false && (match(s:deno_version, "release") < 0 || match(s:deno_version, "aarch") > -1)
     let g:myLspCmpPluginName = "cmp_nvim_lsp"
     exec "source " . $BASE_DIR . "/autoload/plug.vim"
     exec "source " . $BASE_DIR . "/plugs/startup/vim-plug.vim"
     exec "source " . $BASE_DIR . "/plugs/ddc/nvim-lspconfig.vim"
+    exec "source " . $BASE_DIR . "/plugs/startup/nvim_cmp.vim"
 else
     let g:myLspCmpPluginName = "ddc_source_lsp"
     let g:denops_server_addr = '127.0.0.1:32123'
