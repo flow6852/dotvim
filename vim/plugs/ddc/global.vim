@@ -6,6 +6,11 @@ function DdcMappingChange(isAutoSelected)
     if Global_is_plugged('pum.vim') && g:ui == 'pum'
         " custom popup window
         " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
+        inoremap <silent><expr><C-j>
+            \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
+            \ vsnip#jumpable() ? '<Plug>(vsnip-jump-next)' :
+            \ vsnip#expandable() ? '<Plug>(vsnip-expand)' :
+            \ '<Cmd>echom "Failed completion"<CR>'
         inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
         inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
     
@@ -22,13 +27,12 @@ function DdcMappingChange(isAutoSelected)
                 \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
                 \ ddc#map#manual_complete()
             inoremap <expr><C-S-n>   '<Cmd>call pum#map#select_relative(-1)<CR>'
-
         endif
     elseif Global_is_plugged('pum.vim')
         " custom popup window
         " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
         " call ddc#custom#patch_global('completionMenu', 'pum.vim')
-        inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+        inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
         inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
         inoremap <C-S-n>   <Cmd>call pum#map#select_relative(-1)<CR>
         inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
