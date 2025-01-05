@@ -21,8 +21,8 @@ call ddu#custom#patch_local('vsplit', #{
     \     _: #{
     \       defaultAction: 'open',
     \     },
-    \     file: #{
-    \       defaultAction: 'open_chain'
+    \     directory: #{
+    \       defaultAction: 'restart'
     \     },
     \   },
     \ uiParams: #{
@@ -59,8 +59,8 @@ call ddu#custom#patch_local('split', #{
     \     _: #{
     \       defaultAction: 'open',
     \     },
-    \     file: #{
-    \       defaultAction: 'open_chain'
+    \     directory: #{
+    \       defaultAction: 'restart'
     \     },
     \   },
     \ uiParams: #{
