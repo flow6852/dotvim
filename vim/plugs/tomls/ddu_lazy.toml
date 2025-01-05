@@ -170,3 +170,15 @@ on_source = 'ddu.vim'
 repo='uga-rosa/ddu-source-lsp' 
 depends = ['denops.vim', 'ddu.vim']
 on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'flow6852/ddu-source-directory'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'flow6852/ddu-kind-directory'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
+
+
