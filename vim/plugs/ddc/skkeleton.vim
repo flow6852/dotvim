@@ -49,7 +49,7 @@ function! s:changeSource2Skk() abort
         \     'isVolatile': v:true
         \   },
         \ }})
-    call DdcMappingChange(v:true)
+    call DdcMappingChange(v:false)
     call pum#set_option('auto_select', v:false)
 endfunction
 

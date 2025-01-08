@@ -7,9 +7,9 @@ function! CommandlinePre() abort
     if Global_is_plugged('pum.vim') &&  g:ui == 'pum'
         " cnoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
         " cnoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
-        cnoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
-        cnoremap <C-S-n>   <Cmd>call pum#map#insert_relative(-1)<CR>
-        cnoremap <C-j>   <Cmd>call pum#map#confirm()<CR>
+        cnoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+        cnoremap <C-S-n>   <Cmd>call pum#map#select_relative(-1)<CR>
+        cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
         cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
         " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
 
@@ -54,7 +54,7 @@ endfunction
 
 " hook_source {{{
 let l:cmdlineSources = {
-		    \ ':': ['cmdline', 'file', 'cmdline-history', 'around'],
+		    \ ':': ['cmdline-history', 'file', 'cmdline', 'around'],
 		    \ '@': ['cmdline-history', 'input', 'file', 'around'],
 		    \ '>': ['cmdline-history', 'input', 'file', 'around'],
 		    \ '/': ['around', 'line'],
