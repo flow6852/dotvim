@@ -8,7 +8,7 @@ function! CommandlinePre() abort
         " cnoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
         " cnoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
         cnoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
-        cnoremap <C-m>   <Cmd>call pum#map#select_relative(-1)<CR>
+        cnoremap <C-u>   <Cmd>call pum#map#select_relative(-1)<CR>
         cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
         cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
         " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
