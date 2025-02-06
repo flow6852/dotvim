@@ -54,20 +54,20 @@ endfunction
 
 " hook_source {{{
 let l:cmdlineSources = {
-		    \ ':': ['cmdline-history', 'file', 'cmdline', 'around'],
-		    \ '@': ['cmdline-history', 'input', 'file', 'around'],
-		    \ '>': ['cmdline-history', 'input', 'file', 'around'],
+		    \ ':': ['cmdline_history', 'file', 'cmdline', 'around'],
+		    \ '@': ['cmdline_history', 'input', 'file', 'around'],
+		    \ '>': ['cmdline_history', 'input', 'file', 'around'],
 		    \ '/': ['around', 'line'],
 		    \ '?': ['around', 'line'],
 		    \ '-': ['around', 'line'],
 		    \ '=': ['input'],
 		    \ }
 let l:cmdlineSourceOptions = #{
-      \ cmdline-history: #{mark : '[cmdline-history]', minAutoCompleteLength: 0 },
+      \ cmdline_history: #{mark : '[cmdline_history]', minAutoCompleteLength: 0 },
       \ cmdline: #{ mark : '[cmdline]', minAutoCompleteLength: 0, maxItems: '5000' },
       \ }
 let l:cmdlineSourceParams = #{
-      \ cmdline-history: #{maxSize: 10},
+      \ cmdline_history: #{maxSize: 10},
       \ cmdline: #{maxSize: 10},
       \ }
 

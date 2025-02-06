@@ -72,7 +72,7 @@ nnoremap <silent> ;lc <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'ls
 cnoremap <silent> <C-h> <Cmd>call DduKindVim_typeSetcmdline()<CR>
 
 " ddu-source-custom
-let g:allDdcSources = ['around', 'rg', 'buffer', 'file', 'path', 'input', 'cmdline', 'cmdline-history', 'omni', 'nvim-lsp', 'skkeleton']
+let g:allDdcSources = ['around', 'rg', 'buffer', 'file', 'path', 'input', 'cmdline', 'cmdline_history', 'omni', 'nvim-lsp', 'skkeleton']
 
 function s:elem(lst, val) abort
     let isElm = v:false
