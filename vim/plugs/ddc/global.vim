@@ -6,36 +6,36 @@ function DdcMappingChange(isAutoSelected)
     if Global_is_plugged('pum.vim') && g:ui == 'pum'
         " custom popup window
         " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
-        inoremap <silent><expr><C-j>
+        inoremap <silent><expr><M-j>
             \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
             \ vsnip#jumpable() ? '<Plug>(vsnip-jump-next)' :
             \ vsnip#expandable() ? '<Plug>(vsnip-expand)' :
             \ '<Cmd>echom "Failed completion"<CR>'
-        inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
-        inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+        inoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
+        inoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
     
         " for vsnip
         " autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 
         if (a:isAutoSelected)
-            inoremap <expr><C-n>
+            inoremap <expr><M-n>
                 \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
                 \ ddc#map#manual_complete()
-            inoremap <expr><C-u>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
+            inoremap <expr><M-u>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
         else
-            inoremap <expr><C-n>   
+            inoremap <expr><M-n>   
                 \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
                 \ ddc#map#manual_complete()
-            inoremap <expr><C-u>   '<Cmd>call pum#map#select_relative(-1)<CR>'
+            inoremap <expr><M-u>   '<Cmd>call pum#map#select_relative(-1)<CR>'
         endif
     elseif Global_is_plugged('pum.vim')
         " custom popup window
         " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
         " call ddc#custom#patch_global('completionMenu', 'pum.vim')
-        inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
-        inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
-        inoremap <C-u>   <Cmd>call pum#map#select_relative(-1)<CR>
-        inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+        inoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
+        inoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+        inoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
+        inoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
     
         " for vsnip
         " autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)

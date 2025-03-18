@@ -1,10 +1,7 @@
 " hook_source {{{
-inoremap }e <Plug>(skkeleton-enable)
-inoremap }t <Plug>(skkeleton-toggle)
-cnoremap }e <Plug>(skkeleton-enable)
-cnoremap }t <Plug>(skkeleton-toggle)
-tnoremap }e <Plug>(skkeleton-enable)
-tnoremap }t <Plug>(skkeleton-toggle)
+inoremap <M-s> <Plug>(skkeleton-toggle)
+cnoremap <M-s> <Plug>(skkeleton-toggle)
+tnoremap <M-s> <Plug>(skkeleton-toggle)
 
 function! s:skkeleton_init() abort
      call skkeleton#config({
@@ -16,11 +13,11 @@ function! s:skkeleton_init() abort
        \ 'registerConvertResult': v:true,
        \ 'showCandidatesCount': 1,
        \ })
- 
+
      call skkeleton#register_kanatable('rom', {
        \ "z\<Space>": ["\u3000", ''],
-       \ "}d" : "disable",
-       \ "}k" : "katakana",
+       \ "<M-s>" : "disable",
+       \ "<M-k>" : "katakana",
        \ })
  
      call skkeleton#register_keymap('input', '<S-l>', v:false)

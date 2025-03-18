@@ -7,10 +7,10 @@ function! CommandlinePre() abort
     if Global_is_plugged('pum.vim') &&  g:ui == 'pum'
         " cnoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
         " cnoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
-        cnoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
-        cnoremap <C-u>   <Cmd>call pum#map#select_relative(-1)<CR>
-        cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
-        cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+        cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+        cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
+        cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
+        cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
         " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
 
         " Overwrite sources
@@ -27,12 +27,12 @@ function! CommandlinePre() abort
     else
         " " <S-TAB>: completion.
         " cnoremap <silent><expr> <S-TAB>
-        " \ ddc#map#pum_visible() ? '<C-n>' :
+        " \ ddc#map#pum_visible() ? '<M-n>' :
         " \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
         " \ '<S-TAB>' : ddc#map#manual_complete()
         " 
-        " " <C-TAB>: completion back.
-        " cnoremap <expr><C-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+        " " <M-TAB>: completion back.
+        " cnoremap <expr><M-TAB>  ddc#map#pum_visible() ? '<M-p>' : '<M-h>'
     endif
 endfunction
 
