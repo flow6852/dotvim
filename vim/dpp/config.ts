@@ -56,6 +56,7 @@ export class Config extends BaseConfig {
         { target: "denops_lazy.toml", isLazy: true, os: "" },
         { target: "ddu_lazy.toml", isLazy: true, os: "" },
         { target: "ddc_lazy.toml", isLazy: true, os: "" },
+        { target: "ddt_lazy.toml", isLazy: true, os: "" },
         { target: "ftplugin_lazy.toml", isLazy: true, os: "" },
         { target: "local_lazy.toml", isLazy: true, os: "" },
       ] as ExtType[]
