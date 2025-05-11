@@ -56,60 +56,60 @@ function! s:ddu_my_settings() abort
   nnoremap <buffer><silent> v
     \ <Cmd>call ddu#ui#async_action('getItem')<CR>
 
+  " file_rec and vim_type
+  nnoremap <buffer><silent> y
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'yank'})<CR>
+
+  " atcoder_facilitator
+  " file_rec
   nnoremap <buffer><silent> t
-    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'test'})<CR>
+    \ if get(b:ddu_ui_item, "kind") == "atcoder_facilitator"
+    \   <Cmd>call ddu#ui#multi_actions([['itemAction', {'name': 'runTests', 'params': {'actionFlag': 'Persist'}}], ['preview', {'kind': 'runTests'}]])<CR>
+    \ else
+    \   <Cmd>call ddu#ui#async_action('itemAction', {'name': 'test'})<CR>
+    \ fi
 
-  if b:ddu_ui_name == "file_rec"
-    nnoremap <buffer><silent> y
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'yank'})<CR>
-    nnoremap <buffer><silent> t
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'test'})<CR>
-    nnoremap <buffer> <silent> e
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'echo'})<CR>
-  elseif b:ddu_ui_name == "grep"
-  elseif b:ddu_ui_name == "qf"
-  elseif b:ddu_ui_name == "quickfix_history"
-    nnoremap <buffer> ;q
-                \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'qf_chain'})<CR>
-    nnoremap <buffer> ;e
-      \ <Cmd>echom "test"<CR>
-  elseif b:ddu_ui_name == "vim_type"
-    " file
-    nnoremap <buffer><silent> ;h
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'help_chain'})<CR>
+  " file_rec
+  nnoremap <buffer> <silent> e
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'echo'})<CR>
 
-    nnoremap <buffer><silent> <C-c>
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'setcmdline'})<CR>
+  " quickfix_history
+  nnoremap <buffer> <silent> q
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'qf_chain'})<CR>
 
-    nnoremap <buffer><silent> y
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'yank'})<CR>
+  " vim_type
+  nnoremap <buffer><silent> <C-c>
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'setcmdline'})<CR>
     
-    nnoremap <buffer><silent> i
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'insert'})<CR>
+  " vim_type
+  nnoremap <buffer><silent> i
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'insert'})<CR>
 
-    nnoremap <buffer><silent> a
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'append'})<CR>
-  elseif b:ddu_ui_name == "atcoder_facilitator"
-    " submit
-    nnoremap <buffer><silent> s
-      \ <Cmd>call StatusAfterSubmit(v:true)<CR>
+  " vim_type
+  nnoremap <buffer><silent> a
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'append'})<CR>
 
-    nnoremap <buffer><silent> t
-      \ <Cmd>call ddu#ui#multi_actions([['itemAction', {'name': 'runTests', 'params': {'actionFlag': 'Persist'}}], ['preview', {'kind': 'runTests'}]])<CR>
-  elseif b:ddu_ui_name == "atcoder_status"
-  elseif b:ddu_ui_name == "select-sources"
-  elseif b:ddu_ui_name == "ddc"
-  elseif b:ddu_ui_name == "url"
-    " GET
-    nnoremap <buffer><silent> g
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'fetchUnstable', 'params': {'showHeader': v:true}})<CR>
-  elseif b:ddu_ui_name == "help"
-    nnoremap <buffer><silent> ;h
-        \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'vim_type_chain'})<CR>
-  elseif b:ddu_ui_name == "window"
-    nnoremap <buffer><silent> ;s
-      \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'swap'})<CR>
-  endif
+  " url
+  nnoremap <buffer><silent> g
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'fetchUnstable', 'params': {'showHeader': v:true}})<CR>
+
+  " help
+  nnoremap <buffer><silent> h
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'vim_type_chain'})<CR>
+
+  " atcoder_facilitator 
+  " window
+  nnoremap <buffer><silent> s
+    \ if get(b:ddu_ui_item, "kind") == "atcoder_facilitator"
+    \   <Cmd>call StatusAfterSubmit(v:true)<CR>
+    \ else
+    \   <Cmd>call ddu#ui#async_action('itemAction', {'name': 'swap'})<CR>
+    \ fi
+
+  " directory
+  nnoremap <buffer><silent> c
+    \ <Cmd>call ddu#ui#async_action('itemAction', {'name': 'chdir'})<CR>
+
 endfunction
 
 function! s:ddu_filter_my_settings() abort
