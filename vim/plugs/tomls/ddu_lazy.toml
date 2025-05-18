@@ -181,4 +181,12 @@ repo = 'flow6852/ddu-kind-directory'
 depends = ['denops.vim', 'ddu.vim']
 on_source = 'ddu.vim'
 
+[[plugins]]
+repo = 'flow6852/ddu-source-terminal'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'
 
+[[plugins]]
+repo = 'flow6852/ddu-kind-terminal'
+depends = ['denops.vim', 'ddu.vim']
+on_source = 'ddu.vim'

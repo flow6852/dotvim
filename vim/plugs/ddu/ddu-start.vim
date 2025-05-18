@@ -14,7 +14,7 @@ endfunction
 
 let g:qfFormat = "%b|col\:%c|line\:%l|%T|%t"
 
-nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}]})<CR>
+nnoremap <silent> ;b <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'buffer', params : #{expandSymbolicLink: v:true}}, #{name: 'terminal'}]})<CR>
 nnoremap <silent> ;f <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file', params : #{expandSymbolicLink: v:true, ignoreDirectories: v:true}}, #{name: 'directory', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;r <Cmd>call ddu#start(#{name: 'split', sources: [#{name: 'file_rec', params : #{expandSymbolicLink: v:true}}]})<CR>
 nnoremap <silent> ;rg <Cmd>call ddu#start(#{name: 'split',
