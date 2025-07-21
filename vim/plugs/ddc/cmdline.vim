@@ -1,39 +1,42 @@
 " hook_add {{{
-nnoremap : <Cmd>call CommandlinePre()<CR>:
 
-function! CommandlinePre() abort
+nnoremap : <Cmd>call CommandlinePre(':')<CR>:
+nnoremap / <Cmd>call CommandlinePre('/')<CR>/
+
+function! CommandlinePre(mode) abort
     " Mapping
     "
-    if Global_is_plugged('pum.vim') &&  g:ui == 'pum'
-        " cnoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
-        " cnoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
-        cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
-        cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
-        cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
-        cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
-        " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
+        if Global_is_plugged('pum.vim') &&  g:ui == 'pum'
+            " cnoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
+            " cnoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
+            cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+            cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
+            cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
+            cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
+            " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
 
-        " Overwrite sources
-        if !exists('b:prev_buffer_config')
-            let b:prev_buffer_config = ddc#custom#get_buffer()
+            " Overwrite sources
+            if !exists('b:prev_buffer_config')
+                let b:prev_buffer_config = ddc#custom#get_buffer()
+            endif
+
+
+        else
+            " " <S-TAB>: completion.
+            " cnoremap <silent><expr> <S-TAB>
+            " \ ddc#map#pum_visible() ? '<M-n>' :
+            " \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+            " \ '<S-TAB>' : ddc#map#manual_complete()
+            " 
+            " " <M-TAB>: completion back.
+            " cnoremap <expr><M-TAB>  ddc#map#pum_visible() ? '<M-p>' : '<M-h>'
         endif
 
-        
         autocmd User DDCCmdlineLeave ++once call CommandlinePost()
         " autocmd InsertEnter <buffer> ++once call CommandlinePost()
         
         " Enable command line completion
         call ddc#enable_cmdline_completion()
-    else
-        " " <S-TAB>: completion.
-        " cnoremap <silent><expr> <S-TAB>
-        " \ ddc#map#pum_visible() ? '<M-n>' :
-        " \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-        " \ '<S-TAB>' : ddc#map#manual_complete()
-        " 
-        " " <M-TAB>: completion back.
-        " cnoremap <expr><M-TAB>  ddc#map#pum_visible() ? '<M-p>' : '<M-h>'
-    endif
 endfunction
 
 function! CommandlinePost() abort
@@ -57,7 +60,6 @@ let l:cmdlineSources = {
 		    \ ':': ['cmdline_history', 'file', 'cmdline', 'around'],
 		    \ '@': ['cmdline_history', 'input', 'file', 'around'],
 		    \ '>': ['cmdline_history', 'input', 'file', 'around'],
-		    \ '/': ['around', 'line'],
 		    \ '?': ['around', 'line'],
 		    \ '-': ['around', 'line'],
 		    \ '=': ['input'],
