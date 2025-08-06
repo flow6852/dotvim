@@ -1,6 +1,10 @@
 " hook_source {{{
 
-call pum#set_option('auto_select', v:false)
+let s:pum_option = #{
+    \   auto_select: v:false,
+    \   max_height: 10
+    \ }
+call pum#set_option(s:pum_option)
 
 function DdcMappingChange(isAutoSelected)
     if Global_is_plugged('pum.vim') && g:ui == 'pum'
@@ -44,7 +48,7 @@ endfunction
 
 call ddc#custom#patch_global(#{
                              \ backspaceCompletion: v:true,
-                             \ autoCompleteEvents: [],
+                             \ autoCompleteEvents: ["TextChangedI", "TextChangedP", "CmdlineChanged"],
                              \ ui: g:ui,
                              \ filterParams : #{
                              \   converter_fuzzy: #{
