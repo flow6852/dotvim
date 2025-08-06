@@ -3,6 +3,7 @@ let l:sources = ['lsp', 'vsnip', 'around', 'buffer', 'file', 'input']
 let l:sourceOptions = #{
       \ _: #{ matchers: ['matcher_editdistance'],
       \       converters: ['converter_remove_overlap'],
+      \       minAutoCompleteLength: 2,
       \       isVolatile: v:true,
       \     },
       \ around: #{mark: '[around]'},

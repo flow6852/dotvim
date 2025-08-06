@@ -44,7 +44,7 @@ endfunction
 
 call ddc#custom#patch_global(#{
                              \ backspaceCompletion: v:true,
-                             \ autoCompleteEvents: ['InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineEnter', 'CmdlineChanged'],
+                             \ autoCompleteEvents: [],
                              \ ui: g:ui,
                              \ filterParams : #{
                              \   converter_fuzzy: #{

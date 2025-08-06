@@ -28,7 +28,7 @@ function! s:changeSource2Skk() abort
         let s:bef_buffer = ddc#custom#get_current()
     endif
 
-    let s:skkSources = ['skkeleton', 'around']
+    let s:skkSources = ['skkeleton_okuri', 'skkeleton', 'around']
 
     if executable('rg') 
         let s:skkSources = add(s:skkSources, 'rg')
@@ -40,9 +40,16 @@ function! s:changeSource2Skk() abort
         \ 'sourceOptions': {
         \   'skkeleton': {
         \     'mark': '[skkeleton]',
-        \     'matchers': ['skkeleton'],
+        \     'matchers': [],
         \     'sorters': [],
-        \     'minAutoCompleteLength': 1,
+        \     'minAutoCompleteLength': 2,
+        \     'isVolatile': v:true
+        \   },
+        \   'skkeleton_okuri': {
+        \     'mark': '[skkeleton_okuri]',
+        \     'matchers': [],
+        \     'sorters': [],
+        \     'minAutoCompleteLength': 2,
         \     'isVolatile': v:true
         \   },
         \ }})
