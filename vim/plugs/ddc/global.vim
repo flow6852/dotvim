@@ -6,6 +6,24 @@ let s:pum_option = #{
     \ }
 call pum#set_option(s:pum_option)
 
+function RotateDdcSources()
+    let l:set_buffer = ddc#custom#get_current()
+
+    if ! (len(l:set_buffer['sources']) < 2)
+        let l:lnum = line('.')
+        let l:col = col('.')
+        let l:line = getline('.')
+        call setline('.', l:line . '0')
+        let l:set_buffer["sources"] = add(slice(l:set_buffer['sources'], 1), l:set_buffer['sources'][0])
+        call ddc#custom#set_buffer(l:set_buffer)
+        call ddc#hide()
+        call setline('.', l:line)
+    endif
+endfunction
+
+inoremap <expr><M-b> '<Cmd>call RotateDdcSources()<CR>'
+cnoremap <expr><M-b> '<Cmd>call RotateDdcSources()<CR>'
+
 function DdcMappingChange(isAutoSelected)
     if Global_is_plugged('pum.vim') && g:ui == 'pum'
         " custom popup window

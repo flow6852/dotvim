@@ -7,7 +7,8 @@ if [ -z "${FloatingVim}" ]; then
     if [ -e /tmp/clipboard ]
     then 
         pgrep startx
-        if [ $? ]
+        status=$?
+        if [ $status -ne 1 ]
          then
             xclip -selection clipboard -i /tmp/clipboard
         else
