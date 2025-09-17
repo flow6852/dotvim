@@ -75,6 +75,11 @@ on_source = 'vim-vsnip'
 hooks_file = ['$BASE_DIR/plugs/ddc/vsnip.vim']
 
 [[plugins]]
+repo = 'Shougo/ddc-ui-none'
+on_event = ['BufNew', 'BufNewFile']
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'Shougo/ddc-ui-native'
 on_event = ['BufNew', 'BufNewFile']
 on_source = 'ddc.vim'

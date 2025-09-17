@@ -28,11 +28,7 @@ function! s:changeSource2Skk() abort
         let s:bef_buffer = ddc#custom#get_current()
     endif
 
-    let s:skkSources = ['skkeleton_okuri', 'skkeleton', 'around']
-
-    if executable('rg') 
-        let s:skkSources = add(s:skkSources, 'rg')
-    endif
+    let s:skkSources = ['skkeleton_okuri', 'skkeleton']
     
     call ddc#custom#set_buffer({
         \ 'sources': s:skkSources,

@@ -9,15 +9,20 @@ call pum#set_option(s:pum_option)
 function RotateDdcSources()
     let l:set_buffer = ddc#custom#get_current()
 
-    if ! (len(l:set_buffer['sources']) < 2)
-        let l:lnum = line('.')
-        let l:col = col('.')
-        let l:line = getline('.')
-        call setline('.', l:line . '0')
-        let l:set_buffer["sources"] = add(slice(l:set_buffer['sources'], 1), l:set_buffer['sources'][0])
+    let l:mode = mode()
+    let l:option = ''
+    if l:mode ==# 'c'
+        let l:option = getcmdtype()
+    endif
+
+    if l:set_buffer != {}
+        if len(l:option) > 0 
+            let l:set_buffer['cmdlineSources'][l:option] = add(slice(l:set_buffer['cmdlineSources'][l:option], 1), l:set_buffer['cmdlineSources'][l:option][0])
+        else
+            let l:set_buffer['sources'] = add(slice(l:set_buffer['sources'], 1), l:set_buffer['sources'][0])
+        endif
         call ddc#custom#set_buffer(l:set_buffer)
-        call ddc#hide()
-        call setline('.', l:line)
+        call ddc#map#manual_complete()
     endif
 endfunction
 
