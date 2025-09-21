@@ -3,7 +3,7 @@ let g:vimsyn_embed = 'lPr'
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 lua << EOF
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("WARN")
 local on_windows = vim.loop.os_uname().version:match 'Windows'
 
 local function join_paths(...) 
@@ -59,29 +59,35 @@ elseif vim.g.myLspCmpPluginName == "cmp_nvim_lsp" then
 else
     capabilities = nil
 end
-local lspconfig = require('lspconfig')
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.denols.setup({
-    filetypes = {"typescript"},
-    capabilities = capabilities,
+vim.lsp.config('*', {
+    capabilities = {
+        textDocument = {
+            completion = {
+                completionItem = { 
+                    snippetSupport = true,
+                }
+            }
+        }
+    }
 })
 
-lspconfig.powershell_es.setup({
+vim.lsp.config('denols', {
+    filetypes = {"typescript"},
+})
+
+vim.lsp.config('powershell_es', {
     filetypes = {"powershell", "ps1"},
     bundle_path = join_paths(vim.env.HOME, ".local", "src" ,"PowerShellEditorServices"),
     shell="pwsh",
-    capabilities = capabilities,
 })
 
-lspconfig.rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
     filetypes = {"rust"},
-    capabilities = capabilities,
 })
 
-lspconfig.bashls.setup({
+vim.lsp.config('bashls', {
     filetypes = {"sh"},
-    capabilities = capabilities,
 })
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

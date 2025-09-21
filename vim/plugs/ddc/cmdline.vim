@@ -65,9 +65,28 @@ let l:cmdlineSources = {
 		    \ '=': ['input'],
 		    \ }
 let l:cmdlineSourceOptions = #{
-      \ cmdline_history: #{mark : '[cmdline_history]', minAutoCompleteLength: 0 },
-      \ cmdline: #{ mark : '[cmdline]', minAutoCompleteLength: 0, maxItems: '5000' },
-      \ }
+        \ cmdline_history: #{
+        \       mark : '[cmdline_history]',
+        \       minAutoCompleteLength: 0,
+        \       matchers: [
+        \           "matcher_head"   
+        \       ],
+        \       sorters: [
+        \           "sorter_cmdline_history"
+        \       ]
+        \ },
+        \ cmdline: #{
+        \       mark : '[cmdline]',
+        \       minAutoCompleteLength: 0,
+        \       maxItems: '5000',
+        \       matchers: [
+        \           "matcher_head"   
+        \       ],
+        \       sorters: [
+        \           "sorter_cmdline_history"
+        \       ]
+        \ },
+        \}
 let l:cmdlineSourceParams = #{
       \ cmdline_history: #{maxSize: 10},
       \ cmdline: #{maxSize: 10},
