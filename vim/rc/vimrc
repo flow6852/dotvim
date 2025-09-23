@@ -3,38 +3,30 @@ set nocompatible
 let $BASE_DIR = expand('~/.vim')
 let s:deno_version = systemlist("deno --version")
 
-if v:false && (match(s:deno_version, "release") < 0 || match(s:deno_version, "aarch") > -1)
-    let g:myLspCmpPluginName = "cmp_nvim_lsp"
-    exec "source " . $BASE_DIR . "/autoload/plug.vim"
-    exec "source " . $BASE_DIR . "/plugs/startup/vim-plug.vim"
-    exec "source " . $BASE_DIR . "/plugs/ddc/nvim-lspconfig.vim"
-    exec "source " . $BASE_DIR . "/plugs/startup/nvim_cmp.vim"
-else
-    let g:myLspCmpPluginName = "ddc_source_lsp"
-    let g:denops_server_addr = '127.0.0.1:32123'
-    
-    const s:dpp_base = expand("~/.cache/dpp")
-    const s:dpp_src = expand("~/.cache/dpp/repos/github.com/Shougo/dpp.vim")
-    const s:ext_toml = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-toml")
-    const s:ext_lazy = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-lazy")
-    const s:ext_installer = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-installer")
-    const s:ext_git = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-protocol-git")
-    const s:ext_local = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-local")
-    const s:denops_src = expand("~/.cache/dpp/repos/github.com/vim-denops/denops.vim")
-    const s:dpp_config = expand("~/.vim/dpp/config.ts")
-    
-    execute 'set runtimepath^=' .. s:dpp_src
-    execute 'set runtimepath+=' .. s:ext_toml
-    execute 'set runtimepath+=' .. s:ext_git
-    execute 'set runtimepath+=' .. s:ext_lazy
-    execute 'set runtimepath+=' .. s:ext_local
-    execute 'set runtimepath+=' .. s:ext_installer
-    execute 'set runtimepath+=' .. $BASE_DIR
-    
-    if dpp#min#load_state(s:dpp_base)
-        execute 'set runtimepath^=' .. s:denops_src
-    	autocmd User DenopsReady call dpp#make_state(s:dpp_base, s:dpp_config)
-    endif
+let g:myLspCmpPluginName = "ddc_source_lsp"
+let g:denops_server_addr = '127.0.0.1:32123'
+
+const s:dpp_base = expand("~/.cache/dpp")
+const s:dpp_src = expand("~/.cache/dpp/repos/github.com/Shougo/dpp.vim")
+const s:ext_toml = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-toml")
+const s:ext_lazy = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-lazy")
+const s:ext_installer = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-installer")
+const s:ext_git = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-protocol-git")
+const s:ext_local = expand("~/.cache/dpp/repos/github.com/Shougo/dpp-ext-local")
+const s:denops_src = expand("~/.cache/dpp/repos/github.com/vim-denops/denops.vim")
+const s:dpp_config = expand("~/.vim/dpp/config.ts")
+
+execute 'set runtimepath^=' .. s:dpp_src
+execute 'set runtimepath+=' .. s:ext_toml
+execute 'set runtimepath+=' .. s:ext_git
+execute 'set runtimepath+=' .. s:ext_lazy
+execute 'set runtimepath+=' .. s:ext_local
+execute 'set runtimepath+=' .. s:ext_installer
+execute 'set runtimepath+=' .. $BASE_DIR
+
+if dpp#min#load_state(s:dpp_base)
+    execute 'set runtimepath^=' .. s:denops_src
+	autocmd User DenopsReady call dpp#make_state(s:dpp_base, s:dpp_config)
 endif
 
 exec "source " . $BASE_DIR . "/plugs/startup/startup.vim"
