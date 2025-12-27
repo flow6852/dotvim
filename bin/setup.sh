@@ -16,6 +16,7 @@ unlink .vim
 ln -s ${BASE}/../vim .vim
 cd ${BASE}
 
+mkdir ${HOME}/.config/nvim
 cd ${HOME}/.config/nvim
 unlink init.vim
 ln -s ${BASE}/../init.vim

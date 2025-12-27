@@ -3,7 +3,7 @@ let g:vimsyn_embed = 'lPr'
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 lua << EOF
-vim.lsp.set_log_level("WARN")
+vim.lsp.log.set_level("WARN")
 local on_windows = vim.loop.os_uname().version:match 'Windows'
 
 local function join_paths(...) 
