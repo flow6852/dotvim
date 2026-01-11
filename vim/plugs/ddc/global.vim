@@ -81,7 +81,7 @@ call ddc#custom#patch_global(#{
                              \ }
                              \})
 
-call DdcMappingChange(v:false)
+call DdcMappingChange(v:true)
 
 call ddc#enable()
 " }}}
