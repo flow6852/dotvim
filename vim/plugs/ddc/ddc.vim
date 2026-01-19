@@ -13,7 +13,7 @@ let l:sourceOptions = #{
       \ line: #{mark: '[line]' },
       \ vsnip : #{mark: '[vsnip]',
       \           dup: "keep"},
-      \ file: #{ mark : '[file]', isVolatile: v:true, minAutoCompleteLength: 0, forceCompletionPattern: '\S/\S*'},
+      \ file: #{ mark : '[file]', forceCompletionPattern: '\S/\S*'},
       \ lsp: #{mark: 'lsp', forceCompletionPattern: '\.\w*|:\w*|->\w*', dup: "keep"}
       \ }
 let l:sourceParams = #{

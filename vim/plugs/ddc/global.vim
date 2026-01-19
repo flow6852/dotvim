@@ -40,30 +40,30 @@ function DdcMappingChange(isAutoSelected)
             \ '<Cmd>echom "Failed completion"<CR>'
         inoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
         inoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
+        inoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+        inoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
     
         " for vsnip
         " autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 
         if (a:isAutoSelected)
-            inoremap <expr><M-n>
+            inoremap <expr><Tab>
                 \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
-                \ ddc#map#manual_complete()
-            inoremap <expr><M-u>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
+                \ '<Tab>'
+            inoremap <expr><S-Tab>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
         else
-            inoremap <expr><M-n>   
+            inoremap <expr><Tab>   
                 \ pum#visible() ? '<Cmd>call pum#map#select_relative(+1)<CR>' :
-                \ ddc#map#manual_complete()
-            inoremap <expr><M-u>   '<Cmd>call pum#map#select_relative(-1)<CR>'
+                \ '<S-Tab>'
+            inoremap <expr><S-Tab>   '<Cmd>call pum#map#select_relative(-1)<CR>'
         endif
     elseif Global_is_plugged('pum.vim')
         " custom popup window
         " https://zenn.dev/shougo/articles/ddc-vim-pum-vim
         " call ddc#custom#patch_global('completionMenu', 'pum.vim')
         inoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
-        inoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
-        inoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
         inoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
-    
+inore    
         " for vsnip
         " autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
     endif
