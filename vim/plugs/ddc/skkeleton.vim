@@ -20,7 +20,9 @@ function! s:skkeleton_init() abort
        \ "<M-k>" : "katakana",
        \ })
  
+     let g:skkeleton#mapped_keys = g:skkeleton#mapped_keys[0:-2]
      call skkeleton#register_keymap('input', '<S-l>', v:false)
+     call skkeleton#register_keymap('input', '<Esc>', v:false)
 endfunction
 
 function! s:changeSource2Skk() abort

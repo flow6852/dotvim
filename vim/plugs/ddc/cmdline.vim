@@ -7,12 +7,13 @@ function! CommandlinePre(mode) abort
     " Mapping
     "
         if Global_is_plugged('pum.vim') &&  g:ui == 'pum'
-            " cnoremap <Tab> <Cmd>call pum#map#select_relative(+1)<CR>
-            " cnoremap <S-Tab> <Cmd>call pum#map#select_relative(-1)<CR>
+            cnoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
+            cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
             cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
             cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
             cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
             cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
+            cnoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Esc>'
             " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
 
             " Overwrite sources
