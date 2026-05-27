@@ -5,12 +5,18 @@ on_event = ['BufEnter']
 hooks_file = ['$BASE_DIR/plugs/ddc/vime.vim']
 
 [[plugins]]
+repo = 'Shougo/pum.vim'
+depends = ['ddc.vim']
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'Shougo/ddc-source-around'
 on_event = ['BufNewFile']
 on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-cmdline'
+depends = ['ddc.vim']
 on_event = ['BufNewFile']
 on_source = ['ddc.vim']
 hooks_file = ['$BASE_DIR/plugs/ddc/cmdline.vim']

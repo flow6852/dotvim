@@ -90,9 +90,8 @@ vim.lsp.config('bashls', {
     filetypes = {"sh"},
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-)
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.handlers.hover
+vim.lsp.diagnostic.set_virtual_text = false
 
 vim.api.nvim_create_autocmd('FileWritePost', {
   callback = function() vim.diagnostic.setqflist({open=false}) end

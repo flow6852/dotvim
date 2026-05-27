@@ -1,16 +1,23 @@
-[[plugins]]
-repo = 'matsui54/denops-popup-preview.vim'
-depends = ['denops.vim']
-
-[[plugins]]
-repo = 'matsui54/denops-signature_help'
-depends = ['denops.vim']
-
 [[plugins]] 
 repo = 'Shougo/ddc.vim'
 depends = ['denops.vim', 'denops-popup-preview.vim']
 on_event = ['BufEnter']
 hooks_file = ['$BASE_DIR/plugs/ddc/ddc.vim']
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
+depends = ['ddc.vim']
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+depends = ['denops.vim']
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'matsui54/denops-signature_help'
+depends = ['denops.vim']
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-around'
