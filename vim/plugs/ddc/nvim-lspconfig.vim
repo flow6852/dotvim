@@ -96,5 +96,7 @@ vim.diagnostic.config({virtual_text = false})
 vim.api.nvim_create_autocmd('FileWritePost', {
   callback = function() vim.diagnostic.setqflist({open=false}) end
 })
+
+vim.lsp.enable('*')
 EOF
 " }}}
