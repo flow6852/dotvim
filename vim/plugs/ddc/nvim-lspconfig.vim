@@ -83,7 +83,7 @@ vim.lsp.config('powershell_es', {
 })
 
 vim.lsp.config('rust_analyzer', {
-    filetypes = {"rust"},
+    filetypes = {"rust"}
 })
 
 vim.lsp.config('bashls', {
@@ -97,6 +97,11 @@ vim.api.nvim_create_autocmd('FileWritePost', {
   callback = function() vim.diagnostic.setqflist({open=false}) end
 })
 
-vim.lsp.enable('*')
+vim.lsp.enable({
+    "denols",
+    "powershell_es",
+    "rust_analyzer",
+    "bashls"
+})
 EOF
 " }}}
