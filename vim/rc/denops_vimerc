@@ -1,7 +1,7 @@
-set nocompatible
-
 let $BASE_DIR = expand('~/.vim')
 let g:denops_server_addr = '127.0.0.1:32123'
+
+let g:ui = 'pum'
 
 const s:dpp_base = expand("~/.cache/vime")
 const s:dpp_src = expand("~/.cache/dpp/repos/github.com/Shougo/dpp.vim")

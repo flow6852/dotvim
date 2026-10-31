@@ -7,6 +7,8 @@ function Global_is_plugged(name)
     endif
 endfunction
 
+set nocompatible
+
 au QuickfixCmdPost make,grep,vimgrep,grepadd copen
 
 " default
@@ -51,3 +53,19 @@ highlight NonText ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
+
+augroup localfile 
+     autocmd! 
+     autocmd BufRead,BufNewFile *.md setfiletype markdown 
+     autocmd BufRead,BufNewFile *.tex setfiletype tex 
+     autocmd BufRead,BufNewFile *.c setfiletype c 
+     autocmd BufRead,BufNewFile *.scala setfiletype scala 
+     autocmd BufRead,BufNewFile *.v setfiletype coq 
+     autocmd BufRead,BufNewFile *.sml setfiletype sml 
+     autocmd BufRead,BufNewFile *.snip setfiletype neosnippet 
+     autocmd BufRead,BufNewFile *.bib setfiletype bibtex 
+     autocmd BufRead,BufNewFile *.vim setfiletype vim 
+     autocmd BufRead,BufNewFile *.cob setfiletype cobol 
+augroup End
+
+autocmd WinLeave * if (getbufvar(winbufnr(0), '&buftype')) == 'quickfix' | cclose | endif

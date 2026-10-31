@@ -20,15 +20,15 @@ cd ${BASE}
 
 mkdir -p ${HOME}/.config/denops_nvim
 cd ${HOME}/.config/denops_nvim
-ln -s ${BASE}/../init_denops.vim
+ln -s ${BASE}/../init_denops.vim init.vim
 cd ${BASE}
 
 mkdir -p ${HOME}/.config/denops_vime
 cd ${HOME}/.config/denops_vime
-ln -s ${BASE}/../init_denops_vime.vim
+ln -s ${BASE}/../init_denops_vime.vim init.vim
 cd ${BASE}
 
 mkdir -p ${HOME}/.config/goda_vim
 cd ${HOME}/.config/goda_vim
-ln -s ${BASE}/../init_goda_vim.vim
+ln -s ${BASE}/../init_goda_vim.vim init.vim
 cd ${BASE}

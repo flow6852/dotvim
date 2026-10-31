@@ -1,0 +1,6 @@
+set nocompatible
+call goda_cmp#enable()
+exec "source " . $BASE_DIR . "/plugs/startup/startup.vim"
+if has('win32')
+    source ~\.vim\rc\win.vim
+endif
