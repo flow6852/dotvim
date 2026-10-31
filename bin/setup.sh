@@ -5,7 +5,7 @@ BASE=$(pwd)
 echo ${BASE}
 if [ ! -e "${BASE}/setup.sh" ]
 then
-    echo "please execute in dotvim"
+    echo "please execute in dotvim/bin"
     exit 1
 fi
 
@@ -16,8 +16,19 @@ unlink .vim
 ln -s ${BASE}/../vim .vim
 cd ${BASE}
 
-mkdir -p ${HOME}/.config/nvim
-cd ${HOME}/.config/nvim
-unlink init.vim
-ln -s ${BASE}/../init.vim
+# rc settings
+
+mkdir -p ${HOME}/.config/denops_nvim
+cd ${HOME}/.config/denops_nvim
+ln -s ${BASE}/../init_denops.vim
+cd ${BASE}
+
+mkdir -p ${HOME}/.config/denops_vime
+cd ${HOME}/.config/denops_vime
+ln -s ${BASE}/../init_denops_vime.vim
+cd ${BASE}
+
+mkdir -p ${HOME}/.config/goda_vim
+cd ${HOME}/.config/goda_vim
+ln -s ${BASE}/../init_goda_vim.vim
 cd ${BASE}

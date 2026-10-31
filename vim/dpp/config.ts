@@ -50,6 +50,7 @@ export class Config extends BaseConfig {
     // with lazy
     for (
       const file of [
+        { target: "base.toml", isLazy: false, os: "" },
         { target: "dpp.toml", isLazy: true, os: "" },
         { target: "neovim.toml", isLazy: true, os: "" },
         { target: "base_lazy.toml", isLazy: true, os: "" },

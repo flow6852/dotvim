@@ -15,3 +15,4 @@ repo = "aiya000/vim-scratch-buffer"
 
 [[plugins]]
 repo = "itchyny/calendar.vim"
+

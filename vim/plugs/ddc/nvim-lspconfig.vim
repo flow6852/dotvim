@@ -103,5 +103,15 @@ vim.lsp.enable({
     "rust_analyzer",
     "bashls"
 })
+
+require('avante').setup({
+    provider = "openai",
+    openai = {
+        base_url = "https://anythingllm.flow.lan/v1",
+        api_key = "QBW6HZP-7TY4DAA-KFMQ4BB-P8Z5BEB",
+        model = "Gemma:Gemma-4-12B-it-MTP-GGUF"
+    },
+    auto_suggestions = true
+})
 EOF
 " }}}

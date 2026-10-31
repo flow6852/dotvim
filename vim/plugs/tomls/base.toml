@@ -1,1 +1,16 @@
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+
+[[plugins]]
+repo = 'MunifTanjim/nui.nvim'
+
+[[plugins]]
+repo = 'ColinKennedy/mega.cmdparse'
+
+[[plugins]]
+repo = 'ColinKennedy/mega.logging'
+
+[[plugins]]
+repo = 'avante-corp/avante.nvim'
+
 
