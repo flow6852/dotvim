@@ -1,6 +1,67 @@
-set nocompatible
-call goda_cmp#enable()
+let $BASE_DIR = expand('~/.vim')
 exec "source " . $BASE_DIR . "/plugs/startup/startup.vim"
+luafile $BASE_DIR/dpp/goda_packs.lua
+
+let s:pum_option = #{
+    \   auto_select: v:false,
+    \   max_height: 10
+    \ }
+call pum#set_option(s:pum_option)
+
+inoremap <silent><expr><M-j>
+    \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
+    \ vsnip#jumpable() ? '<Plug>(vsnip-jump-next)' :
+    \ vsnip#expandable() ? '<Plug>(vsnip-expand)' :
+    \ '<Cmd>echom "Failed completion"<CR>'
+
+inoremap <expr><Tab>
+    \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+    \ '<Tab>'
+inoremap <expr><S-Tab>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
+inoremap <M-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
+inoremap <M-u>   <Cmd>call pum#map#insert_relative(-1)<CR>
+
+inoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
+inoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
+inoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Esc>'
+
+" cmdline
+
+nnoremap : <Cmd>call CommandlinePre(':')<CR>:
+nnoremap / <Cmd>call CommandlinePre('/')<CR>/
+
+function! CommandlinePre(mode) abort
+    " Mapping
+    "
+    call goda_cmp#enable_cmdline()
+    cnoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
+    cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+   cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+   cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
+   cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
+   cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
+   cnoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-c>'
+            " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
+
+            " Overwrite sources
+
+        " autocmd InsertEnter <buffer> ++once call CommandlinePost()
+        
+        " Enable command line completion
+endfunction
+
+function! CommandlinePost() abort
+    call goda_cmp#cmdline_disable()
+    silent! cunmap <Tab>
+    silent! cunmap <S-Tab>
+endfunction
+
+autocmd VimEnter * call goda_cmp#enable()
+
 if has('win32')
     source ~\.vim\rc\win.vim
 endif
+
+inoremap <M-s> <Plug>(goda-skk-toggle)
+cnoremap <M-s> <Plug>(goda-skk-toggle)
+tnoremap <M-s> <Plug>(goda-skk-toggle)

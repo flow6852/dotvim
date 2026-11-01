@@ -7,8 +7,11 @@ import "github.com/Shougo/goda-cmp.vim/cmp"
 // goda_cmp#patch_global({'ui': 'pum'}); see the README.
 func configure(b *cmp.Builder) {
 	b.PatchGlobal(cmp.Config{
-		UI:      "native", // a UI added in main.go: "native" or "pum"
-		Sources: []string{"around", "buffer", "file", "mocword", "cmdline", "cmdlinehistory", "shellnative", "shell", "vim", "lsp"},
+		UI:      "pum", // a UI added in main.go: "native" or "pum"
+		CmdlineSources: map[string][]string{
+			":" : {"cmdline", "cmdlinehistory", "shellnative", "shell", "vim", "file", "skk", "skkokuri"},
+		},
+		Sources: []string{"around", "buffer", "file", "mocword", "skk", "skkokuri"},
 		SourceOptions: map[string]cmp.SourceOption{
 			"_": {
 				Matchers:   []string{"matcherhead"},
@@ -24,7 +27,9 @@ func configure(b *cmp.Builder) {
 			"shellnative": {Mark: "shellnative"},
 			"shell": {Mark: "shell"},
 			"vim": {Mark: "vim"},
-			"lsp": {Mark: "lsp"},
+			// In the order of the input method, all of them.
+			"skk":      {Mark: "skk", Matchers: []string{}, Sorters: []string{}},
+			"skkokuri": {Mark: "skkokuri", Matchers: []string{}, Sorters: []string{}},
 		},
 		AutoCompleteDelay: new(10),
 	})

@@ -30,5 +30,6 @@ cd ${BASE}
 
 mkdir -p ${HOME}/.config/goda_vim
 cd ${HOME}/.config/goda_vim
-ln -s ${BASE}/../init_goda_vim.vim init.vim
+ln -s ${BASE}/../init_goda.vim init.vim
+ln -s ${BASE}/../vim/plugs/goda-cmp
 cd ${BASE}
