@@ -33,3 +33,9 @@ cd ${HOME}/.config/goda_vim
 ln -s ${BASE}/../init_goda.vim init.vim
 ln -s ${BASE}/../vim/plugs/goda-cmp
 cd ${BASE}
+
+mkdir -p ${HOME}/.config/goda_vime
+cd ${HOME}/.config/goda_vime
+ln -s ${BASE}/../init_goda_vime.vim init.vim
+ln -s ${BASE}/../vim/plugs/goda-cmp-vime goda-cmp
+cd ${BASE}
