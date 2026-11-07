@@ -8,11 +8,7 @@ let s:pum_option = #{
     \ }
 call pum#set_option(s:pum_option)
 
-inoremap <silent><expr><M-j>
-    \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
-    \ vsnip#jumpable() ? '<Plug>(vsnip-jump-next)' :
-    \ vsnip#expandable() ? '<Plug>(vsnip-expand)' :
-    \ '<Cmd>echom "Failed completion"<CR>'
+inoremap <silent><expr><M-y> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 
 inoremap <expr><Tab>
     \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
@@ -21,7 +17,6 @@ inoremap <expr><S-Tab>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
 inoremap <M-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <M-u>   <Cmd>call pum#map#insert_relative(-1)<CR>
 
-inoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
 inoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
 inoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Esc>'
 
@@ -58,11 +53,11 @@ function! CommandlinePre(mode) abort
     call goda_cmp#enable_cmdline()
     cnoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
     cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-   cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
-   cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
-   cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
-   cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
-   cnoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-c>'
+    cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+    cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
+    cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>' : '<CR>'
+    cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
+    cnoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-c>'
             " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
 
             " Overwrite sources
@@ -104,18 +99,18 @@ function! s:changeSource2Skk() abort
         \     'matchers': [],
         \     'sorters': [],
         \     'minAutoCompleteLength': 2,
-        \     'isVolatile': v:true
         \   },
         \   'skkokuri': {
         \     'mark': '[skkokuri]',
         \     'matchers': [],
         \     'sorters': [],
         \     'minAutoCompleteLength': 2,
-        \     'isVolatile': v:true
         \   },
         \ }})
     call pum#set_option('auto_select', v:false)
     echo s:skkSources
+
+    inoremap <expr><CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 endfunction
 
 function! s:changeSkk2Source() abort
@@ -127,6 +122,7 @@ function! s:changeSkk2Source() abort
         call goda_cmp#set_buffer(goda_cmp#get_current())
     endif
     call pum#set_option('auto_select', v:false)
+    inoremap <silent><expr><CR> '<CR>'
 endfunction
 
 augroup skk-initialize-pre

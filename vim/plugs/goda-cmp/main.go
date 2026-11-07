@@ -32,7 +32,6 @@ import (
 )
 
 func main() {
-
 	// skk
 	
 	jisyo := "/usr/share/skk/SKK-JISYO.L"
@@ -51,7 +50,7 @@ func main() {
 		// GodaSkkHenkanSelect show the pre-edit (vimrc.vim).
 		MarkerHenkan:          new(""),
 		MarkerHenkanSelect:    new(""),
-		EggLikeNewline:        true,
+		EggLikeNewline:        false,
 		RegisterConvertResult: true,
 
 		// register_kanatable('rom', {'jj': 'escape', '~': ['〜', '']})
@@ -65,7 +64,8 @@ func main() {
 		// register_keymap('input', '<C-z>', 'kakuteiUndo'); <C-z> is
 		// mapped by itself.
 		Keymaps: map[string]map[string]string{
-			"input": {"<C-z>": "kakuteiUndo"},
+			"input": {"<C-z>": "kakuteiUndo", "<CR>": ""},
+			"henkan": {"<CR>": ""},
 		},
 	})
 	if err != nil {
