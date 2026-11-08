@@ -1,0 +1,12 @@
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'thinca/vim-scouter'
+
+[[plugins]]
+repo = "aiya000/vim-scratch-buffer"
+
+[[plugins]]
+repo = "itchyny/calendar.vim"
+

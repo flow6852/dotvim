@@ -40,20 +40,18 @@ func config(ctx context.Context, c *pm.ConfigArgs) (*pm.ConfigReturn, error) {
 	}
 
 	c.Options.InlineVimrcs = []string{
-		"$BASE_DIR/options.rc.vim",
-		"$BASE_DIR/mappings.rc.vim",
-		"$BASE_DIR/filetype.rc.vim",
+		"$BASE_DIR/rc/default.vim",
 	}
 	if hasNvim {
-		c.Options.InlineVimrcs = append(c.Options.InlineVimrcs, "$BASE_DIR/neovim.rc.vim")
+		// c.Options.InlineVimrcs = append(c.Options.InlineVimrcs, "$BASE_DIR/neovim.rc.vim")
 	}
 	if !hasNvim && hasGui {
-		c.Options.InlineVimrcs = append(c.Options.InlineVimrcs, "$BASE_DIR/gui.rc.vim")
+		// c.Options.InlineVimrcs = append(c.Options.InlineVimrcs, "$BASE_DIR/gui.rc.vim")
 	}
 	if hasWindows {
-		c.Options.InlineVimrcs = append(c.Options.InlineVimrcs, "$BASE_DIR/windows.rc.vim")
+		c.Options.InlineVimrcs = append(c.Options.InlineVimrcs, "$BASE_DIR/rc/win.rc.vim")
 	} else {
-		c.Options.InlineVimrcs = append(c.Options.InlineVimrcs, "$BASE_DIR/unix.rc.vim")
+		// c.Options.InlineVimrcs = append(c.Options.InlineVimrcs, "$BASE_DIR/unix.rc.vim")
 	}
 	c.Options.ExtParams["installer"] = pm.Params{
 		"checkDiff":     true,
@@ -77,18 +75,14 @@ func config(ctx context.Context, c *pm.ConfigArgs) (*pm.ConfigReturn, error) {
 
 	tomlFile := "$BASE_DIR/vim.toml"
 	if hasNvim {
-		tomlFile = "$BASE_DIR/neovim.toml"
+		tomlFile = "$BASE_DIR/tomls/neovim.toml"
 	}
 	for _, f := range []struct {
 		path    string
 		options pm.Plugin
 	}{
-		{"$BASE_DIR/merge.toml", pm.Plugin{"lazy": false}},
-		{"$BASE_DIR/dpp.toml", pm.Plugin{"lazy": false}},
-		{"$BASE_DIR/shougo.toml", pm.Plugin{"lazy": true}},
-		{"$BASE_DIR/lazy.toml", pm.Plugin{"lazy": true}},
-		{"$BASE_DIR/denops.toml", pm.Plugin{"lazy": true, "depends": "denops.vim"}},
-		{"$BASE_DIR/goda.toml", pm.Plugin{"lazy": true, "depends": "goda.vim"}},
+		{"$BASE_DIR/tomls/lazy.toml", pm.Plugin{"lazy": true}},
+		{"$BASE_DIR/goda/tomls/goda-cmp.toml", pm.Plugin{"lazy": true, "depends": "goda.vim"}},
 		{tomlFile, pm.Plugin{"lazy": true}},
 	} {
 		t, err := toml.Load(ctx, c.Host, f.path, f.options)

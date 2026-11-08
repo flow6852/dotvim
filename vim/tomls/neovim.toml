@@ -1,0 +1,6 @@
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+on_source = ['ddc.vim']
+hooks_file = ['$BASE_DIR/plugs/ddc/nvim-lspconfig.vim']
+on_ft = ['typescript', 'ps1', 'powershell', 'rust', 'sh']
+

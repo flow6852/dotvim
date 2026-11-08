@@ -1,0 +1,19 @@
+[[plugins]]
+repo = 'Shougo/goda-pm.vim'
+depends = ['goda.vim']
+rtp = ''
+
+[[plugins]]
+repo = 'Shougo/goda-cmp.vim'
+depends = ['goda.vim', 'pum.vim']
+on_event = ['InsertEnter', 'CmdlineEnter']
+hooks_file = '$BASE_DIR/goda-cmp.vim'
+hook_post_update = '''
+  call goda_cmp#build()
+'''
+
+[[plugins]]
+repo = 'Shougo/goda-skk.vim'
+depends = 'goda.vim'
+on_map = { ict = '<Plug>(goda-skk-' }
+hooks_file = '$BASE_DIR/goda-skk.vim'

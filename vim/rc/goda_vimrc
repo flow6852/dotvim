@@ -18,17 +18,17 @@ let s:pum_option = #{
     \ }
 call pum#set_option(s:pum_option)
 
-inoremap <silent><expr><M-y> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
+" inoremap <silent><expr><M-y> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 
-inoremap <expr><Tab>
+" inoremap <expr><Tab>
     \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
     \ '<Tab>'
-inoremap <expr><S-Tab>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
+" inoremap <expr><S-Tab>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
 inoremap <M-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <M-u>   <Cmd>call pum#map#insert_relative(-1)<CR>
 
 inoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
-inoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Esc>'
+" inoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Esc>'
 
 " Rotate sources
 
