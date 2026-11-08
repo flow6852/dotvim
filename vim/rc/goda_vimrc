@@ -18,11 +18,7 @@ let s:pum_option = #{
     \ }
 call pum#set_option(s:pum_option)
 
-inoremap <silent><expr><M-j>
-    \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' :
-    \ vsnip#jumpable() ? '<Plug>(vsnip-jump-next)' :
-    \ vsnip#expandable() ? '<Plug>(vsnip-expand)' :
-    \ '<Cmd>echom "Failed completion"<CR>'
+inoremap <silent><expr><M-y> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 
 inoremap <expr><Tab>
     \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
@@ -31,9 +27,30 @@ inoremap <expr><S-Tab>   '<Cmd>call pum#map#insert_relative(-1)<CR>'
 inoremap <M-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
 inoremap <M-u>   <Cmd>call pum#map#insert_relative(-1)<CR>
 
-inoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
 inoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
 inoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Esc>'
+
+" Rotate sources
+
+function RotateCmpSources()
+    let l:set_buffer = goda_cmp#get_current()
+
+    let l:mode = mode()
+    let l:option = ''
+    if l:mode ==# 'c'
+        let l:option = getcmdtype()
+    endif
+
+    if l:set_buffer != {}
+        if len(l:option) > 0 
+            let l:set_buffer['cmdlineSources'][l:option] = add(slice(l:set_buffer['cmdlineSources'][l:option], 1), l:set_buffer['cmdlineSources'][l:option][0])
+        else
+            let l:set_buffer['sources'] = add(slice(l:set_buffer['sources'], 1), l:set_buffer['sources'][0])
+        endif
+        call goda_cmp#set_buffer(l:set_buffer)
+        call goda_cmp#map#manual_complete()
+    endif
+endfunction
 
 " cmdline
 
@@ -75,3 +92,54 @@ endif
 inoremap <M-s> <Plug>(goda-skk-toggle)
 cnoremap <M-s> <Plug>(goda-skk-toggle)
 tnoremap <M-s> <Plug>(goda-skk-toggle)
+
+function! s:changeSource2Skk() abort
+    if !exists('s:bef_buffer')
+        let s:bef_buffer = goda_cmp#get_current()
+    endif
+
+    let s:skkSources = ['skkokuri', 'skk']
+    
+    call goda_cmp#set_buffer({
+        \ 'sources': s:skkSources,
+        \ 'ui': 'pum',
+        \ 'sourceOptions': {
+        \   'skk': {
+        \     'mark': '[skk]',
+        \     'matchers': [],
+        \     'sorters': [],
+        \     'minAutoCompleteLength': 2,
+        \   },
+        \   'skkokuri': {
+        \     'mark': '[skkokuri]',
+        \     'matchers': [],
+        \     'sorters': [],
+        \     'minAutoCompleteLength': 2,
+        \   },
+        \ }})
+    call pum#set_option('auto_select', v:false)
+    echo s:skkSources
+
+    inoremap <expr><CR> pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
+endfunction
+
+function! s:changeSkk2Source() abort
+    " Restore sources
+    if exists('s:bef_buffer')
+        call goda_cmp#set_buffer(s:bef_buffer)
+        unlet s:bef_buffer
+    else
+        call goda_cmp#set_buffer(goda_cmp#get_current())
+    endif
+    call pum#set_option('auto_select', v:false)
+    inoremap <silent><expr><CR> '<CR>'
+endfunction
+
+augroup skk-initialize-pre
+  autocmd!
+  autocmd User goda-skk-enable-pre call s:changeSource2Skk()
+  autocmd User goda-skk-disable-pre call s:changeSkk2Source()
+augroup END 
+
+inoremap <expr><M-b> '<Cmd>call RotateCmpSources()<CR>'
+cnoremap <expr><M-b> '<Cmd>call RotateCmpSources()<CR>'
