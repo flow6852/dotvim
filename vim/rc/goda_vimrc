@@ -1,6 +1,16 @@
 let $BASE_DIR = expand('~/.vim')
 exec "source " . $BASE_DIR . "/plugs/startup/startup.vim"
-luafile $BASE_DIR/dpp/goda_packs.lua
+" luafile $BASE_DIR/dpp/goda_packs.lua
+set runtimepath^=~/.cache/goda-pm/repos/github.com/Shougo/goda-pm.vim
+
+const s:base = '~/.cache/goda-pm'
+
+if s:base->goda_pm#min#load_state()
+	set runtimepath^=~/.cache/goda-pm/repos/github.com/Shougo/goda.vim
+	autocmd VimEnter * ++once call goda_pm#make_state(s:base)
+endif
+
+filetype plugin indent on
 
 let s:pum_option = #{
     \   auto_select: v:false,
@@ -27,20 +37,20 @@ inoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<Esc>'
 
 " cmdline
 
-nnoremap : <Cmd>call CommandlinePre(':')<CR>:
-nnoremap / <Cmd>call CommandlinePre('/')<CR>/
-
-function! CommandlinePre(mode) abort
-    " Mapping
-    "
-    call goda_cmp#enable_cmdline()
-    cnoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
-    cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-   cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
-   cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
-   cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
-   cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
-   cnoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-c>'
+" nnoremap : <Cmd>call CommandlinePre(':')<CR>:
+" nnoremap / <Cmd>call CommandlinePre('/')<CR>/
+" 
+" function! CommandlinePre(mode) abort
+"     " Mapping
+"     "
+"     call goda_cmp#enable_cmdline()
+"     cnoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
+"     cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+"     cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+"     cnoremap <M-u>   <Cmd>call pum#map#select_relative(-1)<CR>
+"     cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
+"     cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
+"     cnoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-c>'
             " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
 
             " Overwrite sources
@@ -48,15 +58,15 @@ function! CommandlinePre(mode) abort
         " autocmd InsertEnter <buffer> ++once call CommandlinePost()
         
         " Enable command line completion
-endfunction
+" endfunction
 
-function! CommandlinePost() abort
-    call goda_cmp#cmdline_disable()
-    silent! cunmap <Tab>
-    silent! cunmap <S-Tab>
-endfunction
+" function! CommandlinePost() abort
+"     call goda_cmp#cmdline_disable()
+"     silent! cunmap <Tab>
+"     silent! cunmap <S-Tab>
+" endfunction
 
-autocmd VimEnter * call goda_cmp#enable()
+" autocmd VimEnter * call goda_cmp#enable()
 
 if has('win32')
     source ~\.vim\rc\win.vim
