@@ -1,4 +1,8 @@
 [[plugins]]
+repo = 'Shougo/pum.vim'
+hooks_file = '$BASE_DIR/confs/pum.vim'
+
+[[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
@@ -9,4 +13,3 @@ repo = "aiya000/vim-scratch-buffer"
 
 [[plugins]]
 repo = "itchyny/calendar.vim"
-

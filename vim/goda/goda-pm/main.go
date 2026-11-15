@@ -10,12 +10,12 @@ import (
 	"context"
 	"path/filepath"
 
-	"github.com/Shougo/goda-pm.vim/ext/installer"
-	"github.com/Shougo/goda-pm.vim/ext/lazy"
-	"github.com/Shougo/goda-pm.vim/ext/local"
-	"github.com/Shougo/goda-pm.vim/ext/protocol/git"
-	"github.com/Shougo/goda-pm.vim/ext/protocol/http"
-	"github.com/Shougo/goda-pm.vim/ext/toml"
+	"github.com/Shougo/goda-pm-ext/ext/installer"
+	"github.com/Shougo/goda-pm-ext-lazy.vim/ext/lazy"
+	"github.com/Shougo/goda-pm-ext/ext/local"
+	"github.com/Shougo/goda-pm-ext/ext/protocol/git"
+	"github.com/Shougo/goda-pm-ext/ext/protocol/http"
+	"github.com/Shougo/goda-pm-ext/ext/toml"
 	"github.com/Shougo/goda-pm.vim/pm"
 )
 
@@ -82,7 +82,8 @@ func config(ctx context.Context, c *pm.ConfigArgs) (*pm.ConfigReturn, error) {
 		options pm.Plugin
 	}{
 		{"$BASE_DIR/tomls/lazy.toml", pm.Plugin{"lazy": true}},
-		{"$BASE_DIR/goda/tomls/goda-cmp.toml", pm.Plugin{"lazy": true, "depends": "goda.vim"}},
+		{"$BASE_DIR/goda/tomls/goda-pm.toml", pm.Plugin{"lazy": true}},
+		{"$BASE_DIR/goda/tomls/goda-cmp.toml", pm.Plugin{"lazy": true}},
 		{tomlFile, pm.Plugin{"lazy": true}},
 	} {
 		t, err := toml.Load(ctx, c.Host, f.path, f.options)

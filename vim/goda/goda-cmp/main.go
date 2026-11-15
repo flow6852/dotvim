@@ -11,24 +11,23 @@ import (
 	"runtime"
 
 	"github.com/Shougo/goda-cmp.vim/cmp"
-	"github.com/Shougo/goda-cmp.vim/ext/filter/convertertruncateabbr"
-	"github.com/Shougo/goda-cmp.vim/ext/filter/matcherhead"
-	"github.com/Shougo/goda-cmp.vim/ext/filter/sorterlength"
-	"github.com/Shougo/goda-cmp.vim/ext/source/around"
-	"github.com/Shougo/goda-cmp.vim/ext/source/buffer"
-	"github.com/Shougo/goda-cmp.vim/ext/source/file"
-	"github.com/Shougo/goda-cmp.vim/ext/source/mocword"
-	"github.com/Shougo/goda-cmp.vim/ext/source/cmdline"
-	"github.com/Shougo/goda-cmp.vim/ext/source/cmdlinehistory"
-	"github.com/Shougo/goda-cmp.vim/ext/source/shellnative"
-	"github.com/Shougo/goda-cmp.vim/ext/source/shell"
-	"github.com/Shougo/goda-cmp.vim/ext/source/vim"
-	"github.com/Shougo/goda-cmp.vim/ext/ui/native"
-	"github.com/Shougo/goda-cmp.vim/ext/ui/pum"
+	"github.com/Shougo/goda-cmp-ext/ext/filter/convertertruncateabbr"
+	"github.com/Shougo/goda-cmp-ext/ext/filter/matcherhead"
+	"github.com/Shougo/goda-cmp-ext/ext/filter/sorterlength"
+	"github.com/Shougo/goda-cmp-ext/ext/source/around"
+	"github.com/Shougo/goda-cmp-ext/ext/source/buffer"
+	"github.com/Shougo/goda-cmp-ext/ext/source/file"
+	"github.com/Shougo/goda-cmp-ext/ext/source/mocword"
+	"github.com/Shougo/goda-cmp-ext/ext/source/cmdline"
+	"github.com/Shougo/goda-cmp-ext/ext/source/cmdlinehistory"
+	"github.com/Shougo/goda-cmp-ext/ext/source/shellnative"
+	"github.com/Shougo/goda-cmp-ext/ext/source/shell"
+	"github.com/Shougo/goda-cmp-ext/ext/source/vim"
 	"github.com/Shougo/goda-skk.vim/engine"
 	"github.com/Shougo/goda-skk.vim/dictionary/google"
 	"github.com/Shougo/goda-skk.vim/cmp/source/skk"
 	"github.com/Shougo/goda-skk.vim/cmp/source/skkokuri"
+	"github.com/Shougo/goda-cmp-ui-pum.vim/ext/ui/pum"
 )
 
 func main() {
@@ -78,7 +77,6 @@ func main() {
 	// Extensions: anything implementing cmp.Source / cmp.Filter / cmp.UI,
 	// from this repository or from your own modules. Nothing is built in:
 	// even the popup is an extension, chosen with Config.UI.
-	b.AddUI(native.New())
 	b.AddUI(pum.New()) // needs pum.vim when it is chosen
 	b.AddSource(around.New(around.Params{MinLength: 2}))
 	b.AddSource(buffer.New(buffer.Params{}))

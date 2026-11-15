@@ -1,4 +1,4 @@
-""" hook_source {{{
+" hook_source {{{
 let g:vimsyn_embed = 'lPr'
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c

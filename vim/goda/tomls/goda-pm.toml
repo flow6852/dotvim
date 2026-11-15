@@ -1,6 +1,13 @@
 [[plugins]]
+repo = 'Shougo/goda.vim'
+
+[[plugins]]
+repo = 'Shougo/goda-pm-ext-lazy.vim'
+lazy = false
+
+[[plugins]]
+repo = 'Shougo/goda-pm-ext'
+
+[[plugins]]
 repo = 'Shougo/goda-pm.vim'
-depends = ['goda.vim']
-rtp = ''
-
-
+depends = ['goda.vim', 'goda-pm-ext-lazy.vim', 'goda-pm-ext']
