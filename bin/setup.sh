@@ -18,28 +18,38 @@ cd ${BASE}
 
 # rc settings
 
-mkdir -p ${HOME}/.config/denops_nvim
-cd ${HOME}/.config/denops_nvim
-ln -s ${BASE}/../init_denops.vim init.vim
-cd ${BASE}
+# mkdir -p ${HOME}/.config/denops_nvim
+# cd ${HOME}/.config/denops_nvim
+# ln -s ${BASE}/../init_denops.vim init.vim
+# cd ${BASE}
 
-mkdir -p ${HOME}/.config/denops_vime
-cd ${HOME}/.config/denops_vime
-ln -s ${BASE}/../init_denops_vime.vim init.vim
-cd ${BASE}
+# mkdir -p ${HOME}/.config/denops_vime
+# cd ${HOME}/.config/denops_vime
+# ln -s ${BASE}/../init_denops_vime.vim init.vim
+# cd ${BASE}
 
 mkdir -p ${HOME}/.config/goda_vim
 cd ${HOME}/.config/goda_vim
 ln -s ${BASE}/../init_goda.vim init.vim
-mkdir ${BASE}/../vim/plugs/goda-cmp
-ln -s ${BASE}/../vim/plugs/goda-cmp/config.go
-ln -s ${BASE}/../vim/plugs/goda-cmp/main.go
+mkdir goda-cmp
+cd goda-cmp
+ln -s ${BASE}/../vim/goda/goda-cmp/config.go
+ln -s ${BASE}/../vim/goda/goda-cmp/main.go
+cd ..
+mkdir goda-pm
+cd goda-pm
+ln -s ${BASE}/../vim/goda/goda-pm/main.go
 cd ${BASE}
 
 mkdir -p ${HOME}/.config/goda_vime
 cd ${HOME}/.config/goda_vime
 ln -s ${BASE}/../init_goda_vime.vim init.vim
-mkdir ${BASE}/../vim/plugs/goda-cmp
-ln -s ${BASE}/../vim/plugs/goda-cmp-vime/config.go
-ln -s ${BASE}/../vim/plugs/goda-cmp-vime/main.go
+mkdir goda-cmp
+cd goda-cmp
+ln -s ${BASE}/../vim/goda/goda-cmp-vime/config.go
+ln -s ${BASE}/../vim/goda/goda-cmp-vime/main.go
+cd ..
+mkdir goda-pm
+cd goda-pm
+ln -s ${BASE}/../vim/goda/goda-pm-vime/main.go
 cd ${BASE}
