@@ -23,6 +23,7 @@ import (
 	"github.com/Shougo/goda-cmp-ext/ext/source/shellnative"
 	"github.com/Shougo/goda-cmp-ext/ext/source/shell"
 	"github.com/Shougo/goda-cmp-ext/ext/source/vim"
+	"github.com/Shougo/goda-cmp-ext/ext/source/lsp"
 	"github.com/Shougo/goda-skk.vim/engine"
 	"github.com/Shougo/goda-skk.vim/dictionary/google"
 	"github.com/Shougo/goda-skk.vim/cmp/source/skk"

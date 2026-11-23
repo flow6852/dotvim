@@ -1,0 +1,26 @@
+let $BASE_DIR = expand('~/.vim')
+" exec "source " . $BASE_DIR . "/plugs/startup/startup.vim"
+" luafile $BASE_DIR/dpp/goda_packs.lua
+const s:goda_pm_base = '~/.cache/goda_vime/goda-pm'->expand()
+const s:goda_init_load = '~/.cache/goda-pm'->expand()
+" const g:goda_pm#binary = '~/.cache/goda_vim/goda-pm/goda-pm'->expand()
+const g:goda_pm#config_dir = '~/.config/goda_vime/goda-pm'->expand()
+
+execute 'set runtimepath^=' .. s:goda_init_load .. '/repos/github.com/Shougo/goda.vim'
+execute 'set runtimepath^=' .. s:goda_init_load .. '/repos/github.com/Shougo/goda-pm-ext-lazy.vim'
+execute 'set runtimepath^=' .. s:goda_init_load .. '/repos/github.com/Shougo/goda-pm-ext'
+execute 'set runtimepath^=' .. s:goda_init_load .. '/repos/github.com/Shougo/goda-pm.vim'
+
+if s:goda_pm_base->goda_pm#min#load_state()
+	" No state (or it is old): goda.vim and goda-pm-ext-lazy.vim are
+	" needed to make it.
+	autocmd VimEnter * ++once call goda_pm#make_state(s:goda_pm_base)
+endif
+
+filetype plugin indent on
+
+autocmd User GodaPm:makeStatePost echomsg 'goda_pm#make_state() is done'
+ 
+if has('win32')
+    source ~\.vim\rc\win.vim
+endif

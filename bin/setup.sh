@@ -31,11 +31,15 @@ cd ${BASE}
 mkdir -p ${HOME}/.config/goda_vim
 cd ${HOME}/.config/goda_vim
 ln -s ${BASE}/../init_goda.vim init.vim
-ln -s ${BASE}/../vim/plugs/goda-cmp
+mkdir ${BASE}/../vim/plugs/goda-cmp
+ln -s ${BASE}/../vim/plugs/goda-cmp/config.go
+ln -s ${BASE}/../vim/plugs/goda-cmp/main.go
 cd ${BASE}
 
 mkdir -p ${HOME}/.config/goda_vime
 cd ${HOME}/.config/goda_vime
 ln -s ${BASE}/../init_goda_vime.vim init.vim
-ln -s ${BASE}/../vim/plugs/goda-cmp-vime goda-cmp
+mkdir ${BASE}/../vim/plugs/goda-cmp
+ln -s ${BASE}/../vim/plugs/goda-cmp-vime/config.go
+ln -s ${BASE}/../vim/plugs/goda-cmp-vime/main.go
 cd ${BASE}

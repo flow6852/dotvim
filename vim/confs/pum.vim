@@ -47,7 +47,6 @@ nnoremap / <Cmd>call CommandlinePre('/')<CR>/
 function! CommandlinePre(mode) abort
     " Mapping
     "
-    call goda_cmp#enable_cmdline()
     cnoremap <Tab> <Cmd>call pum#map#insert_relative(+1)<CR>
     cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
     cnoremap <M-n>   <Cmd>call pum#map#select_relative(+1)<CR>
@@ -55,6 +54,7 @@ function! CommandlinePre(mode) abort
     cnoremap <M-y>   <Cmd>call pum#map#confirm()<CR>
     cnoremap <M-e>   <Cmd>call pum#map#cancel()<CR>
     cnoremap <expr><Esc> pum#visible() ? '<Cmd>call pum#map#cancel()<CR>' : '<C-c>'
+    call goda_cmp#enable_cmdline()
           " cnoremap <CR>    <Cmd>call CmdlineCRConfirm()<CR>
 
           " Overwrite sources
@@ -65,7 +65,6 @@ function! CommandlinePre(mode) abort
 endfunction
 
 function! CommandlinePost() abort
-    call goda_cmp#cmdline_disable()
     silent! cunmap <Tab>
     silent! cunmap <S-Tab>
 endfunction

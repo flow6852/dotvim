@@ -9,7 +9,7 @@ func configure(b *cmp.Builder) {
 	b.PatchGlobal(cmp.Config{
 		UI:      "pum", // a UI added in main.go: "native" or "pum"
 		CmdlineSources: map[string][]string{
-			":" : {"cmdline", "cmdlinehistory", "shellnative", "shell", "vim", "file"},
+			":" : {"cmdline", "cmdlinehistory", "vim", "file"},
 		},
 		Sources: []string{"skk", "skkokuri"},
 		SourceOptions: map[string]cmp.SourceOption{
