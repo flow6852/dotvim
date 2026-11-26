@@ -5,7 +5,7 @@ on_event = ['InsertEnter', 'CmdlineEnter']
 hook_post_update = '''
   call goda_cmp#build()
 '''
-hooks_file = '$BASE_DIR/goda/goda-cmp/goda-cmp.vim'
+hooks_file = '$BASE_DIR/goda/rc/goda-cmp.vim'
 
 [[plugins]]
 repo = 'Shougo/goda-skk.vim'
